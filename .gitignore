@@ -1,0 +1,23 @@
+*.log
+npm-debug.*
+*.scssc
+*.log
+*.swp
+.DS_Store
+.sass-cache
+node_modules
+dist 
+.vscode
+
+# Specifics
+
+# Hide design tokens
+src/scss/_tokens.scss
+
+# Hide compiled CSS
+src/_includes/assets/*
+
+# Claude Code and skills
+.claude/
+.agents/
+skills-lock.json

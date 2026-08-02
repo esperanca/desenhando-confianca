@@ -1,0 +1,33 @@
+{
+  "name": "desenhando-confianca",
+  "version": "0.1.0",
+  "description": "Desenhando Confiança — livro sobre design, IA e confiança em interfaces generativas e agentes",
+  "main": "index.js",
+  "dependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
+    "eleventy-plugin-svg-contents": "^0.7.0",
+    "html-minifier": "^4.0.0",
+    "markdown-it-footnote": "^4.0.0",
+    "sass": "^1.74.1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "markdown-it-anchor": "^8.1.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2"
+  },
+  "scripts": {
+    "sass": "npx sass src/scss/style.scss src/_includes/css/style.css --style=compressed",
+    "watch:eleventy": "eleventy --serve",
+    "watch:sass": "npm run sass -- --watch",
+    "start": "npm-run-all sass --parallel watch:*",
+    "build": "npm run sass && eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esperanca/desenhando-confianca.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

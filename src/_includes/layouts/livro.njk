@@ -1,0 +1,22 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <main id="main-content" tabindex="-1" class="livro-page">
+    <div class="wrapper">
+      <article class="livro-post">
+
+        <h1>Desenhando Confiança</h1>
+
+        <p class="livro-meta">
+          {% if subtitle %}{{ subtitle }}<br>{% endif %}
+          {% if version %}v{{ version }} · {% endif %}{% if date %}<time datetime="{{ date | w3DateFilter }}" class="dt-published">{{ date | livroDate }}</time>{% endif %}{% if preface %} · {{ preface }}{% endif %}
+        </p>
+
+        <div class="livro-body">
+          {{ content | safe }}
+        </div>
+
+      </article>
+    </div>
+  </main>
+{% endblock %}

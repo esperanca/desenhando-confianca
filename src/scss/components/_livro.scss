@@ -1,0 +1,216 @@
+// ──────────────────────────────────────────────────────
+// LIVRO · classes exclusivas (livro-*) para não conflitar
+// com .post/.page globais. Valores vindos de livro-v02.html.
+// ──────────────────────────────────────────────────────
+
+.livro-page {
+  --ink: #000036;
+  --accent: #0979fa;
+  --gray-2: #d1d0d2;
+  --wash: #f5f5f5;
+  --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  color: var(--ink);
+}
+
+.livro-post {
+  margin-top: 2.5rem;
+  margin-bottom: 5rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-family: var(--display);
+    font-weight: 400;
+    margin: 0;
+  }
+}
+
+.livro-meta {
+  opacity: 0.7;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.livro-body {
+  font-size: 1.125rem;
+  margin-top: 2rem;
+  max-width: 90ch;
+  overflow: visible;
+  position: relative;
+
+  p {
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+
+  strong {
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 2.25rem;
+    text-transform: capitalize;
+    margin-top: 3rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-top: 2.25rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--gray-2);
+    padding: 0.6rem 0.9rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    font-family: var(--sans);
+    font-weight: 700;
+    background: var(--wash);
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--gray-2);
+    margin: 2.5rem 0;
+  }
+
+  ul {
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-top: 0.5rem;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  sup {
+    a {
+      text-decoration: none;
+      color: var(--accent);
+      font-size: 0.7em;
+      font-weight: 700;
+      padding: 0 0.15em;
+    }
+  }
+
+  ol {
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+
+    li {
+      margin-top: 0.75rem;
+    }
+  }
+
+  blockquote {
+    font-style: italic;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--ink);
+    padding: 1.25rem 0.75rem;
+    margin-top: 2rem;
+
+    p {
+      opacity: 0.85;
+      margin-top: 0;
+    }
+  }
+
+  // ── Sidenotes (Tufte-style) ─────────────────────────
+  .sn-input {
+    display: none;
+  }
+
+  .sn-label {
+    font-size: 0.68em;
+    vertical-align: super;
+    color: var(--accent);
+    font-weight: 900;
+    font-family: var(--sans);
+    line-height: 0;
+    cursor: default;
+    user-select: none;
+  }
+
+  .sidenote {
+    float: right;
+    clear: right;
+    margin-right: -23rem;
+    width: 20rem;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--ink);
+    opacity: 0.72;
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--gray-2);
+    margin-top: 1.75rem;
+    overflow-wrap: anywhere;
+
+    .sn-num {
+      font-size: 0.75em;
+      vertical-align: super;
+      color: var(--accent);
+      font-weight: 900;
+      line-height: 0;
+      margin-right: 0.15em;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .sidenote {
+      margin-right: -18rem;
+      width: 15.5rem;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .sn-label {
+      cursor: pointer;
+    }
+
+    .sidenote {
+      display: none;
+      float: none;
+      clear: none;
+      margin: 0.5rem 0 0;
+      width: 100%;
+      border-left: 3px solid var(--accent);
+      border-top: 0;
+      padding: 0.55rem 0.8rem;
+      background: var(--wash);
+      opacity: 1;
+      font-size: 0.875rem;
+      margin-right: 0;
+    }
+
+    .sn-input:checked + .sidenote {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.skip-link:not(:focus) {
+  @extend %visually-hidden;
+}
+
+.skip-link:focus {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: $space-sm $space-md;
+  background-color: $white;
+  color: $black;
+  line-height: 1;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid $gray-10;
+}
