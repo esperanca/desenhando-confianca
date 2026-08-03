@@ -15,8 +15,18 @@
 }
 
 .livro-post {
-  margin-top: 2.5rem;
-  margin-bottom: 5rem;
+  // Largura do texto + espaço reservado pra nota de margem (só usado
+  // quando há tela suficiente — ver breakpoints mais abaixo). Fica no
+  // .livro-post (não no .livro-body) pra que o título e a data também
+  // fiquem alinhados com o início do texto, e o bloco inteiro (texto +
+  // nota) seja centralizado no .wrapper, em vez de grudado à esquerda
+  // sobrando tudo de espaço em branco à direita.
+  --content-width: 42rem;
+  --note-gap: 2rem;
+  --note-width: 16rem;
+
+  max-width: var(--content-width);
+  margin: 2.5rem auto 5rem;
 
   h1 {
     font-size: 2.5rem;
@@ -24,28 +34,30 @@
     font-weight: 400;
     margin: 0;
   }
+
+  @media (min-width: 1100px) {
+    --content-width: 36rem;
+    --note-gap: 1.75rem;
+
+    max-width: calc(var(--content-width) + var(--note-gap) + var(--note-width));
+  }
+
+  @media (min-width: 1400px) {
+    --content-width: 46rem;
+    --note-gap: 2.5rem;
+  }
 }
 
 .livro-meta {
   opacity: 0.7;
   margin-top: 0.75rem;
   font-size: 0.95rem;
+  max-width: var(--content-width);
 }
 
 .livro-body {
-  // Largura do texto + espaço reservado pra nota de margem (só usado
-  // quando há tela suficiente — ver breakpoint mais abaixo). Definir a
-  // largura combinada aqui, e capar cada elemento de texto em
-  // --content-width, é o que garante que a nota sempre tenha espaço
-  // dela mesma, em vez de depender de sobra do .wrapper (causa do bug
-  // de overflow/rolagem ao redimensionar que existia antes).
-  --content-width: 42rem;
-  --note-gap: 2rem;
-  --note-width: 16rem;
-
   font-size: 1.125rem;
   margin-top: 2rem;
-  max-width: var(--content-width);
   overflow: visible;
   position: relative;
 
@@ -209,18 +221,11 @@
   }
 
   // Estilo Tufte (nota fixa na margem direita): liga a partir de 1100px,
-  // com a coluna de texto mais estreita (--content-width menor) pra
-  // caber a nota sem depender de sobra do .wrapper — é o mesmo cálculo,
-  // só que com uma coluna principal mais compacta nessa faixa
-  // intermediária. Em 1400px a coluna volta a crescer, já que sobra
-  // espaço de sobra. Abaixo de 1100px, o padrão recolhível acima
-  // continua valendo (nunca estoura a largura da tela).
+  // usando --content-width/--note-gap/--note-width herdados do
+  // .livro-post (que já reserva o espaço combinado nesses mesmos
+  // breakpoints). Abaixo de 1100px, o padrão recolhível acima continua
+  // valendo (nunca estoura a largura da tela).
   @media (min-width: 1100px) {
-    --content-width: 36rem;
-    --note-gap: 1.75rem;
-
-    max-width: calc(var(--content-width) + var(--note-gap) + var(--note-width));
-
     .sn-label {
       cursor: default;
     }
@@ -240,13 +245,4 @@
       background: transparent;
     }
   }
-
-  @media (min-width: 1400px) {
-    --content-width: 46rem;
-    --note-gap: 2.5rem;
-  }
-}
-
-.livro-page .wrapper {
-  max-width: calc(46rem + 2.5rem + 16rem + 16rem);
 }

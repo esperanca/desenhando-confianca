@@ -1,10 +1,9 @@
 {
   "items": [
     {
-      "text": "danielsouza.com",
-      "url": "https://danielsouza.com",
-      "external": true,
-      "rel": "noopener"
+      "text": "sobre o livro",
+      "url": "/sobre-o-livro/",
+      "external": false
     }
   ]
 }
