@@ -2,7 +2,7 @@
 
 Site do livro "Desenhando Confiança", sobre design, IA e confiança em interfaces generativas e agentes.
 
-Endereço: https://confianca.danielsouza.com
+Endereço: https://desenhando-confianca.danielsouza.com
 
 Derivado do [site pessoal](https://github.com/esperanca/personal_website-1) de Daniel Souza (Eleventy).
 
