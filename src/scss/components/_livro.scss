@@ -142,7 +142,11 @@
     }
   }
 
-  // ── Sidenotes (Tufte-style) ─────────────────────────
+  // ── Sidenotes ─────────────────────────────────────────
+  // Estilo sempre recolhível/clicável (sem float na margem): este layout
+  // não reserva uma coluna lateral, então uma nota flutuante com margem
+  // negativa estoura o .wrapper em larguras intermediárias e causa
+  // rolagem ao redimensionar. Ver commit que corrigiu esse bug.
   .sn-input {
     display: none;
   }
@@ -154,22 +158,21 @@
     font-weight: 900;
     font-family: var(--sans);
     line-height: 0;
-    cursor: default;
+    cursor: pointer;
     user-select: none;
   }
 
   .sidenote {
-    float: right;
-    clear: right;
-    margin-right: -23rem;
-    width: 20rem;
-    font-size: 0.82rem;
+    display: none;
+    margin: 0.5rem 0 0;
+    width: 100%;
+    font-size: 0.875rem;
     line-height: 1.6;
     color: var(--ink);
-    opacity: 0.72;
-    padding-left: 0.9rem;
-    border-left: 2px solid var(--gray-2);
-    margin-top: 1.75rem;
+    opacity: 1;
+    padding: 0.55rem 0.8rem;
+    border-left: 3px solid var(--accent);
+    background: var(--wash);
     overflow-wrap: anywhere;
 
     .sn-num {
@@ -182,35 +185,7 @@
     }
   }
 
-  @media (max-width: 1200px) {
-    .sidenote {
-      margin-right: -18rem;
-      width: 15.5rem;
-    }
-  }
-
-  @media (max-width: 860px) {
-    .sn-label {
-      cursor: pointer;
-    }
-
-    .sidenote {
-      display: none;
-      float: none;
-      clear: none;
-      margin: 0.5rem 0 0;
-      width: 100%;
-      border-left: 3px solid var(--accent);
-      border-top: 0;
-      padding: 0.55rem 0.8rem;
-      background: var(--wash);
-      opacity: 1;
-      font-size: 0.875rem;
-      margin-right: 0;
-    }
-
-    .sn-input:checked + .sidenote {
-      display: block;
-    }
+  .sn-input:checked + .sidenote {
+    display: block;
   }
 }
