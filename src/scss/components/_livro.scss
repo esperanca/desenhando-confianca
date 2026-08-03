@@ -33,11 +33,32 @@
 }
 
 .livro-body {
+  // Largura do texto + espaço reservado pra nota de margem (só usado
+  // quando há tela suficiente — ver breakpoint mais abaixo). Definir a
+  // largura combinada aqui, e capar cada elemento de texto em
+  // --content-width, é o que garante que a nota sempre tenha espaço
+  // dela mesma, em vez de depender de sobra do .wrapper (causa do bug
+  // de overflow/rolagem ao redimensionar que existia antes).
+  --content-width: 44rem;
+  --note-gap: 2rem;
+  --note-width: 13rem;
+
   font-size: 1.125rem;
   margin-top: 2rem;
-  max-width: 90ch;
+  max-width: var(--content-width);
   overflow: visible;
   position: relative;
+
+  p,
+  ul,
+  ol,
+  table,
+  blockquote,
+  hr,
+  h2,
+  h3 {
+    max-width: var(--content-width);
+  }
 
   p {
     margin-top: 1.5rem;
@@ -143,10 +164,8 @@
   }
 
   // ── Sidenotes ─────────────────────────────────────────
-  // Estilo sempre recolhível/clicável (sem float na margem): este layout
-  // não reserva uma coluna lateral, então uma nota flutuante com margem
-  // negativa estoura o .wrapper em larguras intermediárias e causa
-  // rolagem ao redimensionar. Ver commit que corrigiu esse bug.
+  // Padrão (mobile-first): nota recolhível/clicável — sempre cabe,
+  // nunca estoura a largura da tela.
   .sn-input {
     display: none;
   }
@@ -188,4 +207,35 @@
   .sn-input:checked + .sidenote {
     display: block;
   }
+
+  // Estilo Tufte (nota fixa na margem direita): só liga acima do
+  // breakpoint onde .livro-body de fato tem --note-gap + --note-width
+  // de sobra garantidos (ver max-width da .livro-page .wrapper). Em
+  // telas menores que isso, o padrão recolhível acima continua valendo.
+  @media (min-width: 1400px) {
+    max-width: calc(var(--content-width) + var(--note-gap) + var(--note-width));
+
+    .sn-label {
+      cursor: default;
+    }
+
+    .sidenote {
+      display: block;
+      float: right;
+      clear: right;
+      width: var(--note-width);
+      margin: 0.3rem 0 0 0;
+      margin-right: calc(-1 * (var(--note-width) + var(--note-gap)));
+      font-size: 0.82rem;
+      line-height: 1.6;
+      opacity: 0.72;
+      padding: 0 0 0 0.9rem;
+      border-left: 2px solid var(--gray-2);
+      background: transparent;
+    }
+  }
+}
+
+.livro-page .wrapper {
+  max-width: calc(44rem + 2rem + 13rem + 16rem);
 }

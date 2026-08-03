@@ -1,6 +1,19 @@
-.heading-permalink {
-  color: inherit;
-  font-size: 0.8em;
-  margin-left: 0.3em;
-  margin-top: 0.2em;
+.livro-body {
+  h2,
+  h3 {
+    .tdbc-anchor {
+      display: inline-block;
+      color: var(--accent);
+      opacity: 0.55;
+      font-size: 0.7em;
+      font-weight: 700;
+      margin-left: 0.4em;
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 1;
+      }
+    }
+  }
 }
