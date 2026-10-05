@@ -1,6 +1,5 @@
 <footer role="contentinfo" class="site-footer">
   <div class="wrapper site-footer__wrapper">
-    <p>Desenhando Confiança · Daniel Souza, Pedro Albuquerque e Leiliane Fagundes</p>
     <p class="site-footer__links">
       {% set editUrl = page.inputPath | githubEditUrl(site.repositoryUrl, site.repositoryBranch) %}
       {% if editUrl %}<a href="{{ editUrl }}">Editar esta página no GitHub</a> · {% endif %}{% if site.repositoryUrl %}<a href="{{ site.repositoryUrl }}">Código-fonte</a>{% endif %}
