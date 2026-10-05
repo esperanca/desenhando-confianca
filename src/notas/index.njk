@@ -1,0 +1,27 @@
+---
+title: Notas
+metaTitle: Notas — Desenhando Confiança
+metaDesc: Notas complementares de Desenhando Confiança.
+permalink: /notas/
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<main id="main-content" tabindex="-1">
+  <div class="reading-shell">
+    <p class="eyebrow">Notas complementares</p>
+    <h1>Notas</h1>
+    <p class="lede">Conceitos, referências e aprofundamentos que acompanham o livro.</p>
+
+    <ul class="content-list">
+      {% for note in collections.notes %}
+      <li>
+        <a href="{{ note.url }}">{{ note.data.title }}</a>
+        {% if note.data.summary %}<p>{{ note.data.summary }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</main>
+{% endblock %}

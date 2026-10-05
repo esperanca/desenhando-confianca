@@ -1,22 +1,38 @@
-{#- Log de alterações: primeira linha = última alteração (dia, hora, autor);
-   linhas seguintes = releases (tags git, da mais recente à mais antiga). -#}
-{% if changelog and changelog.last %}
-<section aria-label="Log de alterações" class="changelog">
+{#- Log global da home: histórico editorial do projeto, agrupado por dia. -#}
+{% macro linkedList(items) %}
+  {%- for item in items -%}
+    {%- if loop.index0 > 0 -%}{% if loop.last %} e {% else %}, {% endif %}{%- endif -%}
+    {%- if item.url -%}<a href="{{ item.url }}">{{ item.label }}</a>{%- else -%}{{ item.label }}{%- endif -%}
+  {%- endfor -%}
+{% endmacro %}
+
+{% if changelog and changelog.groups and changelog.groups.length %}
+<section aria-label="Log de alterações" class="changelog changelog--global">
   <h2 id="log-de-alteracoes">Log</h2>
-  <p class="changelog__last">
-    Última alteração: <time datetime="{{ changelog.last.date }}">{{ changelog.last.date | livroDate }}</time> · {{ changelog.last.author }} · {{ changelog.last.subject }}
-  </p>
-  {% if changelog.releases and changelog.releases.length %}
-  <ul class="changelog__releases">
-    {% for release in changelog.releases %}
-    <li>
-      <strong>{{ release.tag }}</strong>
-      {% if release.date %} · <time datetime="{{ release.date }}">{{ release.date | livroDate }}</time>{% endif %}
-      {% if release.author %} · {{ release.author }}{% endif %}
-      {% if release.subject %} · {{ release.subject }}{% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+  <p class="changelog__intro">Histórico das principais alterações editoriais, visuais e técnicas do projeto.</p>
+
+  {% for group in changelog.groups %}
+  <div class="changelog__day">
+    <h3 class="changelog__date"><time datetime="{{ group.key }}">{{ group.date | changeDateGroup }}</time></h3>
+    <ol class="changelog__entries">
+      {% for change in group.commits %}
+      {% set authorUrl = change.author | authorUrl %}
+      <li class="changelog__entry changelog__entry--global">
+        <p class="changelog__line">
+          <time class="changelog__time" datetime="{{ change.date }}">{{ change.date | changeTime }}</time>
+          <span aria-hidden="true">—</span>
+          <span class="changelog__summary">{{ change.label }}</span>
+          {% if authorUrl %}<a class="changelog__author" href="{{ authorUrl }}">{{ change.author }}</a>{% else %}<span class="changelog__author">{{ change.author }}</span>{% endif %}
+          <span aria-hidden="true"> · </span><a class="changelog__commit" href="{{ change.url }}">Ver alteração</a>
+          <span aria-hidden="true"> · </span><span class="changelog__release">{{ change.release }}</span>
+        </p>
+        {% if change.kinds and change.targets and change.targets.length %}
+        <p class="changelog__scope">Mudanças de {{ change.kinds | readableList }} em {{ linkedList(change.targets) }}.</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+  {% endfor %}
 </section>
 {% endif %}

@@ -215,6 +215,13 @@ module.exports = function (eleventyConfig) {
     if (!hash || !repositoryUrl) return '';
     return `${String(repositoryUrl).replace(/\/$/, '')}/commit/${hash}`;
   });
+  eleventyConfig.addFilter('readableList', (items) => {
+    const values = Array.isArray(items) ? items.filter(Boolean) : [];
+    if (values.length === 0) return '';
+    if (values.length === 1) return values[0];
+    if (values.length === 2) return `${values[0]} e ${values[1]}`;
+    return `${values.slice(0, -1).join(', ')} e ${values[values.length - 1]}`;
+  });
 
   // Filters
   eleventyConfig.addFilter('dateFilter', dateFilter);
