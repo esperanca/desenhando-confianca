@@ -1,23 +1,35 @@
-{#- Log de mudanças da página: última alteração do arquivo + releases que o tocaram.
-   Uso: {% include "partials/page-changelog.njk" %} com `page.inputPath` disponível. -#}
+{#- Log de mudanças da página: histórico dos commits que alteraram o arquivo atual. -#}
 {% set changes = page.inputPath | pageChanges %}
-{% if changes and changes.last %}
+{% if changes and changes.groups and changes.groups.length %}
 <section aria-label="Log de mudanças desta página" class="changelog changelog--page">
   <h2 id="log-de-mudancas">Log de mudanças</h2>
-  <p class="changelog__last">
-    Última alteração: <time datetime="{{ changes.last.date }}">{{ changes.last.date | livroDate }}</time> · {{ changes.last.author }} · {{ changes.last.subject }}
-  </p>
-  {% if changes.releases and changes.releases.length %}
-  <ul class="changelog__releases">
-    {% for release in changes.releases %}
-    <li>
-      <strong>{{ release.tag }}</strong>
-      {% if release.date %} · <time datetime="{{ release.date }}">{{ release.date | livroDate }}</time>{% endif %}
-      {% if release.author %} · {{ release.author }}{% endif %}
-      {% if release.subject %} · {{ release.subject }}{% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+  <p class="changelog__intro">Histórico de alterações feitas especificamente nesta página: {{ title }}.</p>
+
+  {% for group in changes.groups %}
+  <div class="changelog__day">
+    <h3 class="changelog__date"><time datetime="{{ group.key }}">{{ group.date | changeDateGroup }}</time></h3>
+    <ol class="changelog__entries">
+      {% for change in group.commits %}
+      {% set authorUrl = change.author | authorUrl %}
+      {% set changeUrl = change.hash | commitUrl(site.repositoryUrl) %}
+      <li class="changelog__entry">
+        <time class="changelog__time" datetime="{{ change.date }}">{{ change.date | changeTime }}</time>
+        <span aria-hidden="true">—</span>
+        <span class="changelog__summary">{{ change | editorialChangeLabel }}</span>
+        {% if change.author %}
+          {% if authorUrl %}
+          <a class="changelog__author" href="{{ authorUrl }}">{{ change.author }}</a>
+          {% else %}
+          <span class="changelog__author">{{ change.author }}</span>
+          {% endif %}
+        {% endif %}
+        {% if changeUrl %}
+        <span aria-hidden="true"> · </span><a class="changelog__commit" href="{{ changeUrl }}">Ver alteração</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+  {% endfor %}
 </section>
 {% endif %}

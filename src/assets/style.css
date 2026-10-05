@@ -98,6 +98,14 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .changelog h2 { margin-top: 0; font-size: 1rem; }
 .changelog__last { margin-top: .5rem; }
 .changelog__releases { margin-top: .5rem; padding-left: 1.25rem; }
+.changelog__intro { margin-top: .5rem; }
+.changelog__day { margin-top: 1rem; }
+.changelog__date { margin: 0; font-weight: 700; color: var(--ink); }
+.changelog__entries { margin-top: .4rem; padding-left: 0; list-style: none; }
+.changelog__entry { margin-top: .35rem; }
+.changelog__time { color: var(--ink); font-variant-numeric: tabular-nums; }
+.changelog__author { white-space: nowrap; }
+.changelog__commit { white-space: nowrap; }
 
 @media (min-width: 70rem) {
   .book-article { width: calc(var(--measure) + var(--note-gap) + var(--note-width)); padding-right: calc(var(--note-gap) + var(--note-width)); }

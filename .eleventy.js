@@ -69,6 +69,22 @@ const editorialStatuses = {
   },
 };
 
+const editorialChangeLabels = new Map([
+  ['576cba6574196309902a5f9493f7b98894665e41', 'Definição de confiança em verificabilidade.'],
+  ['37c2f7b823327c587514e16b9d11bed7b0e6f312', 'Referência sobre dependência epistêmica.'],
+  ['5e18224b8b5540003661362c99d0c36bf0e08f1c', 'Trecho sobre dependência epistêmica.'],
+  ['d8445cc9677437d123e1b82794dcf20da29caf79', 'Parágrafos iniciais da seção.'],
+  ['fdb8794dbdcb9de07c2d81a154ddcfa5108411e9', 'Abertura da página e página central de design.'],
+  ['2fd2a01114564b2375c47842c2781acca447b6b4', 'Referências bibliográficas e sidenotes do capítulo.'],
+]);
+
+const authorUrls = new Map([
+  ['Daniel Souza', '/autores/#daniel-souza'],
+  ['Daniel Vieira Souza', '/autores/#daniel-souza'],
+  ['Pedro Albuquerque', '/autores/#pedro-albuquerque'],
+  ['Leiliane Fagundes', '/autores/#leiliane-fagundes'],
+]);
+
 function toIndexEntry(item) {
   return {
     url: item.url,
@@ -166,6 +182,32 @@ module.exports = function (eleventyConfig) {
       .setLocale('pt-BR')
       .toFormat("d 'de' MMMM 'de' yyyy · HH:mm");
   });
+  eleventyConfig.addFilter('changeDateGroup', (dateObj) => {
+    const date = dateObj instanceof Date ? dateObj : new Date(dateObj);
+    return DateTime.fromJSDate(date)
+      .setZone('America/Sao_Paulo')
+      .setLocale('pt-BR')
+      .toFormat('d LLL yyyy');
+  });
+  eleventyConfig.addFilter('changeTime', (dateObj) => {
+    const date = dateObj instanceof Date ? dateObj : new Date(dateObj);
+    return DateTime.fromJSDate(date)
+      .setZone('America/Sao_Paulo')
+      .setLocale('pt-BR')
+      .toFormat('HH:mm');
+  });
+  eleventyConfig.addFilter('editorialChangeLabel', (change) => {
+    if (!change) return '';
+    if (editorialChangeLabels.has(change.hash)) return editorialChangeLabels.get(change.hash);
+    const subject = String(change.subject || '').trim();
+    if (!subject) return 'Alteração editorial.';
+    return subject.endsWith('.') ? subject : `${subject}.`;
+  });
+  eleventyConfig.addFilter('authorUrl', (author) => authorUrls.get(author) || '');
+  eleventyConfig.addFilter('commitUrl', (hash, repositoryUrl) => {
+    if (!hash || !repositoryUrl) return '';
+    return `${String(repositoryUrl).replace(/\/$/, '')}/commit/${hash}`;
+  });
 
   // Filters
   eleventyConfig.addFilter('dateFilter', dateFilter);
@@ -210,30 +252,27 @@ module.exports = function (eleventyConfig) {
     const normalized = inputPath.replace(/\\/g, '/');
     const srcIndex = normalized.indexOf('src/');
     const rel = srcIndex >= 0 ? normalized.slice(srcIndex) : normalized.replace(/^\.\//, '');
-    const lastRaw = run(`log -1 --format='%H|%cI|%an|%s' -- ${JSON.stringify(rel)}`);
-    const last = lastRaw ? parse(lastRaw) : null;
-    if (!last) return null;
-    const tagsRaw = run('tag --list --sort=-creatordate');
-    const tags = tagsRaw
-      ? tagsRaw
+    const raw = run(`log -10 --format='%H|%cI|%an|%s' -- ${JSON.stringify(rel)}`);
+    const commits = raw
+      ? raw
           .split('\n')
-          .map((tag) => tag.trim())
+          .map(parse)
           .filter(Boolean)
       : [];
-    // Releases existentes na época da última alteração do arquivo:
-    // tags cujo commit é ancestral do (ou igual ao) último commit do arquivo.
-    const releases = tags
-      .map((tag) => {
-        const tagHash = run(`rev-list -n 1 ${tag}`);
-        if (!tagHash) return null;
-        const isAncestor = run(`merge-base --is-ancestor ${tagHash} ${last.hash} && echo yes`);
-        if (isAncestor !== 'yes') return null;
-        const line = run(`log -1 --format='%H|%cI|%an|%s' ${tag}`);
-        if (!line) return {tag};
-        return {tag, ...parse(line)};
-      })
-      .filter(Boolean);
-    const result = {last, releases};
+    if (!commits.length) return null;
+    const groups = commits.reduce((acc, commit) => {
+      const key = DateTime.fromJSDate(new Date(commit.date))
+        .setZone('America/Sao_Paulo')
+        .toISODate();
+      const group = acc.find((item) => item.key === key);
+      if (group) {
+        group.commits.push(commit);
+      } else {
+        acc.push({key, date: commit.date, commits: [commit]});
+      }
+      return acc;
+    }, []);
+    const result = {last: commits[0], commits, groups};
     pageChangesCache.set(inputPath, result);
     return result;
   });
