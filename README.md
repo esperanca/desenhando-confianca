@@ -90,3 +90,17 @@ npm run build:internal
 # 7. Rode os testes do plugin de notas
 npm test
 ```
+
+## Deploy (Cloudflare Pages)
+
+```bash
+# Publica o build público (dist/) via upload direto
+npm run build
+npx wrangler pages deploy dist --project-name desenhando-confianca
+```
+
+Projeto: `desenhando-confianca` · URL: https://desenhando-confianca.pages.dev
+
+O deploy é manual via `wrangler pages deploy`. Não há integração
+Pages↔GitHub configurada, e nenhum domínio próprio apontado — a URL
+canônica segue sendo https://desenhando-confianca.danielsouza.com.
