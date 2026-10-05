@@ -233,7 +233,9 @@ A partir daqui, a pergunta muda. Já não basta definir o que um sistema deveria
 
 [^8]: LIU, Nelson F.; ZHANG, Tianyi; LIANG, Percy. Evaluating Verifiability in Generative Search Engines. In: _Findings of the Association for Computational Linguistics: EMNLP 2023_. Singapore: Association for Computational Linguistics, 2023. p. 7001–7025. DOI: [10.18653/v1/2023.findings-emnlp.467](https://doi.org/10.18653/v1/2023.findings-emnlp.467).
 
-[^sn-dependencia-epistemica]: **Dependência epistêmica.** John Hardwig, “Epistemic Dependence”, _The Journal of Philosophy_, v. 82, n. 7, 1985, pp. 335–349. [DOI 10.2307/2026523](https://doi.org/10.2307/2026523). Ver referência [^1].
+[^9]: COADY, C. A. J. _Testimony: A Philosophical Study_. Oxford: Clarendon Press; Oxford University Press, 1992. KITCHER, Philip. The Division of Cognitive Labor. _The Journal of Philosophy_, v. 87, n. 1, p. 5–21, jan. 1990. DOI: [10.2307/2026796](https://doi.org/10.2307/2026796).
+
+[^sn-dependencia-epistemica]: **Dependência epistêmica.** John Hardwig, “Epistemic Dependence”, _The Journal of Philosophy_, v. 82, n. 7, 1985, pp. 335–349. [DOI 10.2307/2026523](https://doi.org/10.2307/2026523). A discussão se aproxima da epistemologia do testemunho de C. A. J. Coady e da ideia de divisão do trabalho cognitivo em Philip Kitcher. Ver referências [^1] e [^9].
 
 [^sn-confianca-vulnerabilidade]: **Confiança e vulnerabilidade.** Annette Baier, “Trust and Antitrust”, _Ethics_, v. 96, n. 2, 1986, pp. 231–260. [DOI 10.1086/292745](https://doi.org/10.1086/292745). Ver referência [^2].
 
