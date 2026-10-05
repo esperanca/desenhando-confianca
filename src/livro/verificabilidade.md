@@ -27,9 +27,9 @@ A vida comum depende de conhecimento produzido, testado e mantido por desconheci
 
 Fazemos um pagamento sem encontrar as pessoas que mantêm a transação em funcionamento. Aceitamos um documento porque outras pessoas e instituições reconhecem a autoridade de quem o emitiu.
 
-Também convivemos com afirmações que não podemos conferir inteiramente por conta própria. Confiamos em quem relata uma notícia, interpreta um exame, preserva um registro ou toma uma decisão que nos afeta. Mesmo quando examinamos uma evidência, dependemos de alguém que a produziu, organizou ou tornou acessível.
+Também convivemos com afirmações que não podemos conferir inteiramente por conta própria. Confiamos em quem relata uma notícia, interpreta um exame, emite um documento ou toma uma decisão que nos afeta. Mesmo quando examinamos uma evidência, ainda dependemos de quem a produziu, organizou ou tornou acessível.
 
-Essa dependência não é uma falha provisória do conhecimento ou da organização social. É uma de suas condições. Ninguém consegue observar tudo, dominar todos os assuntos ou acompanhar cada ação da qual depende. Tentamos conhecer e agir no mundo com tempo limitado, atenção limitada e acesso desigual ao que aconteceu.
+Essa dependência não é um problema que desaparece à medida que sabemos mais. É uma condição do conhecimento e da vida em sociedade. Ninguém consegue observar tudo, dominar todos os assuntos ou acompanhar cada ação da qual depende. Conhecemos e agimos no mundo com tempo limitado, atenção limitada e acesso desigual ao que aconteceu.
 
 O filósofo John Hardwig chamou parte desse problema de dependência epistêmica. Muito do que uma pessoa pode conhecer depende do trabalho cognitivo de outras. Uma sociedade composta por pessoas que só aceitassem aquilo que conseguiram provar sozinhas saberia muito pouco.[^sn-dependencia-epistemica]
 
