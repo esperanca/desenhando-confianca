@@ -186,6 +186,53 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('findByUrl', (entries, url) =>
     Array.isArray(entries) && url ? entries.find((entry) => entry.url === url) || null : null
   );
+  const pageChangesCache = new Map();
+  eleventyConfig.addFilter('pageChanges', (inputPath) => {
+    if (typeof inputPath !== 'string' || inputPath.length === 0) return null;
+    if (pageChangesCache.has(inputPath)) return pageChangesCache.get(inputPath);
+    const {execSync} = require('node:child_process');
+    const run = (args) => {
+      try {
+        return execSync(`git ${args}`, {encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']}).trim();
+      } catch {
+        return '';
+      }
+    };
+    const parse = (line) => {
+      const [hash, date, author, ...subject] = line.split('|');
+      if (!hash) return null;
+      return {hash, date, author, subject: subject.join('|')};
+    };
+    const normalized = inputPath.replace(/\\/g, '/');
+    const srcIndex = normalized.indexOf('src/');
+    const rel = srcIndex >= 0 ? normalized.slice(srcIndex) : normalized.replace(/^\.\//, '');
+    const lastRaw = run(`log -1 --format='%H|%cI|%an|%s' -- ${JSON.stringify(rel)}`);
+    const last = lastRaw ? parse(lastRaw) : null;
+    if (!last) return null;
+    const tagsRaw = run('tag --list --sort=-creatordate');
+    const tags = tagsRaw
+      ? tagsRaw
+          .split('\n')
+          .map((tag) => tag.trim())
+          .filter(Boolean)
+      : [];
+    // Releases existentes na época da última alteração do arquivo:
+    // tags cujo commit é ancestral do (ou igual ao) último commit do arquivo.
+    const releases = tags
+      .map((tag) => {
+        const tagHash = run(`rev-list -n 1 ${tag}`);
+        if (!tagHash) return null;
+        const isAncestor = run(`merge-base --is-ancestor ${tagHash} ${last.hash} && echo yes`);
+        if (isAncestor !== 'yes') return null;
+        const line = run(`log -1 --format='%H|%cI|%an|%s' ${tag}`);
+        if (!line) return {tag};
+        return {tag, ...parse(line)};
+      })
+      .filter(Boolean);
+    const result = {last, releases};
+    pageChangesCache.set(inputPath, result);
+    return result;
+  });
   eleventyConfig.addFilter('statusLabel', (status) =>
     editorialStatuses[status]?.label || status
   );

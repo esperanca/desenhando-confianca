@@ -1,0 +1,23 @@
+{#- Log de mudanças da página: última alteração do arquivo + releases que o tocaram.
+   Uso: {% include "partials/page-changelog.njk" %} com `page.inputPath` disponível. -#}
+{% set changes = page.inputPath | pageChanges %}
+{% if changes and changes.last %}
+<section aria-label="Log de mudanças desta página" class="changelog changelog--page">
+  <h2 id="log-de-mudancas">Log de mudanças</h2>
+  <p class="changelog__last">
+    Última alteração: <time datetime="{{ changes.last.date }}">{{ changes.last.date | livroDate }}</time> · {{ changes.last.author }} · {{ changes.last.subject }}
+  </p>
+  {% if changes.releases and changes.releases.length %}
+  <ul class="changelog__releases">
+    {% for release in changes.releases %}
+    <li>
+      <strong>{{ release.tag }}</strong>
+      {% if release.date %} · <time datetime="{{ release.date }}">{{ release.date | livroDate }}</time>{% endif %}
+      {% if release.author %} · {{ release.author }}{% endif %}
+      {% if release.subject %} · {{ release.subject }}{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endif %}

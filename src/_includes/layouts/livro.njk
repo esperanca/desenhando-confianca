@@ -27,6 +27,8 @@
           {{ content | safe }}
       </div>
 
+      {% include "partials/page-changelog.njk" %}
+
       <footer class="book-footer">
         {% if type == 'chapter' %}<a href="/livro/">← Voltar ao sumário</a>{% else %}<a href="/">← Voltar ao início</a>{% endif %}
       </footer>
