@@ -2,7 +2,8 @@
 
 Site e manuscrito do livro "Desenhando Confiança", sobre design, IA e confiança em interfaces generativas e agentes.
 
-Endereço: https://desenhando-confianca.danielsouza.com
+Site público: https://desenhando-confianca.pages.dev
+Repositório: https://github.com/esperanca/desenhando-confianca
 
 O conteúdo principal vive em arquivos Markdown portáteis. Eles podem ser lidos diretamente no GitHub, Obsidian ou qualquer editor de texto, e publicados com Eleventy.
 
@@ -11,6 +12,8 @@ O conteúdo principal vive em arquivos Markdown portáteis. Eles podem ser lidos
 ```text
 src/livro/   capítulos
 src/notas/   notas complementares
+src/design/  log do projeto de design (interno, fora do build público)
+src/pages/   páginas institucionais (sobre)
 src/plugins/ plugin markdown-it para sidenotes e footnotes
 ```
 
@@ -102,5 +105,15 @@ npx wrangler pages deploy dist --project-name desenhando-confianca
 Projeto: `desenhando-confianca` · URL: https://desenhando-confianca.pages.dev
 
 O deploy é manual via `wrangler pages deploy`. Não há integração
-Pages↔GitHub configurada, e nenhum domínio próprio apontado — a URL
-canônica segue sendo https://desenhando-confianca.danielsouza.com.
+Pages↔GitHub configurada, e nenhum domínio próprio apontado.
+
+## Log de design
+
+A pasta `src/design/` registra o projeto de design do livro. Os arquivos
+são internos (`status: internal-review`, `draft: true`): aparecem no
+servidor local e no build interno (`/design/`), mas ficam fora do site
+público. Cada item tem seção "Em aberto" com as pendências.
+
+Capítulos e páginas do livro exibem "Log de mudanças" após as Referências
+(última alteração do arquivo + releases da época, via git). A home exibe
+o "Log" geral no final da página (último commit do repo + todas as tags).
