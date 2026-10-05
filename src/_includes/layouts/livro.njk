@@ -12,6 +12,7 @@
         </p>
         {% endif %}
         <h1>{{ title }}</h1>
+        {% if subtitle %}<p class="book-subtitle">{{ subtitle }}</p>{% endif %}
         {% if summary %}<p class="book-summary">{{ summary }}</p>{% endif %}
         {% if status or dateModified %}
         <p class="book-meta">
