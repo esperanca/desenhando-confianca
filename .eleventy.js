@@ -249,6 +249,16 @@ module.exports = function (eleventyConfig) {
       if (!hash) return null;
       return {hash, date, author, subject: subject.join('|')};
     };
+    const releaseFor = (hash) => {
+      const containingTagsRaw = run(`tag --contains ${hash} --sort=v:refname`);
+      const release = containingTagsRaw
+        ? containingTagsRaw
+            .split('\n')
+            .map((tag) => tag.trim())
+            .filter(Boolean)[0]
+        : '';
+      return release || 'Ainda não lançada';
+    };
     const normalized = inputPath.replace(/\\/g, '/');
     const srcIndex = normalized.indexOf('src/');
     const rel = srcIndex >= 0 ? normalized.slice(srcIndex) : normalized.replace(/^\.\//, '');
@@ -258,6 +268,7 @@ module.exports = function (eleventyConfig) {
           .split('\n')
           .map(parse)
           .filter(Boolean)
+          .map((commit) => ({...commit, release: releaseFor(commit.hash)}))
       : [];
     if (!commits.length) return null;
     const groups = commits.reduce((acc, commit) => {

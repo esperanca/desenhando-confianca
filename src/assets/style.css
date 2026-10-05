@@ -106,6 +106,7 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .changelog__time { color: var(--ink); font-variant-numeric: tabular-nums; }
 .changelog__author { white-space: nowrap; }
 .changelog__commit { white-space: nowrap; }
+.changelog__release { white-space: nowrap; }
 
 @media (min-width: 70rem) {
   .book-article { width: calc(var(--measure) + var(--note-gap) + var(--note-width)); padding-right: calc(var(--note-gap) + var(--note-width)); }

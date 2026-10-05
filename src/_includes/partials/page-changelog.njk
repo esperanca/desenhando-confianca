@@ -26,6 +26,9 @@
         {% if changeUrl %}
         <span aria-hidden="true"> · </span><a class="changelog__commit" href="{{ changeUrl }}">Ver alteração</a>
         {% endif %}
+        {% if change.release %}
+        <span aria-hidden="true"> · </span><span class="changelog__release">{{ change.release }}</span>
+        {% endif %}
       </li>
       {% endfor %}
     </ol>
