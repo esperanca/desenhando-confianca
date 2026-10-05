@@ -77,6 +77,10 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .footnotes-sep { display: none; }
 .footnotes-list { padding-left: 1.25rem; }
 .book-footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.changelog { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: ui-sans-serif, system-ui, sans-serif; font-size: .85rem; line-height: 1.5; color: var(--muted); }
+.changelog h2 { margin-top: 0; font-size: 1rem; }
+.changelog__last { margin-top: .5rem; }
+.changelog__releases { margin-top: .5rem; padding-left: 1.25rem; }
 
 @media (min-width: 70rem) {
   .book-article { width: calc(var(--measure) + var(--note-gap) + var(--note-width)); padding-right: calc(var(--note-gap) + var(--note-width)); }

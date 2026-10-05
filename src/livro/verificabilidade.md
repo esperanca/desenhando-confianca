@@ -4,13 +4,10 @@ title: Verificabilidade
 summary: Como a confiança deixa de depender apenas de quem fala.
 type: chapter
 informationType: concept
-status: internal-review
-draft: true
-reviewCategory: internal
+status: review
 order: 50
 tags:
   - chapter
-  - internal-review
 about:
   - verificabilidade
   - evidência

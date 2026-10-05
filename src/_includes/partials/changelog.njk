@@ -1,0 +1,22 @@
+{#- Log de alterações: primeira linha = última alteração (dia, hora, autor);
+   linhas seguintes = releases (tags git, da mais recente à mais antiga). -#}
+{% if changelog and changelog.last %}
+<section aria-label="Log de alterações" class="changelog">
+  <h2 id="log-de-alteracoes">Log</h2>
+  <p class="changelog__last">
+    Última alteração: <time datetime="{{ changelog.last.date }}">{{ changelog.last.date | livroDate }}</time> · {{ changelog.last.author }} · {{ changelog.last.subject }}
+  </p>
+  {% if changelog.releases and changelog.releases.length %}
+  <ul class="changelog__releases">
+    {% for release in changelog.releases %}
+    <li>
+      <strong>{{ release.tag }}</strong>
+      {% if release.date %} · <time datetime="{{ release.date }}">{{ release.date | livroDate }}</time>{% endif %}
+      {% if release.author %} · {{ release.author }}{% endif %}
+      {% if release.subject %} · {{ release.subject }}{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endif %}

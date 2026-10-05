@@ -156,7 +156,8 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addFilter('livroDate', (dateObj) => {
-    return DateTime.fromJSDate(dateObj)
+    const date = dateObj instanceof Date ? dateObj : new Date(dateObj);
+    return DateTime.fromJSDate(date)
       .setZone('America/Sao_Paulo')
       .setLocale('pt-BR')
       .toFormat("d 'de' MMMM 'de' yyyy · HH:mm");
