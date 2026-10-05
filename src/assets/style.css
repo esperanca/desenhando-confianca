@@ -1,3 +1,20 @@
+@font-face {
+  font-family: 'Timeless Serif';
+  src: url('/assets/fonts/TimelessSerifVF.woff2') format('woff2'),
+       url('/assets/fonts/TimelessSerifVF.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Timeless Sans';
+  src: url('/assets/fonts/TimelessSansVF.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #fff;
   --ink: #111;
@@ -7,7 +24,7 @@
   --measure: 42rem;
   --note-width: 17rem;
   --note-gap: 2rem;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Timeless Text', Georgia, 'Times New Roman', serif;
   color: var(--ink);
   background: var(--paper);
 }
@@ -34,15 +51,15 @@ img, svg { max-width: 100%; }
 .reading-shell, .book-article { width: min(100% - 2rem, var(--measure)); margin-inline: auto; }
 .reading-shell { padding-block: 4.5rem; }
 .reading-shell > * + * { margin-top: 1.5rem; }
-h1, h2, h3 { line-height: 1.15; text-wrap: balance; }
+h1, h2, h3 { font-family: 'Timeless Serif'; line-height: 1.15; text-wrap: balance; }
 h1 { margin: 0; font-size: clamp(2.6rem, 8vw, 5rem); font-weight: 400; letter-spacing: -.035em; }
 h2 { margin: 3.5rem 0 0; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 400; }
 h3 { margin: 2.5rem 0 0; font-size: 1.35rem; }
 p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
-.eyebrow, .book-meta { font-family: ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
+.eyebrow, .book-meta { font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
 .eyebrow { margin: 0 0 .75rem; font-weight: 700; }
-.editorial-status { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.25rem; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: .82rem; line-height: 1.45; }
-.status-tag { display: inline-block; margin-left: .35rem; padding: .15rem .45rem; border: 1px solid currentColor; font-family: ui-sans-serif, system-ui, sans-serif; font-size: .68rem; font-weight: 700; line-height: 1.35; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; vertical-align: .1em; }
+.editorial-status { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.25rem; color: var(--muted); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .82rem; line-height: 1.45; }
+.status-tag { display: inline-block; margin-left: .35rem; padding: .15rem .45rem; border: 1px solid currentColor; font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .68rem; font-weight: 700; line-height: 1.35; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; vertical-align: .1em; }
 .editorial-status .status-tag { margin-left: 0; }
 .status-tag--published { border-style: solid; }
 .status-tag--review { border-style: dashed; }
@@ -67,17 +84,17 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .book-body table { width: 100%; border-collapse: collapse; font-size: .9rem; }
 .book-body th, .book-body td { padding: .65rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
 .book-body th { background: var(--soft); }
-.tdbc-anchor { margin-left: .35em; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: .55em; text-decoration: none; }
-.sidenote-ref, .footnote-ref { font-family: ui-sans-serif, system-ui, sans-serif; font-size: .7em; line-height: 0; vertical-align: super; }
+.tdbc-anchor { margin-left: .35em; color: var(--muted); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .55em; text-decoration: none; }
+.sidenote-ref, .footnote-ref { font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .7em; line-height: 0; vertical-align: super; }
 .sidenote-ref a, .footnote-ref a { text-decoration: none; }
-.sidenote { display: block; margin: .65rem 0 1.25rem; padding: .75rem 0 .75rem 1rem; border-left: 1px solid var(--ink); font-family: ui-sans-serif, system-ui, sans-serif; font-size: .82rem; line-height: 1.5; }
+.sidenote { display: block; margin: .65rem 0 1.25rem; padding: .75rem 0 .75rem 1rem; border-left: 1px solid var(--ink); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .82rem; line-height: 1.5; }
 .sidenote-number { margin-right: .35em; font-weight: 700; }
 .sidenote-backref { margin-left: .35em; text-decoration: none; }
-.footnotes { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--ink); font-family: ui-sans-serif, system-ui, sans-serif; font-size: .82rem; line-height: 1.5; }
+.footnotes { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--ink); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .82rem; line-height: 1.5; }
 .footnotes-sep { display: none; }
 .footnotes-list { padding-left: 1.25rem; }
 .book-footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
-.changelog { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: ui-sans-serif, system-ui, sans-serif; font-size: .85rem; line-height: 1.5; color: var(--muted); }
+.changelog { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .85rem; line-height: 1.5; color: var(--muted); }
 .changelog h2 { margin-top: 0; font-size: 1rem; }
 .changelog__last { margin-top: .5rem; }
 .changelog__releases { margin-top: .5rem; padding-left: 1.25rem; }
