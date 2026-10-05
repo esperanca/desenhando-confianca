@@ -2,7 +2,7 @@
 layout: livro
 title: Prefácio
 subtitle: O caso Moffatt v. Air Canada e o risco da confiança que parece infalível
-summary: O caso Air Canada e o risco de um sistema falhar parecendo infalível.
+summary: O caso Moffatt v. Air Canada e o risco da confiança que parece infalível
 type: chapter
 informationType: concept
 status: review
