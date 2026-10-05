@@ -70,12 +70,19 @@ const editorialStatuses = {
 };
 
 const editorialChangeLabels = new Map([
+  ['0307d28a5bb58526611f210010a66cb9d66a10f9', 'Padronização da Introdução e inclusão do log de mudanças.'],
+  ['a0ca71d6a2d82c38a2ecc6e57b8b9cbfc24e05dd', 'Sincronização da Introdução com o texto publicado.'],
+  ['66a8563af2b3e12264bf40a2532ac36f600404b2', 'Sidenote de tarifa de luto e links de autores.'],
+  ['e21b2a95a56ba189edd2ae6ff8fa52d3a7c0e521', 'Ajuste no resumo do Prefácio.'],
+  ['478d63f34f8f1096d7bb8d4c08e78b89c0e6e719', 'Sincronização do Prefácio com o texto publicado.'],
   ['576cba6574196309902a5f9493f7b98894665e41', 'Definição de confiança em verificabilidade.'],
   ['37c2f7b823327c587514e16b9d11bed7b0e6f312', 'Referência sobre dependência epistêmica.'],
   ['5e18224b8b5540003661362c99d0c36bf0e08f1c', 'Trecho sobre dependência epistêmica.'],
   ['d8445cc9677437d123e1b82794dcf20da29caf79', 'Parágrafos iniciais da seção.'],
   ['fdb8794dbdcb9de07c2d81a154ddcfa5108411e9', 'Abertura da página e página central de design.'],
   ['2fd2a01114564b2375c47842c2781acca447b6b4', 'Referências bibliográficas e sidenotes do capítulo.'],
+  ['ef1d3899bb9fbb82ebd1c85a7e10ce8c6a5dfdeb', 'Publicação inicial do capítulo Verificabilidade.'],
+  ['d008c5213fbf7877ab2d184a82e3fbd3fd1821b3', 'Entrada inicial no modelo editorial do livro.'],
 ]);
 
 const authorUrls = new Map([
