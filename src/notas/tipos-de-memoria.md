@@ -1,14 +1,14 @@
 ---
 layout: livro
 title: "Memória semântica, episódica e procedural no financiamento imobiliário"
-subtitle: "Um conceito de apoio ao livro Desenhando Confiança"
-collection: "Nota complementar"
-version: ""
-date: 2026-07-28
-contact: "danieliscoding@gmail.com"
-preface: "@danielsouza"
-permalink: /tipos-de-memoria/
-eleventyExcludeFromCollections: true
+summary: "Três tipos de memória necessários para preservar a continuidade de uma jornada entre canais, sistemas e pessoas."
+type: note
+informationType: reference
+status: published
+tags:
+  - note
+dateModified: 2026-07-28
+permalink: /notas/tipos-de-memoria/
 ---
 
 Um financiamento imobiliário pode começar com uma simulação online, continuar com o envio de documentos e, em determinado momento, passar para o processamento realizado por um analista.

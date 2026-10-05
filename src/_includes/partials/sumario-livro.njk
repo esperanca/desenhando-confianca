@@ -1,0 +1,30 @@
+{#- Sumário do livro. Item vira link apenas se a página existe em collections.chapters
+    (drafts ficam de fora no build público); caso contrário, texto puro. -#}
+{% macro itemList(items, chapters) %}
+<ul class="toc-list">
+  {% for item in items %}
+  {% set chapter = chapters | findByUrl(item.url) %}
+  <li>
+    {% if chapter %}<a href="{{ chapter.url }}">{{ item.title }}</a>{% else %}<span class="toc-list__pending">{{ item.title }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endmacro %}
+
+<h2 id="sumario-do-livro">Sumário do livro</h2>
+{{ itemList(sumario.intro, collections.chapters) }}
+
+{% for part in sumario.parts %}
+<h3>{{ part.title }}</h3>
+{{ itemList(part.items, collections.chapters) }}
+{% endfor %}
+
+<h3>{{ sumario.additional.title }}</h3>
+{{ itemList(sumario.additional.items, collections.chapters) }}
+
+<h2 id="notas-e-links-complementares">Notas e links complementares</h2>
+<ul class="toc-list">
+  {% for note in sumario.notes %}
+  <li><a href="{{ note.url }}">{{ note.title }}</a> — {{ note.description }}</li>
+  {% endfor %}
+</ul>

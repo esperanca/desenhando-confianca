@@ -1,0 +1,35 @@
+---
+title: Revisão interna
+metaTitle: Revisão interna — Desenhando Confiança
+metaDesc: Conteúdos em revisão interna do livro Desenhando Confiança.
+internalOnly: true
+permalink: /revisao-interna/
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<main id="main-content" tabindex="-1">
+  <div class="reading-shell">
+    <p class="eyebrow">Área interna</p>
+    <h1>Revisão interna</h1>
+    <p class="lede">Esta página e os itens abaixo não fazem parte do build público.</p>
+
+    {% if internalReview.length %}
+    <ul class="content-list">
+      {% for item in internalReview %}
+        <li>
+          <a href="{{ item.url }}">{{ item.title }}</a>
+          <p>
+            <span class="status-tag status-tag--{{ item.status }}">{{ item.status | statusLabel }}</span>
+            {% if item.summary %} {{ item.summary }}{% endif %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Não há conteúdo em revisão interna.</p>
+    {% endif %}
+  </div>
+</main>
+{% endblock %}

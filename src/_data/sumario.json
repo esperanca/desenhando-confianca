@@ -1,0 +1,58 @@
+{
+  "intro": [
+    { "title": "Introdução", "url": "/livro/introducao/" },
+    { "title": "Prefácio", "url": "/livro/prefacio/" }
+  ],
+  "parts": [
+    {
+      "title": "Parte I — O que torna um sistema confiável",
+      "items": [
+        { "title": "Transparência", "url": "/livro/transparencia/" },
+        { "title": "Explicabilidade", "url": "/livro/explicabilidade/" },
+        { "title": "Verificabilidade", "url": "/livro/verificabilidade/" },
+        { "title": "Compreensibilidade", "url": "/livro/compreensibilidade/" },
+        { "title": "Domínios regulados e legislação", "url": "/livro/dominios-regulados-e-legislacao/" },
+        { "title": "O agente confiável", "url": "/livro/o-agente-confiavel/" }
+      ]
+    },
+    {
+      "title": "Parte II — Práticas para desenhar confiança",
+      "items": [
+        { "title": "Conteúdo responsável e compreensível", "url": "/livro/conteudo-responsavel-e-compreensivel/" },
+        { "title": "De onde vem a resposta", "url": "/livro/de-onde-vem-a-resposta/" },
+        { "title": "Evals: critérios e medição", "url": "/livro/evals/" },
+        { "title": "Governança como experiência", "url": "/livro/governanca-como-experiencia/" },
+        { "title": "Medindo confiança, adoção e autonomia", "url": "/livro/medindo-confianca-adocao-e-autonomia/" }
+      ]
+    },
+    {
+      "title": "Parte III — Catálogo de padrões",
+      "items": [
+        { "title": "Padrões para interfaces e jornadas generativas", "url": "/livro/padroes-para-interfaces-e-jornadas-generativas/" },
+        { "title": "Fechamento", "url": "/livro/fechamento/" },
+        { "title": "O novo papel dos designers", "url": "/livro/o-novo-papel-dos-designers/" }
+      ]
+    }
+  ],
+  "additional": {
+    "title": "Seções adicionais",
+    "items": [
+      { "title": "Glossário", "url": "/livro/glossario/" },
+      { "title": "Notas", "url": "/livro/notas/" },
+      { "title": "Links e recursos", "url": "/livro/links-e-recursos/" },
+      { "title": "Índice remissivo", "url": "/livro/indice-remissivo/" }
+    ]
+  },
+  "notes": [
+    {
+      "title": "Memória semântica, episódica e procedural no financiamento imobiliário",
+      "url": "/notas/tipos-de-memoria/",
+      "description": "conceito de apoio sobre os três tipos de memória usados para desenhar continuidade entre canais."
+    },
+    {
+      "title": "5 Princípios de HCI Fundamentados em Pesquisa",
+      "url": "/notas/principios-de-hci/",
+      "description": "memória de trabalho, affordances, carga cognitiva, heurísticas de usabilidade e cognição distribuída, com referências originais e brasileiras."
+    }
+  ]
+}

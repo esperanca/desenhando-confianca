@@ -4,5 +4,7 @@
   "authorName": "Daniel Vieira Souza",
   "authorEmail": "danieliscoding@gmail.com",
   "authorHandle": "@danielsouza",
-  "faviconPath": "/images/favicon.png"
+  "faviconPath": "/images/favicon.png",
+  "repositoryUrl": "https://github.com/esperanca/desenhando-confianca",
+  "repositoryBranch": "main"
 }

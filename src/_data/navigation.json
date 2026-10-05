@@ -1,7 +1,12 @@
 {
   "items": [
     {
-      "text": "sobre o livro",
+      "text": "livro",
+      "url": "/livro/",
+      "external": false
+    },
+    {
+      "text": "sobre",
       "url": "/sobre-o-livro/",
       "external": false
     }

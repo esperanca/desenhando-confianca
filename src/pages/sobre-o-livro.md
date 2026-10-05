@@ -1,14 +1,11 @@
 ---
 layout: livro
 title: "Sobre o livro"
-subtitle: "Por que este livro existe, e quem escreveu"
-collection: "Nota complementar"
-version: ""
-date: 2026-08-03
-contact: "danieliscoding@gmail.com"
-preface: "@danielsouza"
+summary: "Por que este livro existe e quem o escreveu."
+type: page
+status: published
+dateModified: 2026-08-03
 permalink: /sobre-o-livro/
-eleventyExcludeFromCollections: true
 ---
 
 ## Sobre o livro

@@ -1,12 +1,11 @@
-<a class="skip-link" href="#main-content">Skip to content</a>
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
 <header role="banner" class="site-header">
   <div class="wrapper site-header__wrapper">
     <a href="/" class="site-header__site-name">
-      <span class="visually-hidden">{{ site.name }} - Home</span>
-      <span class="site-head__site-name" aria-hidden="true">{{ site.authorHandle }}</span>
+      <span>{{ site.name }}</span>
     </a>
 
-    {% set ariaLabel = 'navigation' %}
+    {% set ariaLabel = 'Navegação principal' %}
     {% if navigation.items %}
       <nav class="nav" aria-label="{{ariaLabel}}">
         <ul class="nav__list">

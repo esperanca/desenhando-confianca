@@ -1,14 +1,14 @@
 ---
 layout: livro
 title: "5 Princípios de HCI Fundamentados em Pesquisa"
-subtitle: "Memória, cognição e design de interfaces — um resumo de apoio ao livro Desenhando Confiança"
-collection: "Nota complementar"
-version: ""
-date: 2026-07-30
-contact: "danieliscoding@gmail.com"
-preface: "@danielsouza"
-permalink: /principios-hci-memoria/
-eleventyExcludeFromCollections: true
+summary: "Memória de trabalho, affordances, carga cognitiva, heurísticas e cognição distribuída."
+type: note
+informationType: reference
+status: published
+tags:
+  - note
+dateModified: 2026-07-30
+permalink: /notas/principios-de-hci/
 ---
 
 ## 1. Memória de trabalho: capacidade limitada

@@ -6,7 +6,8 @@ npm-debug.*
 .DS_Store
 .sass-cache
 node_modules
-dist 
+dist
+dist-internal
 .vscode
 
 # Specifics
@@ -21,3 +22,7 @@ src/_includes/assets/*
 .claude/
 .agents/
 skills-lock.json
+
+# Agent local (nunca commitar / nunca push)
+AGENT.md
+agent.md
