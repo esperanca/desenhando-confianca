@@ -1,20 +1,60 @@
 ---
 layout: livro
 title: "Sobre o livro"
-summary: "Por que este livro existe e quem o escreveu."
+summary: "Livro sobre confiança, sistemas digitais e agentes de inteligência artificial."
 type: page
 status: published
-dateModified: 2026-08-03
+dateModified: 2026-10-05
 permalink: /sobre-o-livro/
 ---
 
-## Sobre o livro
+Confiança costuma ser invisível até quebrar.
 
-*Desenhando Confiança* nasceu de uma pergunta simples que fica mais difícil quanto mais se pensa nela: como projetar sistemas automatizados mais úteis, rápidos e convenientes, sem empobrecer a capacidade humana de formular perguntas, avaliar alternativas e decidir com responsabilidade?
+Fazemos pagamentos, aceitamos documentos e seguimos decisões produzidas por pessoas e sistemas que nunca vamos conhecer. Boa parte da vida moderna depende disso.
 
-O livro é dirigido a quem faz design — no sentido de projetar — e não pressupõe conhecimento técnico prévio de IA ou engenharia. A proposta é oferecer linguagem, critérios e ferramentas para que designers, product managers, pesquisadores e estrategistas participem melhor da construção de agentes e interfaces generativas, defendendo uma tese central: agentes confiáveis não resultam apenas de modelos melhores ou interfaces mais polidas, mas de uma combinação mais difícil — linguagem clara, limites explícitos, boas decisões de interação, critérios verificáveis e responsabilidade distribuída.
+**Desenhando Confiança** é um livro sobre as condições que tornam essa dependência digna de confiança.
 
-Está estruturado em três partes: uma introdução teórica sobre as qualidades de um sistema confiável, um conjunto de práticas para desenhar confiança no dia a dia, e um catálogo de padrões de interface para jornadas generativas. Ao longo do texto, notas de rodapé e páginas complementares aprofundam conceitos específicos para quem quiser ir além.
+Não a confiança pessoal, construída pela convivência ou pela reputação. O problema aqui é outro: como confiar quando não conhecemos quem está do outro lado?
+
+Um banco. Um marketplace. Uma instituição pública. Um sistema digital.
+
+E, cada vez mais, um agente de inteligência artificial.
+
+Até pouco tempo, a maior parte dos sistemas digitais esperava por nós. Clicávamos, buscávamos, preenchíamos formulários. Chatbots respondiam perguntas.
+
+Agentes começam a mudar essa relação. Eles podem interpretar uma intenção, tomar decisões, usar ferramentas e agir em nosso nome.
+
+Quando um sistema deixa de apenas responder e começa a agir, a pergunta sobre confiança também muda.
+
+Não basta perguntar se o resultado parece correto.
+
+Precisamos saber quando essa confiança é justificada.
+
+O livro investiga essa pergunta a partir de quatro critérios:
+
+**Transparência**  
+Consigo perceber o que está acontecendo?
+
+**Explicabilidade**  
+Consigo entender por que isso aconteceu?
+
+**Verificabilidade**  
+Consigo examinar o que sustenta uma afirmação, decisão ou ação?
+
+**Compreensibilidade**  
+Consigo entender as regras, limites e consequências do sistema?
+
+Esses critérios não são uma receita para produzir confiança. São maneiras de examinar se um sistema oferece razões suficientes para merecê-la.
+
+O livro é escrito para quem desenha, constrói ou governa sistemas dos quais outras pessoas dependem — e para quem quer entender melhor o que estamos pedindo quando dizemos: “confie em mim”.
+
+**Desenhando Confiança** não é sobre fazer as pessoas confiarem.
+
+É sobre construir sistemas que mereçam confiança.
+
+## Comece a ler
+
+O sumário completo está na [página inicial](/). Se preferir começar pelo texto, leia primeiro a [Introdução](/livro/introducao/) ou o [Prefácio](/livro/prefacio/).
 
 ## Design
 
@@ -23,30 +63,3 @@ O projeto editorial e visual do livro é registrado em uma página de referênci
 ## Autores
 
 Este livro é escrito por [Daniel Souza](/autores/#daniel-souza), com colaboração de [Pedro Albuquerque](/autores/#pedro-albuquerque) e [Leiliane Fagundes](/autores/#leiliane-fagundes).
-
-## Sobre o autor
-
-Executivos e líderes de design contratam Daniel Souza quando precisam escalar suas equipes de design e pesquisa, ou quando uma iniciativa de alto risco exige um líder de design com atuação prática, visão de negócios e capacidade de direcionar e integrar diversas disciplinas.
-
-Já liderou equipes de design de produto, conteúdo e serviços na Babylon Health, Farfetch, British Telecom e na Doctoralia, além de atuar em consultorias como Publicis Sapient, Isobar e Wunderman.
-
-Uma de suas principais habilidades é aumentar a produtividade das equipes, cultivando um ambiente que favorece a experimentação e a inovação.
-
-### Atualmente
-
-Parte da liderança de design no Itaú Unibanco.
-
-### Destaques
-
-**Babylon Health — DNA Design System**
-Reduziu o tempo de ideia até código em 20%, através da adoção de design systems.
-
-**Lloyds Banking Group — Commercial Servicing**
-Permitiu que empresas compartilhassem suas contas com segurança, reduzindo o tempo de uma tarefa de 18 dias para 5 horas.
-
-**Banco do Brasil**
-Somou 2 milhões de visitas mensais em 12 meses, repensando como atender clientes online.
-
----
-
-Mais sobre o trabalho de Daniel, incluindo entrevistas, palestras e workshops, em [danielsouza.com](https://danielsouza.com).

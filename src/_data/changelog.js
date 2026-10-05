@@ -14,7 +14,6 @@ const pages = {
   memoria: {label: 'Tipos de memória', url: '/notas/tipos-de-memoria/'},
   notas: {label: 'Notas', url: '/notas/'},
   home: {label: 'Home', url: '/'},
-  livro: {label: 'Livro', url: '/livro/'},
 };
 
 const metadata = new Map([
@@ -76,7 +75,7 @@ const metadata = new Map([
   ['65a7ec56c8a903ec9486008f47e6e41193cf23fd', {
     label: 'Tipografia Timeless.',
     kinds: ['design'],
-    targets: [pages.home, pages.livro, pages.design],
+    targets: [pages.home, pages.design],
   }],
   ['66a8563af2b3e12264bf40a2532ac36f600404b2', {
     label: 'Autores, design e sidenote no prefácio.',
@@ -91,12 +90,12 @@ const metadata = new Map([
   ['0307d28a5bb58526611f210010a66cb9d66a10f9', {
     label: 'Introdução e logs por página.',
     kinds: ['conteúdo', 'estrutura editorial'],
-    targets: [pages.introducao, pages.livro],
+    targets: [pages.introducao, pages.home],
   }],
   ['2fd2a01114564b2375c47842c2781acca447b6b4', {
     label: 'Referências de verificabilidade e reorganização do livro.',
     kinds: ['conteúdo', 'referências', 'estrutura editorial'],
-    targets: [pages.verificabilidade, pages.home, pages.livro],
+    targets: [pages.verificabilidade, pages.home],
   }],
   ['ef1d3899bb9fbb82ebd1c85a7e10ce8c6a5dfdeb', {
     label: 'Publicação inicial de verificabilidade.',

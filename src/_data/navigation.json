@@ -1,11 +1,6 @@
 {
   "items": [
     {
-      "text": "livro",
-      "url": "/livro/",
-      "external": false
-    },
-    {
       "text": "notas",
       "url": "/notas/",
       "external": false
