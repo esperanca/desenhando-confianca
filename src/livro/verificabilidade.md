@@ -17,13 +17,15 @@ questions:
   - Como a confiança deixa de depender apenas de quem fala?
   - O que permite examinar a base de uma afirmação, decisão ou ação?
   - Quando uma explicação não basta como prova?
-dateModified: 2026-10-04
+dateModified: 2026-10-05
 permalink: /livro/verificabilidade/
 ---
 
 Antes de definir verificabilidade, precisamos reconhecer uma dependência. Quase nada do que sabemos foi descoberto por nós. E quase nada do que fazemos depende apenas do nosso próprio trabalho.
 
-Tomamos um medicamento sem conhecer quem testou cada componente. Fazemos um pagamento sem encontrar as pessoas que mantêm a transação em funcionamento. Aceitamos um documento porque outras pessoas e instituições reconhecem a autoridade de quem o emitiu. A vida comum depende do trabalho de desconhecidos.
+A vida comum depende de conhecimento produzido, testado e mantido por desconhecidos.
+
+Fazemos um pagamento sem encontrar as pessoas que mantêm a transação em funcionamento. Aceitamos um documento porque outras pessoas e instituições reconhecem a autoridade de quem o emitiu.
 
 Também convivemos com afirmações que não podemos conferir inteiramente por conta própria. Confiamos em quem relata uma notícia, interpreta um exame, preserva um registro ou toma uma decisão que nos afeta. Mesmo quando examinamos uma evidência, dependemos de alguém que a produziu, organizou ou tornou acessível.
 
