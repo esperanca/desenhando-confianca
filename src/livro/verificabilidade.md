@@ -163,7 +163,7 @@ Reconhecer o direito de contestar, porém, não basta. Para que a contestação 
 
 > Verificabilidade não é apenas a evidência existir. É existir um caminho para chegar até ela sem depender exclusivamente da palavra de quem afirma.
 
-O caso Moffatt, apresentado anteriormente neste livro, acrescenta aqui um ponto específico. A resposta do chatbot da Air Canada continha um link para a política correta, mas dizia o contrário do que a página informava. A companhia não poderia transferir ao passageiro a responsabilidade de reconciliar duas versões incompatíveis da própria empresa. A evidência estava disponível, mas não havia sido incorporada à relação de uma maneira que permitisse formar um julgamento seguro.
+O caso Moffatt, apresentado anteriormente neste livro, acrescenta aqui um ponto específico[^7]. A resposta do chatbot da Air Canada continha um link para a política correta, mas dizia o contrário do que a página informava. A companhia não poderia transferir ao passageiro a responsabilidade de reconciliar duas versões incompatíveis da própria empresa. A evidência estava disponível, mas não havia sido incorporada à relação de uma maneira que permitisse formar um julgamento seguro.
 
 Isso não significa que as pessoas não precisem examinar aquilo que recebem. Significa que a verificabilidade não pode ser usada para deslocar a responsabilidade de quem afirma para quem depende da afirmação. Oferecer uma fonte não corrige automaticamente uma resposta que a própria fonte contradiz. O caminho precisa permitir reconhecer a divergência, localizar sua origem e obter uma resposta de quem produziu a informação.
 
@@ -213,16 +213,34 @@ Agentes podem seguir caminhos diferentes. A verificabilidade não exige trajetó
 
 A partir daqui, a pergunta muda. Já não basta definir o que um sistema deveria fazer. Precisamos perguntar que evidências devem existir para que alguém consiga demonstrar o que ele fez.
 
-[^sn-dependencia-epistemica]: **Dependência epistêmica.** John Hardwig, “Epistemic Dependence”, _The Journal of Philosophy_, v. 82, n. 7, 1985, pp. 335–349. [DOI 10.2307/2026523](https://doi.org/10.2307/2026523).
+## Referências
 
-[^sn-confianca-vulnerabilidade]: **Confiança e vulnerabilidade.** Annette Baier, “Trust and Antitrust”, _Ethics_, v. 96, n. 2, 1986, pp. 231–260. [DOI 10.1086/292745](https://doi.org/10.1086/292745).
+[^1]: HARDWIG, John. Epistemic Dependence. _The Journal of Philosophy_, v. 82, n. 7, p. 335–349, jul. 1985. DOI: [10.2307/2026523](https://doi.org/10.2307/2026523).
 
-[^sn-cooperacao-desconhecidos]: **Cooperação entre desconhecidos.** Paul Seabright, _The Company of Strangers: A Natural History of Economic Life_, Princeton University Press, 2004, edição revista em 2010; e Anthony Giddens, _As consequências da modernidade_, tradução de Raul Fiker, Editora Unesp, 2002. [Seabright](https://books.google.com/books?id=RhhwKiqpFjcC) · [Giddens](https://editoraunesp.com.br/catalogo/9788571390225,as-consequencias-da-modernidade).
+[^2]: BAIER, Annette. Trust and Antitrust. _Ethics_, v. 96, n. 2, p. 231–260, jan. 1986. DOI: [10.1086/292745](https://doi.org/10.1086/292745).
 
-[^sn-confianca-complexidade]: **Confiança e redução de complexidade.** Rodrigo Mota, “Confiança e complexidade social em Niklas Luhmann”, _Plural_, v. 23, n. 2, 2016, pp. 182–197. [DOI 10.11606/issn.2176-8099.pcso.2016.113591](https://doi.org/10.11606/issn.2176-8099.pcso.2016.113591).
+[^3]: SEABRIGHT, Paul. _The Company of Strangers: A Natural History of Economic Life_. Edição revista. Princeton: Princeton University Press, 2010.
 
-[^sn-transparencia-confiabilidade]: **Transparência e confiabilidade.** Onora O’Neill, _A Question of Trust: The BBC Reith Lectures 2002_, Cambridge University Press, 2002. Ver especialmente a quarta conferência, “Trust and Transparency”. [Cambridge University Press](https://www.cambridge.org/us/universitypress/subjects/philosophy/political-philosophy/question-trust-bbc-reith-lectures-2002?format=PB&isbn=9780521529969).
+[^4]: GIDDENS, Anthony. _As consequências da modernidade_. Tradução de Raul Fiker. São Paulo: Editora Unesp, 2002. 180 p. ISBN 978-85-7139-022-5.
 
-[^sn-fluencia-sustentacao]: **Fluência não é sustentação.** Em 2023, Nelson F. Liu, Tianyi Zhang e Percy Liang auditaram quatro buscadores generativos. Apenas 51,5% das frases estavam inteiramente sustentadas pelas citações apresentadas; somente 74,5% das citações sustentavam a frase associada. [DOI 10.18653/v1/2023.findings-emnlp.467](https://doi.org/10.18653/v1/2023.findings-emnlp.467).
+[^5]: MOTA, Rodrigo. Confiança e complexidade social em Niklas Luhmann. _Plural_, São Paulo, v. 23, n. 2, p. 182–197, 2016. DOI: [10.11606/issn.2176-8099.pcso.2016.113591](https://doi.org/10.11606/issn.2176-8099.pcso.2016.113591).
+
+[^6]: O’NEILL, Onora. _A Question of Trust: The BBC Reith Lectures 2002_. Cambridge: Cambridge University Press, 2002. ISBN 978-0-521-52996-9. Conferência 4, “Trust and Transparency”, disponível em: [BBC](https://downloads.bbc.co.uk/rmhttp/radio4/transcripts/20020427_reith.pdf).
+
+[^7]: BRITISH COLUMBIA CIVIL RESOLUTION TRIBUNAL. _Moffatt v. Air Canada_, 2024 BCCRT 149, 14 fev. 2024. Disponível em: [CanLII](https://www.canlii.org/en/bc/bccrt/doc/2024/2024bccrt149/2024bccrt149.html).
+
+[^8]: LIU, Nelson F.; ZHANG, Tianyi; LIANG, Percy. Evaluating Verifiability in Generative Search Engines. In: _Findings of the Association for Computational Linguistics: EMNLP 2023_. Singapore: Association for Computational Linguistics, 2023. p. 7001–7025. DOI: [10.18653/v1/2023.findings-emnlp.467](https://doi.org/10.18653/v1/2023.findings-emnlp.467).
+
+[^sn-dependencia-epistemica]: **Dependência epistêmica.** John Hardwig, “Epistemic Dependence”, _The Journal of Philosophy_, v. 82, n. 7, 1985, pp. 335–349. [DOI 10.2307/2026523](https://doi.org/10.2307/2026523). Ver referência [^1].
+
+[^sn-confianca-vulnerabilidade]: **Confiança e vulnerabilidade.** Annette Baier, “Trust and Antitrust”, _Ethics_, v. 96, n. 2, 1986, pp. 231–260. [DOI 10.1086/292745](https://doi.org/10.1086/292745). Ver referência [^2].
+
+[^sn-cooperacao-desconhecidos]: **Cooperação entre desconhecidos.** Paul Seabright, _The Company of Strangers: A Natural History of Economic Life_, Princeton University Press, 2004, edição revista em 2010; e Anthony Giddens, _As consequências da modernidade_, tradução de Raul Fiker, Editora Unesp, 2002. [Seabright](https://books.google.com/books?id=RhhwKiqpFjcC) · [Giddens](https://editoraunesp.com.br/catalogo/9788571390225,as-consequencias-da-modernidade). Ver referências [^3] e [^4].
+
+[^sn-confianca-complexidade]: **Confiança e redução de complexidade.** Rodrigo Mota, “Confiança e complexidade social em Niklas Luhmann”, _Plural_, v. 23, n. 2, 2016, pp. 182–197. [DOI 10.11606/issn.2176-8099.pcso.2016.113591](https://doi.org/10.11606/issn.2176-8099.pcso.2016.113591). Ver referência [^5].
+
+[^sn-transparencia-confiabilidade]: **Transparência e confiabilidade.** Onora O’Neill, _A Question of Trust: The BBC Reith Lectures 2002_, Cambridge University Press, 2002. Ver especialmente a quarta conferência, “Trust and Transparency”. [Cambridge University Press](https://www.cambridge.org/us/universitypress/subjects/philosophy/political-philosophy/question-trust-bbc-reith-lectures-2002?format=PB&isbn=9780521529969). Ver referência [^6].
+
+[^sn-fluencia-sustentacao]: **Fluência não é sustentação.** Em 2023, Nelson F. Liu, Tianyi Zhang e Percy Liang auditaram quatro buscadores generativos. Apenas 51,5% das frases estavam inteiramente sustentadas pelas citações apresentadas; somente 74,5% das citações sustentavam a frase associada. [DOI 10.18653/v1/2023.findings-emnlp.467](https://doi.org/10.18653/v1/2023.findings-emnlp.467). Ver referência [^8].
 
 [^sn-variacao-aceitavel]: **Variação aceitável.** Duas execuções podem variar na linguagem, na ordem das consultas ou em etapas intermediárias sem violar o comportamento esperado. Verificar não significa exigir o mesmo percurso, mas examinar se as condições relevantes foram preservadas.

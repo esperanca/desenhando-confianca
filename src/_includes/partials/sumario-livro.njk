@@ -11,6 +11,7 @@
 </ul>
 {% endmacro %}
 
+{#- Capítulos do livro: sumário + partes + seções adicionais. Sem notas. -#}
 <h2 id="sumario-do-livro">Sumário do livro</h2>
 {{ itemList(sumario.intro, collections.chapters) }}
 
@@ -21,10 +22,3 @@
 
 <h3>{{ sumario.additional.title }}</h3>
 {{ itemList(sumario.additional.items, collections.chapters) }}
-
-<h2 id="notas-e-links-complementares">Notas e links complementares</h2>
-<ul class="toc-list">
-  {% for note in sumario.notes %}
-  <li><a href="{{ note.url }}">{{ note.title }}</a> — {{ note.description }}</li>
-  {% endfor %}
-</ul>

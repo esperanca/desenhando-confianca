@@ -1,0 +1,7 @@
+{#- Notas complementares: só na home, não na página /livro/. -#}
+<h2 id="notas-e-links-complementares">Notas e links complementares</h2>
+<ul class="toc-list">
+  {% for note in sumario.notes %}
+  <li><a href="{{ note.url }}">{{ note.title }}</a> — {{ note.description }}</li>
+  {% endfor %}
+</ul>
