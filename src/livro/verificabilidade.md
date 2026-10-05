@@ -35,7 +35,7 @@ O filósofo John Hardwig chamou essa condição de dependência epistêmica. Mui
 
 O mesmo vale para a cooperação. Se dependêssemos apenas de relações pessoais para negociar, produzir ou compartilhar responsabilidades, seria difícil coordenar ações entre desconhecidos.
 
-Confiar é uma resposta prática a essa condição. Aceitamos uma informação, uma orientação, uma promessa ou uma ação sem refazer todo o caminho que levou até ela. Isso nos permite agir. Também nos deixa vulneráveis. Quem informa pode mentir, omitir, interpretar mal ou simplesmente não saber tanto quanto parece.
+Confiar é uma resposta prática e necessária ao fato de que dependemos do conhecimento e das ações de outras pessoas. Agimos a partir de informações, orientações, promessas e decisões sem refazer por conta própria todo o caminho que levou até elas. Isso nos permite agir. Também nos deixa vulneráveis. Quem informa pode mentir, omitir, interpretar mal ou simplesmente não saber tanto quanto parece.
 
 Por isso, a confiança nunca é apenas uma crença sobre o outro. Ela envolve colocar algo sob o cuidado, o conhecimento ou a autoridade de alguém. Annette Baier descreveu essa vulnerabilidade como parte constitutiva da confiança: confiamos quando permitimos que outra pessoa tenha algum poder sobre algo que nos importa.[^sn-confianca-vulnerabilidade]
 
