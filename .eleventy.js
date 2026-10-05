@@ -79,6 +79,10 @@ function toIndexEntry(item) {
 module.exports = function (eleventyConfig) {
   eleventyConfig.setLibrary('md', markdownLibrary);
 
+  eleventyConfig.addGlobalData('build', () => ({
+    internal: process.env.INCLUDE_DRAFTS === 'true',
+  }));
+
   // Eleventy não trata `draft` como uma chave especial por padrão. Esta
   // implementação segue o padrão oficial do Eleventy Base Blog: rascunhos
   // aparecem no `--serve`, mas são removidos do build público.

@@ -9,6 +9,11 @@
       "text": "sobre",
       "url": "/sobre-o-livro/",
       "external": false
+    },
+    {
+      "text": "autores",
+      "url": "/autores/",
+      "external": false
     }
   ]
 }

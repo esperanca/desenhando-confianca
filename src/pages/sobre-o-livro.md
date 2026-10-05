@@ -16,6 +16,18 @@ O livro é dirigido a quem faz design — no sentido de projetar — e não pres
 
 Está estruturado em três partes: uma introdução teórica sobre as qualidades de um sistema confiável, um conjunto de práticas para desenhar confiança no dia a dia, e um catálogo de padrões de interface para jornadas generativas. Ao longo do texto, notas de rodapé e páginas complementares aprofundam conceitos específicos para quem quiser ir além.
 
+{% if build.internal %}
+
+## Design
+
+O projeto editorial e visual do livro é registrado em uma área interna de trabalho: [Design](/design/).
+
+{% endif %}
+
+## Autores
+
+Este livro é escrito por [Daniel Souza](/autores/#daniel-souza), com colaboração de [Pedro Albuquerque](/autores/#pedro-albuquerque) e [Leiliane Fagundes](/autores/#leiliane-fagundes).
+
 ## Sobre o autor
 
 Executivos e líderes de design contratam Daniel Souza quando precisam escalar suas equipes de design e pesquisa, ou quando uma iniciativa de alto risco exige um líder de design com atuação prática, visão de negócios e capacidade de direcionar e integrar diversas disciplinas.
