@@ -31,9 +31,9 @@ Também convivemos com afirmações que não podemos conferir inteiramente por c
 
 Essa dependência não é um problema que desaparece à medida que sabemos mais. É uma condição do conhecimento e da vida em sociedade. Ninguém consegue observar tudo, dominar todos os assuntos ou acompanhar cada ação da qual depende. Conhecemos e agimos no mundo com tempo limitado, atenção limitada e acesso desigual ao que aconteceu.
 
-O filósofo John Hardwig chamou parte desse problema de dependência epistêmica. Muito do que uma pessoa pode conhecer depende do trabalho cognitivo de outras. Uma sociedade composta por pessoas que só aceitassem aquilo que conseguiram provar sozinhas saberia muito pouco.[^sn-dependencia-epistemica]
+O filósofo John Hardwig chamou essa condição de dependência epistêmica. Muito do que podemos conhecer depende do conhecimento de outras pessoas. Se cada um aceitasse apenas aquilo que pudesse provar sozinho, saberíamos muito pouco.[^sn-dependencia-epistemica]
 
-O mesmo vale para a cooperação. Uma sociedade em que as pessoas só negociassem, produzissem ou compartilhassem responsabilidades com quem conhecem pessoalmente conseguiria realizar muito pouco.
+O mesmo vale para a cooperação. Se dependêssemos apenas de relações pessoais para negociar, produzir ou compartilhar responsabilidades, seria difícil coordenar ações entre desconhecidos.
 
 Confiar é uma resposta prática a essa condição. Aceitamos uma informação, uma orientação, uma promessa ou uma ação sem refazer todo o caminho que levou até ela. Isso nos permite agir. Também nos deixa vulneráveis. Quem informa pode mentir, omitir, interpretar mal ou simplesmente não saber tanto quanto parece.
 
