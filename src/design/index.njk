@@ -1,8 +1,7 @@
 ---
 title: Design
 metaTitle: Design — Desenhando Confiança
-metaDesc: Log do projeto de design do livro Desenhando Confiança.
-internalOnly: true
+metaDesc: Referência central do projeto de design do livro Desenhando Confiança.
 permalink: /design/
 ---
 
@@ -11,29 +10,39 @@ permalink: /design/
 {% block content %}
 <main id="main-content" tabindex="-1">
   <div class="reading-shell">
-    <p class="eyebrow">Área interna</p>
+    <p class="eyebrow">Referência central</p>
     <h1>Design</h1>
-    <p class="lede">Esta é a primeira página do diário de design de <em>Desenhando Confiança</em>.</p>
+    <p class="lede">Referência central do projeto de design de <em>Desenhando Confiança</em>.</p>
 
-    <p>O livro está sendo escrito junto com sua forma. Por isso, esta área registra decisões sobre leitura, layout, tipografia, sidenotes, referências, navegação e publicação. O objetivo não é apenas documentar tarefas técnicas, mas preservar o raciocínio editorial por trás da experiência de leitura.</p>
+    <p>O livro está sendo escrito junto com sua forma. Por isso, esta página reúne decisões sobre leitura, layout, tipografia, sidenotes, referências, navegação e publicação. O objetivo não é apenas documentar tarefas técnicas, mas preservar o raciocínio editorial por trás da experiência de leitura.</p>
 
-    <p>As notas abaixo ficam abertas durante o desenvolvimento. Elas ajudam a separar o que pertence ao texto do livro, o que pertence à arquitetura editorial e o que pertence à implementação do site.</p>
+    <p>As notas de design ajudam a separar o que pertence ao texto do livro, o que pertence à arquitetura editorial e o que pertence à implementação do site.</p>
 
-    <p><strong>Importante:</strong> esta seção é interna. Ela aparece no build de revisão, mas não faz parte do site público.</p>
-
-    <h2>Em aberto</h2>
+    <h2>Notas de design</h2>
 
     <ul class="content-list">
       <li>
+        {% if build.internal %}
         <a href="/design/implementacao-do-layout-das-paginas/">Implementação do layout das páginas</a>
+        {% else %}
+        <strong>Implementação do layout das páginas</strong>
+        {% endif %}
         <p><span class="status-tag status-tag--internal-review">Revisão interna</span> Registro do trabalho de layout das páginas do livro.</p>
       </li>
       <li>
+        {% if build.internal %}
         <a href="/design/correcao-e-criacao-dos-sidenotes/">Correção e criação dos sidenotes</a>
+        {% else %}
+        <strong>Correção e criação dos sidenotes</strong>
+        {% endif %}
         <p><span class="status-tag status-tag--internal-review">Revisão interna</span> Registro do trabalho de correção e criação dos sidenotes.</p>
       </li>
       <li>
+        {% if build.internal %}
         <a href="/design/criar-plugin-de-sidenotes/">Criar plugin de sidenotes</a>
+        {% else %}
+        <strong>Criar plugin de sidenotes</strong>
+        {% endif %}
         <p><span class="status-tag status-tag--internal-review">Revisão interna</span> Registro do trabalho de criação do plugin de sidenotes.</p>
       </li>
     </ul>

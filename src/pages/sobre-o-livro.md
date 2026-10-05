@@ -16,13 +16,9 @@ O livro é dirigido a quem faz design — no sentido de projetar — e não pres
 
 Está estruturado em três partes: uma introdução teórica sobre as qualidades de um sistema confiável, um conjunto de práticas para desenhar confiança no dia a dia, e um catálogo de padrões de interface para jornadas generativas. Ao longo do texto, notas de rodapé e páginas complementares aprofundam conceitos específicos para quem quiser ir além.
 
-{% if build.internal %}
-
 ## Design
 
-O projeto editorial e visual do livro é registrado em uma área interna de trabalho: [Design](/design/).
-
-{% endif %}
+O projeto editorial e visual do livro é registrado em uma página de referência central: [Design](/design/).
 
 ## Autores
 
