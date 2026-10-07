@@ -92,14 +92,16 @@ npm run build:internal
 
 # 7. Rode os testes do plugin de notas
 npm test
+
+# 8. Rode a verificação completa usada antes de publicar
+npm run verify
 ```
 
 ## Deploy (Cloudflare Pages)
 
 ```bash
-# Publica o build público (dist/) via upload direto
-npm run build
-npx wrangler pages deploy dist --project-name desenhando-confianca
+# Verifica, gera o build público e publica via upload direto
+npm run deploy
 ```
 
 Projeto: `desenhando-confianca` · URL: https://desenhando-confianca.pages.dev
@@ -107,13 +109,42 @@ Projeto: `desenhando-confianca` · URL: https://desenhando-confianca.pages.dev
 O deploy é manual via `wrangler pages deploy`. Não há integração
 Pages↔GitHub configurada, e nenhum domínio próprio apontado.
 
-## Log de design
+## Rotina para agentes
 
-A pasta `src/design/` registra o projeto de design do livro. Os arquivos
-são internos (`status: internal-review`, `draft: true`): aparecem no
-servidor local e no build interno (`/design/`), mas ficam fora do site
-público. Cada item tem seção "Em aberto" com as pendências.
+Use estes comandos para padronizar a atualização do site:
 
-Capítulos e páginas do livro exibem "Log de mudanças" após as Referências
-(última alteração do arquivo + releases da época, via git). A home exibe
-o "Log" geral no final da página (último commit do repo + todas as tags).
+```bash
+# Verifica tudo antes de commit/deploy:
+# - npm test
+# - build público
+# - links internos do build público
+# - build interno
+# - links internos do build interno
+npm run verify
+
+# Publica o build público no Cloudflare Pages
+npm run deploy
+
+# Fecha uma rodada com tag, rebuild, deploy e push de main+tags
+npm run release -- v0.6.0 "Resumo da rodada"
+```
+
+Regras operacionais:
+
+- Faça commits pequenos e coerentes antes de fechar uma rodada.
+- Só rode `npm run release -- vX.Y.Z` com a árvore git limpa.
+- Depois de cada commit+push, informe o link do commit.
+- Depois de cada release, informe também a tag criada.
+- A tag precisa existir antes do build final para os logs mostrarem a versão em vez de `Ainda não lançada`.
+
+## Design e logs
+
+A página `/design/` é pública e funciona como referência central do projeto
+editorial e visual do livro. Os arquivos filhos em `src/design/` seguem como
+itens de revisão interna (`status: internal-review`, `draft: true`) e aparecem
+no build interno.
+
+Capítulos e páginas exibem "Log de mudanças" específico do arquivo, agrupado
+por dia, com autor, link para commit e versão. A home exibe o log global do
+projeto, com a frase `Mudanças de [tipo(s)] em [página(s)/área(s)]`, sempre
+linkando páginas públicas citadas.

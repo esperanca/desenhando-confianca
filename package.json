@@ -15,7 +15,12 @@
     "start": "eleventy --serve",
     "build": "npm run clean && eleventy",
     "build:internal": "npm run clean:internal && INCLUDE_DRAFTS=true eleventy --output=dist-internal",
-    "test": "node --test"
+    "test": "node --test",
+    "check:links": "node scripts/check-links.js dist",
+    "check:links:internal": "node scripts/check-links.js dist-internal",
+    "verify": "node scripts/verify.js",
+    "deploy": "node scripts/deploy.js",
+    "release": "node scripts/release.js"
   },
   "overrides": {
     "markdown-it": "15.0.2",
