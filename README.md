@@ -5,6 +5,8 @@ Site e manuscrito do livro "Desenhando Confiança", sobre design, IA e confianç
 Site público: https://desenhando-confianca.pages.dev
 Repositório: https://github.com/esperanca/desenhando-confianca
 
+Agentes devem ler `AGENTS.md` antes de editar, validar, publicar ou fechar releases.
+
 O conteúdo principal vive em arquivos Markdown portáteis. Eles podem ser lidos diretamente no GitHub, Obsidian ou qualquer editor de texto, e publicados com Eleventy.
 
 ## Estrutura
