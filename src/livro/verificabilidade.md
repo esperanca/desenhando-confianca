@@ -67,17 +67,13 @@ A passagem da confiança pessoal para a institucional, portanto, não resolve a 
 
 ## O que permanece depois do encontro
 
-Voltemos à padaria. Desta vez, a compra é paga por Pix. A pessoa que compra confere o valor e o destinatário antes de confirmar. A pessoa que vende verifica se o dinheiro foi creditado. As duas não recebem necessariamente a mesma tela nem têm acesso às mesmas informações, mas cada uma conserva um registro correspondente da transação.
+Voltemos à padaria. Desta vez, a compra é paga por Pix. O comprador confere o valor e o destinatário antes de confirmar. O vendedor verifica se o dinheiro foi creditado. Ambos não veem a mesma tela nem têm acesso às mesmas informações. Mas cada um conserva um registro correspondente da transação. O pagamento deixa rastros: valor, horário, identificação das partes e instituições. Em caso de divergência, não é preciso reconstruir o ocorrido apenas pela memória ou reputação do caixa. Há registros para comparação e, se necessário, contestação.
 
-O pagamento deixa marcas que sobrevivem ao encontro: valor, horário, identificação das partes e instituições envolvidas. Se surgir uma divergência, o que aconteceu não precisa ser reconstruído apenas pela memória ou pela reputação de quem estava no caixa. Há registros que podem ser comparados e, em determinadas situações, examinados por outras pessoas.
-
-Isso não torna a transação infalível. O valor pode ter sido digitado errado. O destinatário pode estar incorreto. Um registro pode ser mal interpretado. A instituição pode falhar ao responder. O Pix não elimina a necessidade de confiança; ele muda onde essa confiança se apoia.
-
-Na entrega do troco, confiamos sobretudo nas pessoas presentes e naquilo que elas conseguem observar naquele momento. No Pix, parte da confiança se desloca para regras, registros, identificadores e procedimentos que continuam existindo depois da compra. A confiança torna-se menos dependente de familiaridade pessoal e mais dependente da qualidade das instituições que preservam e interpretam essas evidências.
+Isso não torna a transação infalível. O valor pode ser digitado errado, o destinatário incorreto, um registro mal interpretado ou a instituição pode falhar. O Pix não elimina a necessidade de confiança; ele a realoca. Na entrega do troco, confiamos nas pessoas presentes e no que elas observam no momento. No Pix, parte da confiança se desloca para regras, registros, identificadores e procedimentos que persistem após a compra. A confiança se torna menos dependente da familiaridade pessoal e mais da qualidade das instituições que preservam e interpretam essas evidências.
 
 > Verificabilidade é a qualidade de uma afirmação, decisão ou ação cuja base relevante — razões, evidências, critérios e limites — pode ser examinada por caminhos proporcionais ao seu impacto. Esse exame pode sustentar confirmação, contestação ou revisão, mas não garante nenhuma delas.
 
-A definição é mais modesta do que uma promessa de verdade. Algo verificável não é necessariamente correto, justo ou legítimo. Significa que existe uma forma real de investigar sua base, avaliar seus limites e descobrir se as conclusões tiradas a partir dela permanecem de pé.
+Algo verificável não é necessariamente correto, justo ou legítimo. Significa que existe uma forma real de investigar sua base, avaliar seus limites e descobrir se as conclusões tiradas a partir dela permanecem de pé.
 
 A verificabilidade também não substitui a confiança. Se tivéssemos de conferir pessoalmente cada registro e refazer cada cálculo antes de agir, voltaríamos ao problema inicial. O que ela oferece é uma confiança menos dependente da presença, do carisma ou da autoridade de uma única pessoa. Uma afirmação pode sobreviver ao encontro. Uma decisão pode ser reconstruída. Uma autoridade pode ser questionada sem que tudo se reduza à palavra de um contra a do outro.[^sn-confianca-complexidade]
 
