@@ -1,4 +1,13 @@
 @font-face {
+  font-family: 'Timeless Text';
+  src: url('/assets/fonts/TimelessSerifVF.woff2') format('woff2'),
+       url('/assets/fonts/TimelessSerifVF.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Timeless Serif';
   src: url('/assets/fonts/TimelessSerifVF.woff2') format('woff2'),
        url('/assets/fonts/TimelessSerifVF.woff') format('woff');
@@ -31,7 +40,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font-size: 1.0625rem; line-height: 1.65; text-rendering: optimizeLegibility; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font-size: 1.125rem; line-height: 1.65; text-rendering: optimizeLegibility; }
 main { flex: 1; }
 a { color: inherit; text-decoration-thickness: .07em; text-underline-offset: .14em; }
 a:hover { text-decoration-thickness: .13em; }
@@ -77,7 +86,7 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .book-header { padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
 .book-header h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); }
 .book-meta { margin-top: 1rem; color: var(--muted); }
-.book-body { position: relative; margin-top: 3rem; font-size: 1.125rem; }
+.book-body { position: relative; margin-top: 3rem; }
 .book-body > :first-child { margin-top: 0; }
 .book-body blockquote { margin-left: 0; padding-left: 1.25rem; border-left: 2px solid var(--ink); }
 .book-body hr { margin-block: 3rem; border: 0; border-top: 1px solid var(--line); }
