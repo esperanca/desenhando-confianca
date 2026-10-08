@@ -63,6 +63,32 @@ Com a árvore Git limpa, cria uma tag anotada, valida tudo, publica e faz push d
 
 Use release apenas quando o usuário pedir fechamento de versão. A tag precisa existir antes do build final para os logs mostrarem a versão em vez de `Ainda não lançada`.
 
+## Automação de publicação
+
+Há um workflow versionado em `.github/workflows/twice-daily-release.yml`.
+
+Ele roda duas vezes por dia, às 12:00 e 21:00 UTC (aproximadamente 09:00 e 18:00 em Brasília), e também pode ser acionado manualmente no GitHub Actions.
+
+Comportamento:
+
+- busca histórico e tags completos;
+- verifica se há commits desde a última tag `vX.Y.Z`;
+- se não houver commits novos, encerra sem build/deploy;
+- se houver, cria a próxima versão patch;
+- cria a tag antes do build para os logs exibirem a versão correta;
+- roda `npm run verify`;
+- publica `dist/` no Cloudflare Pages;
+- envia a tag para o GitHub.
+
+Secrets necessários no GitHub Actions:
+
+```text
+CLOUDFLARE_API_TOKEN
+CLOUDFLARE_ACCOUNT_ID
+```
+
+Não adicione deploy automático em todo push sem alinhamento explícito com o usuário. A estratégia atual é publicar em dois fechamentos diários para economizar builds e evitar exibir `Ainda não lançada` no site público por longos períodos.
+
 ## Logs editoriais
 
 O projeto tem dois níveis de log.

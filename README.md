@@ -108,8 +108,35 @@ npm run deploy
 
 Projeto: `desenhando-confianca` · URL: https://desenhando-confianca.pages.dev
 
-O deploy é manual via `wrangler pages deploy`. Não há integração
-Pages↔GitHub configurada, e nenhum domínio próprio apontado.
+O deploy manual usa `wrangler pages deploy`. Além disso, há uma automação no
+GitHub Actions que fecha e publica alterações pendentes duas vezes por dia.
+Não há integração Pages↔GitHub configurada, e nenhum domínio próprio apontado.
+
+## Automação de publicação
+
+O workflow `.github/workflows/twice-daily-release.yml` roda às 12:00 e 21:00
+UTC, aproximadamente 09:00 e 18:00 no horário de Brasília. Ele também pode ser
+executado manualmente pelo GitHub Actions (`workflow_dispatch`).
+
+A automação:
+
+1. baixa o histórico completo e as tags (`fetch-depth: 0`);
+2. verifica se há commits desde a última tag `vX.Y.Z`;
+3. se não houver commits novos, encerra sem build/deploy;
+4. se houver, cria a próxima versão patch;
+5. cria a tag antes do build, para os logs exibirem a versão correta;
+6. roda `npm run verify`;
+7. publica `dist/` no Cloudflare Pages;
+8. envia a tag para o GitHub.
+
+Para funcionar, configure estes secrets em `Settings → Secrets and variables → Actions`:
+
+```text
+CLOUDFLARE_API_TOKEN
+CLOUDFLARE_ACCOUNT_ID
+```
+
+O workflow tem `permissions: contents: write` para conseguir enviar tags.
 
 ## Rotina para agentes
 
@@ -138,6 +165,7 @@ Regras operacionais:
 - Depois de cada commit+push, informe o link do commit.
 - Depois de cada release, informe também a tag criada.
 - A tag precisa existir antes do build final para os logs mostrarem a versão em vez de `Ainda não lançada`.
+- A release automática duas vezes por dia só publica quando há commits novos desde a última tag.
 
 ## Design e logs
 
