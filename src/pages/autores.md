@@ -18,7 +18,7 @@ Mais sobre o trabalho de Daniel em [danielsouza.com](https://danielsouza.com).
 Leiliane Fagundes é escritora, especialistas em gestão de processos e
 co-autora de *Desenhando Confiança*. 
 
-## Pedro Albuquerque {#pedro-albuquerque}
+## Pedro de Albuquerque {#pedro-albuquerque}
 
-Pedro Albuquerque é designer, provocateaur e o primeiro co-criador convidado
+Pedro de Albuquerque é designer, provocateaur e o primeiro co-criador convidado
 a participar de *Desenhando Confiança*. 
