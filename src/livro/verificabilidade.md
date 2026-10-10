@@ -39,11 +39,11 @@ Confiar é uma resposta prática e necessária ao fato de que dependemos do conh
 
 Por isso, a confiança nunca é apenas uma crença sobre o outro. Ela envolve colocar algo sob o cuidado, o conhecimento ou a autoridade de alguém. Annette Baier descreveu essa vulnerabilidade como parte constitutiva da confiança: confiamos quando permitimos que outra pessoa tenha algum poder sobre algo que nos importa.[^sn-confianca-vulnerabilidade]
 
-## Quando conhecemos quem fala
+## Quem conhecemos
 
 Nas relações próximas, parte dessa vulnerabilidade é sustentada pela confiança pessoal. Conhecemos quem fala. Lembramos como essa pessoa agiu antes. Podemos perguntar novamente, perceber hesitações e cobrar uma promessa. A história da relação participa da avaliação daquilo que foi dito.
 
-Pense em uma compra pequena numa padaria do bairro. Você entrega uma nota, recebe o pão e confere o troco. A pessoa do caixa acompanha a mesma transação. Se houver uma diferença, vocês podem contar o dinheiro outra vez, reconstruir o que aconteceu e, talvez, resolver o problema ali mesmo.
+Imagine a última vez que você fez uma compra pequena numa padaria do bairro. Você entrega uma nota, recebe o pão e confere o troco. A pessoa do caixa acompanha a mesma transação. Se houver uma diferença, vocês podem contar o dinheiro outra vez, reconstruir o que aconteceu e, talvez, resolver o problema ali mesmo.
 
 Nessa situação, a verificação é imediata e local. O dinheiro está diante das duas pessoas. O valor é pequeno. A relação talvez seja antiga. Há pouco motivo para produzir um registro permanente de cada passo. A confiança pessoal é suficiente porque o risco é baixo, a ação é simples e o possível erro ainda pode ser corrigido.
 
