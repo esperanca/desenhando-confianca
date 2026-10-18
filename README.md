@@ -108,15 +108,14 @@ npm run deploy
 
 Projeto: `desenhando-confianca` · URL: https://desenhando-confianca.pages.dev
 
-O deploy manual usa `wrangler pages deploy`. Além disso, há uma automação no
-GitHub Actions que fecha e publica alterações pendentes duas vezes por dia.
+O deploy usa `wrangler pages deploy`. Há também um workflow manual no GitHub
+Actions para fechar e publicar alterações pendentes quando solicitado.
 Não há integração Pages↔GitHub configurada, e nenhum domínio próprio apontado.
 
-## Automação de publicação
+## Fechamento manual pelo GitHub Actions
 
-O workflow `.github/workflows/twice-daily-release.yml` roda às 12:00 e 21:00
-UTC, aproximadamente 09:00 e 18:00 no horário de Brasília. Ele também pode ser
-executado manualmente pelo GitHub Actions (`workflow_dispatch`).
+O workflow `.github/workflows/twice-daily-release.yml` não tem agendamento.
+Ele só é executado manualmente pelo GitHub Actions (`workflow_dispatch`).
 
 A automação:
 
@@ -165,7 +164,7 @@ Regras operacionais:
 - Depois de cada commit+push, informe o link do commit.
 - Depois de cada release, informe também a tag criada.
 - A tag precisa existir antes do build final para os logs mostrarem a versão em vez de `Ainda não lançada`.
-- A release automática duas vezes por dia só publica quando há commits novos desde a última tag.
+- Não há execução automática agendada. Releases devem ser solicitadas e acionadas manualmente.
 
 ## Design e logs
 

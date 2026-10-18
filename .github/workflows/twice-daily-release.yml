@@ -1,16 +1,13 @@
-name: Twice daily release
+name: Manual release
 
 on:
   workflow_dispatch:
-  schedule:
-    # 09:00 and 18:00 in Brasília time (UTC-3).
-    - cron: "0 12,21 * * *"
 
 permissions:
   contents: write
 
 concurrency:
-  group: twice-daily-release
+  group: manual-release
   cancel-in-progress: false
 
 jobs:
