@@ -122,13 +122,15 @@ Os agentes de IA tornam essa questão mais complexa.
 
 Uma interface convencional costuma oferecer operações delimitadas: você solicita uma informação, o sistema executa uma sequência relativamente conhecida e apresenta um resultado.
 
-Um agente pode receber um objetivo mais amplo — como planejar férias de dezembro na Bahia — e definir parte das atividades necessárias para alcançá-lo. Pode consultar fontes, utilizar ferramentas e interagir com outros sistemas, pessoas e serviços. Em alguns casos, pode executar operações que não foram individualmente escolhidas por você.
+Um agente pode receber um objetivo mais amplo — por exemplo, organizar férias de dezembro na Bahia — e definir parte das atividades necessárias para alcançá-lo. Pode consultar fontes, utilizar ferramentas e interagir com outros sistemas, pessoas e serviços. Em alguns casos, pode executar operações que não foram individualmente escolhidas por você.
 
-Essa delegação amplia as consequências. As interações podem acontecer de forma assíncrona, e os erros podem ter impacto maior. Precisamos decidir o que atravessa a linha de visibilidade, em que momento e com qual nível de detalhe.
+Essa delegação amplia as consequências. As interações podem acontecer de forma assíncrona, e os erros podem ter impacto maior. Por isso, precisamos decidir o que atravessa a linha de visibilidade, em que momento e com qual nível de detalhe.
 
-Também precisamos definir quais aspectos do sistema e da relação do cliente com o agente devem ser intencionalmente transparentes. Identidade, escopo, limites e autonomia são informações fundamentais.
+Na prática, isso significa escolher quais aspectos do trabalho do agente devem se tornar visíveis para o cliente: o processo em curso, o estado do serviço e o resultado entregue. Essas informações podem aparecer no instante da ação, em atualizações ou em um registro para ser consultado posteriormente.
 
-Equilíbrio é a palavra de ordem. Mostrar demais pode sobrecarregar o cliente. Mostrar muito pouco pode prejudicar a compreensão e a calibração da confiança.
+A maneira como o agente se apresenta e se relaciona com o cliente também deve ser intencionalmente transparente. Identidade, escopo, limites e grau de autonomia são aspectos que precisam ficar claros.
+
+Equilíbrio é a palavra de ordem. Mostrar demais pode sobrecarregar o cliente; mostrar muito pouco pode prejudicar a compreensão e a calibração da confiança.
 
 Transparência, explicabilidade, verificabilidade e compreensibilidade caminham juntas. No próximo capítulo, vamos falar de explicabilidade e de como ajudar as pessoas a entender as decisões e ações de um agente.
 
