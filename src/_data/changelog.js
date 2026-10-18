@@ -7,6 +7,7 @@ const pages = {
   design: {label: 'Design', url: '/design/'},
   introducao: {label: 'Introdução', url: '/livro/introducao/'},
   prefacio: {label: 'Prefácio', url: '/livro/prefacio/'},
+  transparencia: {label: 'Transparência', url: '/livro/transparencia/'},
   verificabilidade: {label: 'Verificabilidade', url: '/livro/verificabilidade/'},
   autores: {label: 'Autores', url: '/autores/'},
   sobre: {label: 'Sobre o livro', url: '/sobre-o-livro/'},
