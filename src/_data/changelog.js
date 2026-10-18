@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['2ec9498a6b0868d0d25400e97d04e2ec05d9e36a', {
+    label: 'Distinção entre transparência da informação e transparência operacional.',
+    kinds: ['conteúdo', 'referências'],
+    targets: [pages.transparencia],
+  }],
   ['1c089d7e15befa0f63232d482707171ebe4ffc2d', {
     label: 'Versão final do capítulo sobre transparência.',
     kinds: ['conteúdo', 'estrutura editorial'],
