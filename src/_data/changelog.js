@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['1c089d7e15befa0f63232d482707171ebe4ffc2d', {
+    label: 'Versão final do capítulo sobre transparência.',
+    kinds: ['conteúdo', 'estrutura editorial'],
+    targets: [pages.transparencia],
+  }],
   ['ea809ad4026fcc447fd74f50f11cad3be7bd8dd6', {
     label: 'Dilema da delegação e visibilidade do trabalho dos agentes.',
     kinds: ['conteúdo'],
