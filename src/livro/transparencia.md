@@ -4,7 +4,7 @@ title: Transparência
 summary: O que um serviço precisa tornar visível para que as pessoas compreendam o que está acontecendo.
 type: chapter
 informationType: concept
-status: review
+status: published
 order: 30
 tags:
   - chapter
@@ -27,9 +27,9 @@ Para discutir transparência, precisamos considerar duas lentes: a transparênci
 
 ## Transparência da informação
 
-A **transparência da informação** diz respeito ao que é comunicado sobre o serviço.
+A **transparência da informação** diz respeito a quais informações sobre o serviço são comunicadas e a como elas ajudam a compreendê-lo.
 
-No contexto de governos e políticas públicas, a Lei de Acesso à Informação estabelece que qualquer pessoa pode solicitar informações públicas aos órgãos e entidades abrangidos pela lei. A publicidade é a regra; o sigilo, a exceção. A informação deve ser oferecida de maneira transparente, clara e em linguagem de fácil compreensão.[^1]
+No Brasil, a lei protege esse direito. A Lei de Acesso à Informação assegura a qualquer pessoa o direito de solicitar informações públicas aos órgãos e entidades abrangidos pela lei e determina que elas sejam oferecidas de forma transparente, clara e em linguagem de fácil compreensão. A publicidade é a regra; o sigilo, a exceção.[^1] Nas relações de consumo, o Código de Defesa do Consumidor garante o direito a informações adequadas e claras sobre produtos e serviços.[^2]
 
 No uso cotidiano de serviços, a transparência da informação ajuda o cliente a entender o que é oferecido, quem pode utilizar o serviço e quais condições se aplicam. Isso inclui, por exemplo, critérios de elegibilidade, custos, prazos e o que está incluído na contratação.
 
@@ -37,9 +37,9 @@ Essas informações permitem avaliar se o serviço atende a uma necessidade e aj
 
 ## Transparência operacional
 
-Enquanto a transparência da informação trata do que precisamos saber **sobre** um serviço, a **transparência operacional** torna visível como ele funciona. Ela ajuda o cliente a compreender o trabalho realizado para atendê-lo, mesmo quando esse trabalho acontece nos bastidores.
+Enquanto a transparência da informação diz respeito ao que precisamos saber sobre o serviço, a **transparência operacional** torna visível como ele funciona. Ela ajuda o cliente a compreender o trabalho realizado para atendê-lo, mesmo quando esse trabalho acontece nos bastidores.
 
-No Brasil, o dever de informar também está previsto no Código de Defesa do Consumidor, que assegura o direito a informações adequadas e claras sobre produtos e serviços.[^2]
+Essas leis estabelecem deveres de informação, mas não prescrevem, de modo geral, que o funcionamento interno de um serviço seja continuamente exposto ao cliente durante sua execução. A transparência operacional, no sentido adotado neste capítulo, é sobretudo uma escolha de design: decidir quais aspectos do trabalho devem se tornar visíveis, em que momento e com qual nível de detalhe.
 
 O equilíbrio entre transparência operacional e experiência do cliente é delicado. Em 1984, G. Lynn Shostack apresentou o *service blueprint* como uma maneira de representar o funcionamento dos serviços.[^3] Um dos elementos desse modelo é a **linha de visibilidade**, que separa as atividades observadas pelo cliente daquelas que acontecem nos bastidores.
 
