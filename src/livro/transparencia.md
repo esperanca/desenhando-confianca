@@ -27,19 +27,17 @@ Para discutir transparência, precisamos considerar duas lentes: a transparênci
 
 ## Transparência da informação
 
-A **transparência da informação** diz respeito a quais informações sobre o serviço são comunicadas e a como elas ajudam a compreendê-lo.
+A **transparência da informação** diz respeito a quais informações sobre o serviço são comunicadas.
 
-No Brasil, a lei protege esse direito. A Lei de Acesso à Informação assegura a qualquer pessoa o direito de solicitar informações públicas aos órgãos e entidades abrangidos pela lei e determina que elas sejam oferecidas de forma transparente, clara e em linguagem de fácil compreensão. A publicidade é a regra; o sigilo, a exceção.[^1] Nas relações de consumo, o Código de Defesa do Consumidor garante o direito a informações adequadas e claras sobre produtos e serviços.[^2]
+No contexto de governos e políticas públicas, a Lei de Acesso à Informação estabelece a publicidade como regra e o sigilo como exceção. A lei assegura o direito de acesso a informações públicas e prevê que esse acesso seja oferecido de forma transparente, clara e em linguagem de fácil compreensão.[^1]
 
-No uso cotidiano de serviços, a transparência da informação ajuda o cliente a entender o que é oferecido, quem pode utilizar o serviço e quais condições se aplicam. Isso inclui, por exemplo, critérios de elegibilidade, custos, prazos e o que está incluído na contratação.
+Se a Lei de Acesso à Informação protege esse direito na relação com o Estado, o Código de Defesa do Consumidor o protege nas relações de consumo, garantindo informações adequadas e claras sobre produtos e serviços.[^2]
 
-Essas informações permitem avaliar se o serviço atende a uma necessidade e ajudam a formar expectativas mais realistas sobre o que acontecerá.
+No uso cotidiano, essas informações ajudam o cliente a compreender o que pode esperar do serviço.
 
 ## Transparência operacional
 
 Enquanto a transparência da informação diz respeito ao que precisamos saber sobre o serviço, a **transparência operacional** torna visível como ele funciona. Ela ajuda o cliente a compreender o trabalho realizado para atendê-lo, mesmo quando esse trabalho acontece nos bastidores.
-
-Essas leis estabelecem deveres de informação, mas não prescrevem, de modo geral, que o funcionamento interno de um serviço seja continuamente exposto ao cliente durante sua execução. A transparência operacional, no sentido adotado neste capítulo, é sobretudo uma escolha de design: decidir quais aspectos do trabalho devem se tornar visíveis, em que momento e com qual nível de detalhe.
 
 O equilíbrio entre transparência operacional e experiência do cliente é delicado. Em 1984, G. Lynn Shostack apresentou o *service blueprint* como uma maneira de representar o funcionamento dos serviços.[^3] Um dos elementos desse modelo é a **linha de visibilidade**, que separa as atividades observadas pelo cliente daquelas que acontecem nos bastidores.
 
@@ -62,11 +60,11 @@ Para explorar esse tópico, vamos falar um pouco de comida.
 
 ## A cozinha aberta
 
-Para entender melhor a transparência operacional, lembre-se da última vez que você foi a uma lanchonete e compare essa experiência com uma visita a um restaurante de cozinha aberta.
+Para entender melhor a transparência operacional, quero que você se lembre da última vez que foi ao McDonald's e compare com uma visita a um restaurante chique.
 
 Em alguns restaurantes, a cozinha fica à vista. Você pode acompanhar a preparação dos pratos, observar a equipe trabalhando e perceber o ritmo do serviço. Entre o pedido e a comida chegar à mesa, existe um trabalho que normalmente não vemos.
 
-Ryan Buell, Tami Kim e Chia-Jung Tsay investigaram os efeitos dessa visibilidade em serviços de alimentação. Em um dos estudos, câmeras e telas permitiam variar o que clientes e cozinheiros conseguiam observar. Na condição em que os dois lados podiam se ver, a qualidade relatada pelos clientes aumentou 22,2%, enquanto o tempo de atendimento caiu 19,2%.[^4]
+Em 2017, Ryan Buell, Tami Kim e Chia-Jung Tsay publicaram uma pesquisa sobre transparência operacional em restaurantes. Em um dos experimentos, instalaram câmeras e telas que permitiam variar a visibilidade entre clientes e cozinheiros. Na condição em que ambos podiam se ver, a satisfação dos clientes com a comida aumentou 22,2%, enquanto o tempo de preparação caiu 19,2%.[^4]
 
 A pesquisa examinava os efeitos da visibilidade sobre os dois lados da relação. Para nossa discussão, interessa especialmente o que acontece quando o trabalho deixa de ser inteiramente invisível para o cliente.
 
@@ -84,7 +82,7 @@ O desenho dessa linha em interfaces se aproxima da heurística de **visibilidade
 
 A contribuição do design de serviços é particularmente importante aqui. Ao representar atividades, atores e dependências que sustentam a experiência do cliente, o *service blueprint* torna essa estrutura compreensível para quem desenha e opera o serviço.
 
-Transparência operacional é objeto de design. Precisamos tornar visíveis as informações que ajudam as pessoas a compreender o serviço e a formar uma percepção sobre o trabalho realizado.
+Transparência operacional é uma escolha de design. Precisamos tornar visíveis as informações que ajudam as pessoas a compreender o serviço e a formar uma percepção sobre o trabalho realizado.
 
 ## Agentes de IA e transparência operacional
 
@@ -92,47 +90,47 @@ Quando pensamos em experiências agênticas, informacionais ou transacionais, es
 
 No contexto de agentes, podemos definir:
 
-> **Transparência operacional é o grau em que uma interface torna legível o que está acontecendo durante uma interação.** Ela define o que um sistema deve mostrar enquanto interpreta, recomenda ou executa ações em uma troca entre cliente e provedor de serviço.
+> **Transparência operacional é o grau em que uma interface torna legível a mediação do agente entre o cliente e o provedor do serviço:** o que acontece enquanto o agente interpreta solicitações, recomenda opções ou executa ações.
 
-Sob a perspectiva de uma pessoa interagindo com um serviço, a transparência operacional pode ser avaliada em três dimensões:
+Você provavelmente já passou por situações corriqueiras em que faltou transparência operacional. Momentos em que foi difícil entender as principais etapas necessárias ou o que faltava em um serviço para atingir um objetivo. Ou quando a ausência de uma informação tornou impossível distinguir uma espera normal de um problema.
+
+Podemos avaliar a transparência operacional a partir da perspectiva do cliente, com algumas perguntas:
 
 ### Processo
 
 - O que está sendo feito em meu nome?
-- Quais atividades estão sendo realizadas para atender à minha solicitação?
-- Como essas atividades ajudam a atender ao meu pedido?
+- Quais etapas estão sendo realizadas para atender à minha solicitação?
+- Como cada etapa contribui para alcançar meu objetivo?
 
 ### Estado
 
-- Em que ponto o serviço se encontra?
+- Em que ponto está o serviço?
 - O que já aconteceu e o que está em andamento?
 - O que depende de outras pessoas ou sistemas?
 
 ### Resultado
 
 - O que foi concluído?
-- O que mudou depois da execução?
-- O que permanece pendente?
+- O que mudou após a execução?
+- O que ainda está pendente?
 
-Parecem perguntas simples, mas provavelmente você já passou por situações corriqueiras em que faltou transparência operacional. Momentos em que foi difícil entender as etapas necessárias ou o que ainda faltava para alcançar um objetivo. Ou situações em que a ausência de uma informação tornou impossível distinguir uma espera normal de um problema.
+Essas perguntas se tornam mais difíceis de responder à medida que delegamos mais decisões e ações aos agentes.
 
 ## O dilema da delegação
 
-Os agentes de IA tornam essa questão mais complexa.
+À medida que delegamos mais aos agentes de IA, decidir o que tornar visível se torna mais complexo.
 
 Uma interface convencional costuma oferecer operações delimitadas: você solicita uma informação, o sistema executa uma sequência relativamente conhecida e apresenta um resultado.
 
 Um agente pode receber um objetivo mais amplo — por exemplo, organizar férias de dezembro na Bahia — e definir parte das atividades necessárias para alcançá-lo. Pode consultar fontes, utilizar ferramentas e interagir com outros sistemas, pessoas e serviços. Em alguns casos, pode executar operações que não foram individualmente escolhidas por você.
 
-Essa delegação amplia as consequências. As interações podem acontecer de forma assíncrona, e os erros podem ter impacto maior. Por isso, precisamos decidir o que atravessa a linha de visibilidade, em que momento e com qual nível de detalhe.
+Essa delegação amplia as consequências. Parte das interações acontece de forma assíncrona, e os erros podem ter impacto maior. Por isso, precisamos decidir o que atravessa a linha de visibilidade, em que momento e com qual nível de detalhe.
 
-Na prática, isso significa escolher quais aspectos do trabalho do agente devem se tornar visíveis para o cliente: o processo em curso, o estado do serviço e o resultado entregue. Essas informações podem aparecer no instante da ação, em atualizações ou em um registro para ser consultado posteriormente.
+Na prática, isso significa escolher quais aspectos do trabalho do agente o cliente vai ver (o processo em curso, o estado do serviço e o resultado entregue) e de que forma: no instante da ação, em atualizações ao longo da jornada de uso ou em um registro que ele pode consultar depois.
 
-A maneira como o agente se apresenta e se relaciona com o cliente também deve ser intencionalmente transparente. Identidade, escopo, limites e grau de autonomia são aspectos que precisam ficar claros.
+Equilíbrio é a palavra de ordem. Mostrar demais pode sobrecarregar o cliente. Mostrar muito pouco pode prejudicar a compreensão.
 
-Equilíbrio é a palavra de ordem. Mostrar demais pode sobrecarregar o cliente; mostrar muito pouco pode prejudicar a compreensão e a calibração da confiança.
-
-Transparência, explicabilidade, verificabilidade e compreensibilidade caminham juntas. No próximo capítulo, vamos falar de explicabilidade e de como ajudar as pessoas a entender as decisões e ações de um agente.
+Transparência, explicabilidade, verificabilidade e compreensibilidade caminham juntas. No próximo capítulo, vamos falar de explicabilidade e de como ajudar as pessoas a entenderem as decisões e ações de um agente.
 
 ## Referências
 
