@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['da20d50f6681907bb89b408aab1dbfdc54e4a19f', {
+    label: 'Publicação do capítulo sobre transparência.',
+    kinds: ['conteúdo', 'referências'],
+    targets: [pages.transparencia, pages.home],
+  }],
   ['e93a2711a49506208b6f5a2e4da2c6920bcd4bd1', {
     label: 'Logs das páginas do livro.',
     kinds: ['estrutura editorial'],
