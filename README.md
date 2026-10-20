@@ -1,6 +1,6 @@
 # Desenhando Confiança
 
-Site e manuscrito do livro "Desenhando Confiança", sobre design, IA e confiança em interfaces generativas e agentes.
+Site e manuscrito do livro "Desenhando Confiança: Para entender e projetar agentes e interfaces generativas confiáveis".
 
 Site público: https://desenhando-confianca.pages.dev
 Repositório: https://github.com/esperanca/desenhando-confianca

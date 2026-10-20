@@ -4,7 +4,7 @@ Este repositório é mantido com apoio de agentes. Antes de editar, leia este ar
 
 ## Objetivo do projeto
 
-`Desenhando Confiança` é o site e manuscrito de um livro sobre design, IA e confiança em interfaces generativas e agentes.
+`Desenhando Confiança` é o site e manuscrito do livro *Para entender e projetar agentes e interfaces generativas confiáveis*.
 
 Arquitetura editorial atual:
 
