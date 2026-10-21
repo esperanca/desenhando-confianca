@@ -5,12 +5,6 @@
     <article class="book-article">
       <header class="book-header">
         <p class="eyebrow">{% if type == 'note' %}Nota complementar{% else %}Desenhando Confiança{% endif %}</p>
-        {% if status %}
-        <p class="editorial-status">
-          <span class="status-tag status-tag--{{ status }}">{{ status | statusLabel }}</span>
-          <span>{{ status | statusDescription }}</span>
-        </p>
-        {% endif %}
         <h1>{{ title }}</h1>
         {% if subtitle %}<p class="book-subtitle">{{ subtitle }}</p>{% endif %}
         {% if summary %}<p class="book-summary">{{ summary }}</p>{% endif %}
