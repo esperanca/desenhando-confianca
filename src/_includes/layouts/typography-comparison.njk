@@ -1,0 +1,22 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  {% set chapter = collections.all | findByUrl('/livro/verificabilidade/') %}
+  <main id="main-content" tabindex="-1" class="book-page">
+    <article class="book-article">
+      <header class="book-header">
+        <p class="eyebrow">Estudo tipográfico · {{ studyLabel }}</p>
+        <h1>{{ chapter.data.title }}</h1>
+        <p class="book-summary">{{ chapter.data.summary }}</p>
+      </header>
+
+      <div class="book-body">
+        {{ chapter.templateContent | safe }}
+      </div>
+
+      <footer class="book-footer">
+        <a href="/design/">← Voltar aos estudos de design</a>
+      </footer>
+    </article>
+  </main>
+{% endblock %}

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/assets/style.css">
     {% block head %}{% endblock %}
   </head>
-  <body>
+  <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
     {% include "partials/global/site-head.njk" %}
     {% block content %}{% endblock content %}
     {% include "partials/global/site-foot.njk" %}

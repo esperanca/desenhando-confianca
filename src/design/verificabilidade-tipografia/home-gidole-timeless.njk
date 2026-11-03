@@ -1,0 +1,23 @@
+---
+title: Home — Gidole e Timeless a 19 px
+metaTitle: Estudo da home com Gidole e Timeless — Desenhando Confiança
+metaDesc: Versão experimental da home com Gidole nos títulos e Timeless Serif a 19 px no conteúdo.
+bodyClass: type-home--gidole-timeless
+permalink: /design/verificabilidade-tipografia/home-gidole-timeless/
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<main id="main-content" tabindex="-1" class="home">
+  <div class="reading-shell">
+    <p class="type-home__notice">Estudo tipográfico · Gidole nos títulos e Timeless Serif a 19 px no conteúdo</p>
+    <h1>Desenhando Confiança</h1>
+    <p class="home__lede">Para entender e projetar agentes e interfaces generativas confiáveis</p>
+    {% include "partials/sumario-livro.njk" %}
+    {% include "partials/notas-livro.njk" %}
+    {% include "partials/changelog.njk" %}
+    <p class="book-footer"><a href="/design/">← Voltar aos estudos de design</a></p>
+  </div>
+</main>
+{% endblock %}

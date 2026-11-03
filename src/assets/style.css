@@ -24,6 +24,38 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Gidole';
+  src: url('/assets/fonts/gidole/Gidole-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('/assets/fonts/fira-sans/FiraSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('/assets/fonts/fira-sans/FiraSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('/assets/fonts/fira-sans/FiraSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #fff;
   --ink: #111;
@@ -119,6 +151,184 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .changelog__author { white-space: nowrap; }
 .changelog__commit { white-space: nowrap; }
 .changelog__release { white-space: nowrap; }
+
+/* Estudo tipográfico isolado: Gidole */
+.type-study--gidole {
+  --measure: 39rem;
+  font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+  letter-spacing: .006em;
+}
+.type-study--gidole h1,
+.type-study--gidole h2,
+.type-study--gidole h3,
+.type-study--gidole .eyebrow,
+.type-study--gidole .book-meta,
+.type-study--gidole .editorial-status,
+.type-study--gidole .status-tag,
+.type-study--gidole .tdbc-anchor,
+.type-study--gidole .sidenote-ref,
+.type-study--gidole .footnote-ref,
+.type-study--gidole .sidenote,
+.type-study--gidole .footnotes,
+.type-study--gidole .changelog {
+  font-family: inherit;
+}
+.type-study--gidole h1 {
+  max-width: 11ch;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: .96;
+  letter-spacing: -.045em;
+}
+.type-study--gidole h2 {
+  max-width: 22ch;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+.type-study--gidole h3 {
+  font-size: 1.15rem;
+  line-height: 1.25;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+}
+.type-study--gidole .book-summary {
+  max-width: 40ch;
+  font-size: 1.25rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+.type-study--gidole .book-body p {
+  text-wrap: pretty;
+}
+.type-study--gidole .eyebrow,
+.type-study--gidole .book-meta {
+  letter-spacing: .11em;
+}
+.type-study--gidole .type-specimen {
+  margin-top: 3rem;
+  padding-block: 1.25rem;
+  border-block: 1px solid var(--line);
+}
+.type-study--gidole .type-specimen__alphabet {
+  margin-top: .5rem;
+  font-size: clamp(1.4rem, 4vw, 2.25rem);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.type-study--gidole .type-specimen__figures {
+  margin-top: .75rem;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .08em;
+}
+.type-study--gidole strong,
+.type-study--gidole b {
+  font-weight: 700;
+}
+
+/* Comparação tipográfica do capítulo Verificabilidade */
+.type-comparison {
+  --measure: 40rem;
+}
+.type-comparison h1,
+.type-comparison h2,
+.type-comparison h3 {
+  font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
+.type-comparison h1 {
+  font-size: clamp(3rem, 8vw, 5.75rem);
+  line-height: .98;
+  letter-spacing: -.04em;
+}
+.type-comparison h2 {
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+.type-comparison .book-summary {
+  max-width: 42ch;
+  text-wrap: pretty;
+}
+.type-comparison .book-body p {
+  text-wrap: pretty;
+}
+.type-comparison--timeless {
+  font-family: 'Timeless Text', Georgia, 'Times New Roman', serif;
+  font-size: 1.1875rem;
+  line-height: 1.62;
+}
+.type-comparison--gidole {
+  font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  letter-spacing: .004em;
+}
+.type-comparison--gidole .eyebrow,
+.type-comparison--gidole .book-meta,
+.type-comparison--gidole .sidenote,
+.type-comparison--gidole .footnotes {
+  font-family: inherit;
+}
+.type-comparison--fira {
+  font-family: 'Fira Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+}
+.type-comparison--fira .eyebrow,
+.type-comparison--fira .book-meta,
+.type-comparison--fira .sidenote,
+.type-comparison--fira .footnotes {
+  font-family: inherit;
+}
+
+/* Home experimental da opção escolhida: Gidole + Timeless Serif a 19 px */
+.type-home--gidole-timeless {
+  --measure: 40rem;
+  font-family: 'Timeless Text', Georgia, 'Times New Roman', serif;
+  font-size: 1.1875rem;
+  line-height: 1.62;
+}
+.type-home--gidole-timeless h1,
+.type-home--gidole-timeless h2,
+.type-home--gidole-timeless h3 {
+  font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
+.type-home--gidole-timeless h1 {
+  max-width: 10ch;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: .92;
+  letter-spacing: -.05em;
+}
+.type-home--gidole-timeless h2 {
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+.type-home--gidole-timeless .home__lede {
+  max-width: 34ch;
+  font-size: 1.45rem;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.type-home--gidole-timeless .book-toc a {
+  font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
+.type-home--gidole-timeless .book-toc p,
+.type-home--gidole-timeless .content-list p {
+  line-height: 1.5;
+}
+.type-home--gidole-timeless .type-home__notice {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
 
 @media (min-width: 70rem) {
   .book-article { width: calc(var(--measure) + var(--note-gap) + var(--note-width)); padding-right: calc(var(--note-gap) + var(--note-width)); }

@@ -317,6 +317,7 @@ module.exports = function (eleventyConfig) {
 
   // Layout aliases
   eleventyConfig.addLayoutAlias('livro', 'layouts/livro.njk');
+  eleventyConfig.addLayoutAlias('typography-comparison', 'layouts/typography-comparison.njk');
 
   // Passthrough copy
   eleventyConfig.addPassthroughCopy('src/assets');
