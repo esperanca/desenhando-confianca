@@ -12,7 +12,7 @@
         <p class="book-meta">
           {% if status %}<span>{{ status | statusLabel }}</span>{% endif %}
           {% if status and dateModified %}<span aria-hidden="true"> · </span>{% endif %}
-          {% if dateModified %}<time datetime="{{ dateModified }}">Atualizado em {{ dateModified | dateFilter }}</time>{% endif %}
+          {% if dateModified %}<time datetime="{{ dateModified | w3DateFilter }}">Atualizado em {{ dateModified | dateFilter }}</time>{% endif %}
         </p>
         {% endif %}
       </header>

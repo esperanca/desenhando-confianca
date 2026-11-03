@@ -17,7 +17,7 @@ questions:
   - Como a confiança deixa de depender apenas de quem fala?
   - O que permite examinar a base de uma afirmação, decisão ou ação?
   - Quando uma explicação não basta como prova?
-dateModified: 2026-10-21
+dateModified: 2026-11-02T20:49:40-03:00
 permalink: /livro/verificabilidade/
 ---
 

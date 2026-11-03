@@ -247,6 +247,7 @@ module.exports = function (eleventyConfig) {
     Array.isArray(entries) && url ? entries.find((entry) => entry.url === url) || null : null
   );
   const pageChangesCache = new Map();
+  let fullGitHistoryChecked = false;
   eleventyConfig.addFilter('pageChanges', (inputPath) => {
     if (typeof inputPath !== 'string' || inputPath.length === 0) return null;
     if (pageChangesCache.has(inputPath)) return pageChangesCache.get(inputPath);
@@ -258,6 +259,12 @@ module.exports = function (eleventyConfig) {
         return '';
       }
     };
+    if (!fullGitHistoryChecked) {
+      fullGitHistoryChecked = true;
+      if (run('rev-parse --is-shallow-repository') === 'true') {
+        run('fetch --unshallow --tags origin');
+      }
+    }
     const parse = (line) => {
       const [hash, date, author, ...subject] = line.split('|');
       if (!hash) return null;
