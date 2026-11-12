@@ -20,13 +20,13 @@ permalink: /design/
 
     <h2>Estudo tipográfico</h2>
 
-    <p>O estudo comparou a Gidole em toda a página, a combinação de Gidole com Fira Sans e a manutenção da serifada atual no texto. A direção aplicada ao site é <strong>Gidole nos títulos e Timeless Serif no corpo</strong>. O corpo foi ampliado de 18 px para 19 px para equilibrar a presença visual da serifada com os títulos geométricos e preservar o conforto na leitura longa.</p>
+    <p>O estudo comparou a Gidole em toda a página, a combinação de Gidole com Fira Sans e a manutenção da serifada atual no texto. A direção aplicada ao site é <strong>Gidole nos títulos e Timeless Serif no corpo</strong>. O estudo testou o corpo em 19 px; a escala tipográfica descrita abaixo o substituiu por 16 px.</p>
 
     <p>As páginas abaixo são experimentos isolados. Elas não substituem a edição atual do site.</p>
 
     <ul class="content-list">
       <li>
-        <a href="/design/verificabilidade-tipografia/gidole-timeless/">Aplicada: Gidole nos títulos + Timeless Serif a 19 px</a>
+        <a href="/design/verificabilidade-tipografia/gidole-timeless/">Direção adotada: Gidole nos títulos + Timeless Serif (estudo a 19 px)</a>
         <p><span class="status-tag status-tag--published">Aplicada</span> Capítulo Verificabilidade completo na direção tipográfica adotada no site.</p>
       </li>
       <li>
@@ -48,9 +48,21 @@ permalink: /design/
 
     </ul>
 
+    <h2>Escala tipográfica</h2>
+
+    <p>Os tamanhos de fonte do site seguem uma regra única: a partir de 16 px, múltiplos de 8; abaixo disso, múltiplos de 4. Na prática, o site usa 12, 16, 24, 32, 40, 56, 64, 72 e 80 px. O corpo do texto fica em 16 px, e a coluna de leitura foi reduzida de 672 para 544 px para manter cerca de 67 caracteres por linha. Os títulos crescem em degraus conforme a largura da tela, sem valores intermediários. As páginas de estudo tipográfico preservam os tamanhos originais, como registro do que foi testado.</p>
+
     <h2>Notas de design</h2>
 
     <ul class="content-list">
+      <li>
+        {% if build.internal %}
+        <a href="/design/proximos-marcos-de-layout/">Próximos marcos de layout</a>
+        {% else %}
+        <strong>Próximos marcos de layout</strong>
+        {% endif %}
+        <p><span class="status-tag status-tag--internal-review">Revisão interna</span> Lacunas de layout apontadas na crítica de design de 12 de novembro de 2026.</p>
+      </li>
       <li>
         {% if build.internal %}
         <a href="/design/implementacao-do-layout-das-paginas/">Implementação do layout das páginas</a>
