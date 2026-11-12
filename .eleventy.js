@@ -89,6 +89,7 @@ const authorUrls = new Map([
   ['Daniel Souza', '/autores/#daniel-souza'],
   ['Daniel Vieira Souza', '/autores/#daniel-souza'],
   ['Pedro Albuquerque', '/autores/#pedro-albuquerque'],
+  ['Peu Borges', '/autores/#pedro-albuquerque'],
   ['Leiliane Fagundes', '/autores/#leiliane-fagundes'],
 ]);
 
