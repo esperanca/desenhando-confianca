@@ -62,7 +62,8 @@
   --muted: #666;
   --line: #c8c8c8;
   --soft: #f3f3f3;
-  --measure: 42rem;
+  --note-ink: #444;
+  --measure: 34rem;
   --note-width: 17rem;
   --note-gap: 2rem;
   font-family: 'Timeless Text', Georgia, 'Times New Roman', serif;
@@ -94,7 +95,7 @@ img, svg { max-width: 100%; }
 .reading-shell > * + * { margin-top: 1.5rem; }
 h1, h2, h3 { font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; line-height: 1.15; text-wrap: balance; }
 h1 { margin: 0; font-size: 2.5rem; font-weight: 400; letter-spacing: -.035em; }
-h2 { margin: 3.5rem 0 0; font-size: 2rem; font-weight: 400; }
+h2 { margin: 3.5rem 0 0; font-size: 2rem; font-weight: 400; letter-spacing: -.035em; }
 h3 { margin: 2.5rem 0 0; font-size: 1.5rem; }
 p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .eyebrow, .book-meta { font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
@@ -137,12 +138,12 @@ sup, sub { font-size: .75rem; line-height: 0; }
 .footnotes-list { padding-left: 1.25rem; }
 .book-footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 .changelog { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.5; color: var(--muted); }
-.changelog h2 { margin-top: 0; font-size: 1rem; }
+.changelog h2 { margin-top: 0; font-size: 1rem; letter-spacing: normal; }
 .changelog__last { margin-top: .5rem; }
 .changelog__releases { margin-top: .5rem; padding-left: 1.25rem; }
 .changelog__intro { margin-top: .5rem; }
 .changelog__day { margin-top: 1rem; }
-.changelog__date { margin: 0; font-weight: 700; color: var(--ink); }
+.changelog__date { margin: 0; font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
 .changelog__entries { margin-top: .4rem; padding-left: 0; list-style: none; }
 .changelog__entry { margin-top: .35rem; }
 .changelog__entry--global { margin-top: .75rem; }
@@ -346,7 +347,7 @@ sup, sub { font-size: .75rem; line-height: 0; }
 
 @media (min-width: 70rem) {
   .book-article { width: calc(var(--measure) + var(--note-gap) + var(--note-width)); padding-right: calc(var(--note-gap) + var(--note-width)); }
-  .sidenote { float: right; clear: right; width: var(--note-width); margin: .2rem calc(-1 * (var(--note-gap) + var(--note-width))) 1rem 0; padding: 0; border: 0; color: var(--muted); }
+  .sidenote { float: right; clear: right; width: var(--note-width); margin: .2rem calc(-1 * (var(--note-gap) + var(--note-width))) 1rem 0; padding: 0; border: 0; color: var(--note-ink); }
 }
 
 @media (max-width: 40rem) {
