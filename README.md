@@ -122,7 +122,7 @@ A automação:
 1. baixa o histórico completo e as tags (`fetch-depth: 0`);
 2. verifica se há commits desde a última tag `vX.Y.Z`;
 3. se não houver commits novos, encerra sem build/deploy;
-4. se houver, cria a próxima versão patch;
+4. se houver, cria a versão informada no campo `version` ou, se ele estiver vazio, a próxima versão patch;
 5. cria a tag antes do build, para os logs exibirem a versão correta;
 6. roda `npm run verify`;
 7. publica `dist/` no Cloudflare Pages;

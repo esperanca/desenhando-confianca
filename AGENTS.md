@@ -80,7 +80,7 @@ Regras:
 - Toda mudança de design precisa de entrada em `src/_data/changelog.js` com `kinds: ['design']` e páginas afetadas, para aparecer no log global com a frase padrão.
 - Marcos de design devem ter registro em `/design/` citando a versão em que entraram. Escreva esse registro no fechamento, quando o número já estiver definido.
 - O último commit antes de `npm run release` atualiza `version` em `package.json` e `package-lock.json` para o mesmo número da tag.
-- O workflow manual do GitHub Actions só incrementa `Z`. Para marcos de design, use `npm run release -- vX.Y.0 "Resumo"`.
+- O workflow manual do GitHub Actions incrementa `Z` por padrão. Para marcos de design, informe a versão no campo `version` ao acionar o workflow, ou use `npm run release -- vX.Y.0 "Resumo"`.
 - Antes de editar ou fechar versão, sincronize com `origin/main`: mais de um agente escreve neste repositório.
 
 ## Fechamento pelo GitHub Actions
@@ -94,7 +94,7 @@ Comportamento:
 - busca histórico e tags completos;
 - verifica se há commits desde a última tag `vX.Y.Z`;
 - se não houver commits novos, encerra sem build/deploy;
-- se houver, cria a próxima versão patch;
+- se houver, cria a versão informada no campo `version` ou, se ele estiver vazio, a próxima versão patch;
 - cria a tag antes do build para os logs exibirem a versão correta;
 - roda `npm run verify`;
 - publica `dist/` no Cloudflare Pages;

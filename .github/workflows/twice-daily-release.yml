@@ -2,6 +2,11 @@ name: Manual release
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versão a fechar (ex.: v0.7.0). Vazio = próximo patch.'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -29,6 +34,8 @@ jobs:
       - name: Detect pending commits and next version
         id: version
         shell: bash
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
         run: |
           set -euo pipefail
 
@@ -44,6 +51,25 @@ jobs:
             version="${last_tag#v}"
             IFS='.' read -r major minor patch <<< "$version"
             next_tag="v${major}.${minor}.$((patch + 1))"
+          fi
+
+          if [[ -n "${REQUESTED_VERSION:-}" ]]; then
+            if [[ ! "$REQUESTED_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo "Versão inválida: ${REQUESTED_VERSION}. Use o formato vX.Y.Z." >&2
+              exit 1
+            fi
+            if git rev-parse -q --verify "refs/tags/${REQUESTED_VERSION}" >/dev/null; then
+              echo "A tag ${REQUESTED_VERSION} já existe." >&2
+              exit 1
+            fi
+            if [[ -n "$last_tag" ]]; then
+              highest="$(printf '%s\n%s\n' "${last_tag#v}" "${REQUESTED_VERSION#v}" | sort -V | tail -n 1)"
+              if [[ "$highest" != "${REQUESTED_VERSION#v}" ]]; then
+                echo "${REQUESTED_VERSION} não é maior que a última versão (${last_tag})." >&2
+                exit 1
+              fi
+            fi
+            next_tag="$REQUESTED_VERSION"
           fi
 
           echo "last_tag=$last_tag" >> "$GITHUB_OUTPUT"
