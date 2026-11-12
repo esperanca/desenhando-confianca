@@ -7,7 +7,13 @@
 
     {% set ariaLabel = 'Navegação principal' %}
     {% if navigation.items %}
-      <nav class="nav" aria-label="{{ariaLabel}}">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu" hidden>
+        <svg class="nav-toggle__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+          <path class="nav-toggle__open" d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path class="nav-toggle__close" d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="{{ariaLabel}}">
         <ul class="nav__list">
           {% for item in navigation.items %}
             {% set relAttribute = '' %}
@@ -30,3 +36,22 @@
     {% endif %}
   </div>
 </header>
+<script>
+  /* Menu em telas estreitas: os links ficam atrás de um botão. Sem JavaScript, continuam visíveis. */
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!toggle || !nav) return;
+    toggle.hidden = false;
+    function set(open) {
+      nav.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    }
+    toggle.addEventListener('click', function () { set(toggle.getAttribute('aria-expanded') !== 'true'); });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { set(false); toggle.focus(); }
+    });
+    window.matchMedia('(max-width: 40rem)').addEventListener('change', function () { set(false); });
+  })();
+</script>

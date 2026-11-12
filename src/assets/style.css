@@ -87,6 +87,9 @@ img, svg { max-width: 100%; }
 .site-header__site-name { font-weight: 700; text-decoration: none; }
 .nav__list { display: flex; gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
 .nav a[aria-current='page'] { font-weight: 700; }
+.nav-toggle { display: none; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; margin-right: -.5rem; padding: 0; border: 0; color: var(--ink); background: none; cursor: pointer; }
+.nav-toggle__close, .nav-toggle[aria-expanded='true'] .nav-toggle__open { display: none; }
+.nav-toggle[aria-expanded='true'] .nav-toggle__close { display: inline; }
 .site-footer { margin-top: 5rem; border-top: 1px solid var(--ink); font-size: .75rem; }
 .site-footer__wrapper { min-height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .site-footer__links { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
@@ -369,6 +372,13 @@ sup, sub { font-size: .75rem; line-height: 0; }
   .site-header__wrapper, .site-footer__wrapper { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 1rem; }
   .reading-shell, .book-article { width: min(100% - 1.5rem, var(--measure)); padding-top: 3rem; }
   .book-body table { display: block; overflow-x: auto; }
+  /* Menu atrás de um botão; sem JavaScript os links seguem visíveis, empilhados. */
+  html:not(.no-js) .site-header__wrapper { align-items: center; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 0 1.5rem; padding-block: .5rem; }
+  html:not(.no-js) .nav-toggle:not([hidden]) { display: inline-flex; }
+  html:not(.no-js) .nav { display: none; flex-basis: 100%; }
+  html:not(.no-js) .nav.is-open { display: block; }
+  html:not(.no-js) .nav__list { flex-direction: column; gap: 0; padding-block: .5rem; }
+  html:not(.no-js) .nav__list a { display: block; padding-block: .75rem; }
 }
 
 @media print {
