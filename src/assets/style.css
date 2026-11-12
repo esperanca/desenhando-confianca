@@ -77,6 +77,7 @@
   src: url('/assets/fonts/ibm-plex-sans/ibm-plex-sans-latin-wght-normal.woff2') format('woff2');
   font-weight: 100 700;
   font-style: normal;
+  size-adjust: 98.3%;
   font-display: swap;
 }
 
@@ -85,6 +86,7 @@
   src: url('/assets/fonts/ibm-plex-sans/ibm-plex-sans-latin-wght-italic.woff2') format('woff2');
   font-weight: 100 700;
   font-style: italic;
+  size-adjust: 98.3%;
   font-display: swap;
 }
 
@@ -93,6 +95,7 @@
   src: url('/assets/fonts/jetbrains-mono/jetbrains-mono-latin-wght-normal.woff2') format('woff2');
   font-weight: 100 800;
   font-style: normal;
+  size-adjust: 92.2%;
   font-display: swap;
 }
 
@@ -145,10 +148,10 @@ h1 { margin: 0; font-size: 2.5rem; line-height: 1.12; letter-spacing: -.01em; }
 h2 { margin: 3rem 0 0; font-size: 1.5rem; }
 h3 { margin: 2rem 0 0; font-size: 1rem; }
 p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
-.eyebrow, .book-meta { font-family: var(--font-mono); font-size: .75rem; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
+.eyebrow, .book-meta { font-family: var(--font-sans); font-size: .75rem; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
 .eyebrow { margin: 0 0 .75rem; font-weight: 700; color: var(--muted); }
 .editorial-status { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.25rem; color: var(--muted); font-family: var(--font-sans); font-size: .75rem; line-height: 1.45; }
-.status-tag { display: inline-block; margin-left: .35rem; padding: .15rem .45rem; border: 1px solid currentColor; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.35; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; vertical-align: .1em; }
+.status-tag { display: inline-block; margin-left: .35rem; padding: .15rem .45rem; border: 1px solid currentColor; font-family: var(--font-sans); font-size: .75rem; font-weight: 700; line-height: 1.35; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; vertical-align: .1em; }
 .editorial-status .status-tag { margin-left: 0; }
 .status-tag--published { border-style: solid; }
 .status-tag--review { border-style: dashed; }
@@ -166,10 +169,11 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .book-header { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
 .book-header h1 { font-size: 2.5rem; }
 .book-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-top: 1rem; color: var(--muted); letter-spacing: normal; text-transform: none; }
+.book-meta__details { font-family: var(--font-mono); }
 .book-meta .status-tag { margin-left: 0; padding: .25rem 1rem; border-radius: 999px; color: var(--ink); background: none; }
 .book-definition { margin-top: 2rem; padding-left: 1rem; border-left: 4px solid var(--ink); font-size: 1.5rem; line-height: 1.35; }
 .book-questions { margin-top: 2rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--soft); font-family: var(--font-sans); }
-.book-questions__label { margin: 0; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.book-questions__label { margin: 0; font-family: var(--font-sans); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
 .book-questions__list { margin: .5rem 0 0; padding: 0; list-style: none; }
 .book-questions__list li { margin-top: .5rem; padding-left: 1.5rem; text-indent: -1.5rem; }
 .book-questions__list li::before { content: '→'; display: inline-block; width: 1.5rem; text-indent: 0; }
@@ -184,10 +188,10 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 sup, sub { font-size: .75rem; line-height: 0; }
 .sidenote-ref, .footnote-ref { font-family: var(--font-sans); font-size: .75rem; line-height: 0; vertical-align: super; }
 .sidenote-ref a, .footnote-ref a { text-decoration: none; }
-.sidenote { display: block; margin: .65rem 0 1.25rem; padding: .75rem 0 .75rem 1rem; border-left: 1px solid var(--ink); font-family: var(--font-sans); font-size: .75rem; line-height: 1.5; }
+.sidenote { display: block; margin: .65rem 0 1.25rem; padding: .75rem 0 .75rem 1rem; border-left: 1px solid var(--ink); font-family: var(--font-serif); font-size: .75rem; line-height: 1.5; }
 .sidenote-number { margin-right: .35em; font-weight: 700; }
 .sidenote-backref { margin-left: .35em; text-decoration: none; }
-.footnotes { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--ink); font-family: var(--font-sans); font-size: .75rem; line-height: 1.5; }
+.footnotes { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--ink); font-family: var(--font-serif); font-size: .75rem; line-height: 1.5; }
 .footnotes-sep { display: none; }
 .footnotes-list { padding-left: 1.25rem; }
 .book-footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
@@ -196,7 +200,7 @@ sup, sub { font-size: .75rem; line-height: 0; }
 a.book-pagination__link:hover { border-color: var(--ink); }
 .book-pagination__link--pending { color: var(--muted); }
 .book-pagination__copy { display: flex; flex-direction: column; gap: .25rem; min-width: 0; }
-.book-pagination__label { font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.book-pagination__label { font-family: var(--font-sans); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
 .book-pagination__title { font-size: 1rem; font-weight: 700; line-height: 1.3; }
 .book-pagination .status-tag { flex: none; margin-left: 0; padding: .25rem .75rem; border-radius: 999px; color: inherit; background: none; }
 .status-tag--pending { border-style: dotted; }
@@ -206,16 +210,16 @@ a.book-pagination__link:hover { border-color: var(--ink); }
 .changelog__releases { margin-top: .5rem; padding-left: 1.25rem; }
 .changelog__intro { margin-top: .5rem; }
 .changelog__day { margin-top: 1rem; }
-.changelog__date { margin: 0; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.changelog__date { margin: 0; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; color: var(--ink); }
 .changelog__entries { margin-top: .4rem; padding-left: 0; list-style: none; }
 .changelog__entry { margin-top: .35rem; }
 .changelog__entry--global { margin-top: .75rem; }
 .changelog__line { margin: 0; }
 .changelog__scope { margin-top: .15rem; }
-.changelog__time { color: var(--ink); font-variant-numeric: tabular-nums; }
+.changelog__time { font-family: var(--font-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
 .changelog__author { white-space: nowrap; }
 .changelog__commit { white-space: nowrap; }
-.changelog__release { white-space: nowrap; }
+.changelog__release { font-family: var(--font-mono); white-space: nowrap; }
 
 /* Estudo tipográfico isolado: Gidole */
 .type-study--gidole {
@@ -416,9 +420,9 @@ a.book-pagination__link:hover { border-color: var(--ink); }
 .note-dialog::backdrop { background: rgb(17 17 17 / .4); }
 .note-dialog__panel { padding: 1rem; }
 .note-dialog__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.note-dialog__label { margin: 0; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
+.note-dialog__label { margin: 0; font-family: var(--font-sans); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
 .note-dialog__close { font-family: var(--font-sans); font-size: 1rem; }
-.note-dialog__body { margin-top: .75rem; font-family: var(--font-sans); font-size: 1rem; line-height: 1.5; }
+.note-dialog__body { margin-top: .75rem; font-family: var(--font-serif); font-size: 1rem; line-height: 1.5; }
 @media (min-width: 36rem) { .note-dialog { margin-inline: auto; } }
 
 @media (max-width: 40rem) {
@@ -461,6 +465,9 @@ body[class*='type-'] {
 :where(body[class*='type-']) .book-header { border-bottom-color: var(--ink); }
 :where(body[class*='type-']) .changelog h2 { font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; letter-spacing: normal; }
 :where(body[class*='type-']) .changelog__date { margin: 0; font-size: .75rem; font-weight: 700; letter-spacing: .08em; }
+:where(body[class*='type-']) :is(.sidenote, .footnotes, .note-dialog__body) { font-family: var(--font-sans); }
+:where(body[class*='type-']) :is(.eyebrow, .book-questions__label, .book-pagination__label, .note-dialog__label) { letter-spacing: .08em; }
+:where(body[class*='type-']) :is(.book-meta__details, .changelog__time, .changelog__release) { font-family: inherit; }
 @media (min-width: 40rem) {
   :where(body[class*='type-']) h1 { font-size: 4rem; }
   :where(body[class*='type-']) .book-header h1 { font-size: 3.5rem; }
