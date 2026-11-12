@@ -18,6 +18,31 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['0e8e21bcf71811f7ef4521b4b78bd4ac373b2c0c', {
+    label: 'Gidole nos títulos e corpo do texto em 19 px.',
+    kinds: ['design'],
+    targets: [pages.home, pages.design],
+  }],
+  ['c957a3c9f577b882b4252bf5822ea4005cd243bb', {
+    label: 'Subtítulo duplicado removido dos capítulos.',
+    kinds: ['estrutura editorial'],
+    targets: [pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade],
+  }],
+  ['5bf3c86c8aaf8c9e8c701e1468ae8b4667fb4a71', {
+    label: 'Estudo tipográfico com Gidole.',
+    kinds: ['design'],
+    targets: [pages.design],
+  }],
+  ['29363467279688952d9d884454c0ef4235e09b9f', {
+    label: 'Correção de data e do histórico de mudanças.',
+    kinds: ['técnica'],
+    targets: [pages.verificabilidade],
+  }],
+  ['b9174c527c88c90501a16360a46993a61b708c60', {
+    label: 'Revisão do capítulo sobre verificabilidade.',
+    kinds: ['conteúdo'],
+    targets: [pages.verificabilidade],
+  }],
   ['2ec9498a6b0868d0d25400e97d04e2ec05d9e36a', {
     label: 'Distinção entre transparência da informação e transparência operacional.',
     kinds: ['conteúdo', 'referências'],
