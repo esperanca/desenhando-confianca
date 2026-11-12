@@ -350,6 +350,21 @@ sup, sub { font-size: .75rem; line-height: 0; }
   .sidenote { float: right; clear: right; width: var(--note-width); margin: .2rem calc(-1 * (var(--note-gap) + var(--note-width))) 1rem 0; padding: 0; border: 0; color: var(--note-ink); }
 }
 
+/* Notas laterais em telas estreitas: saem do corpo do texto e abrem em diálogo ao tocar no número. */
+@media screen and (max-width: 69.99rem) {
+  html:not(.no-js) .sidenote { display: none; }
+  html:not(.no-js) .sidenote-ref a { display: inline-block; margin: -.5rem -.25rem; padding: .5rem; text-decoration: underline; }
+}
+
+.note-dialog { width: auto; max-width: 34rem; max-height: 70vh; margin: auto 1rem 1rem; padding: 0; border: 1px solid var(--ink); color: var(--ink); background: var(--paper); overflow: auto; }
+.note-dialog::backdrop { background: rgb(17 17 17 / .4); }
+.note-dialog__panel { padding: 1rem; }
+.note-dialog__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.note-dialog__label { margin: 0; font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
+.note-dialog__close { font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: 1rem; }
+.note-dialog__body { margin-top: .75rem; font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: 1rem; line-height: 1.5; }
+@media (min-width: 36rem) { .note-dialog { margin-inline: auto; } }
+
 @media (max-width: 40rem) {
   .site-header__wrapper, .site-footer__wrapper { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 1rem; }
   .reading-shell, .book-article { width: min(100% - 1.5rem, var(--measure)); padding-top: 3rem; }
@@ -357,7 +372,7 @@ sup, sub { font-size: .75rem; line-height: 0; }
 }
 
 @media print {
-  .site-header, .site-footer, .book-footer, .tdbc-anchor, .sidenote-backref { display: none; }
+  .site-header, .site-footer, .book-footer, .tdbc-anchor, .sidenote-backref, .note-dialog { display: none; }
   .book-article { width: auto; padding: 0; }
   .sidenote { float: none; width: auto; margin: .5rem 0 1rem; padding-left: 1rem; border-left: 1px solid var(--ink); color: var(--ink); }
 }
