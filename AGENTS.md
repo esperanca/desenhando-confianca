@@ -63,6 +63,26 @@ Com a árvore Git limpa, cria uma tag anotada, valida tudo, publica e faz push d
 
 Use release apenas quando o usuário pedir fechamento de versão. A tag precisa existir antes do build final para os logs mostrarem a versão em vez de `Ainda não lançada`.
 
+## Versões
+
+A tag Git `vX.Y.Z` é a única fonte de versão do projeto. Site publicado, logs, `package.json` e notas de design apontam para ela.
+
+Numeração:
+
+- `Y` (meio) sobe em marcos de design ou de estrutura do site: tipografia, layout, hero, navegação, componentes novos. `Z` volta a zero.
+- `Z` (último) sobe em revisões de conteúdo, correções e ajustes pequenos.
+- `1.0.0` fica reservada para o livro completo.
+
+Regras:
+
+- Não publique sem fechar versão. Entrada com `Ainda não lançada` só pode existir em prévia local ou build interno.
+- Mudanças de design entram por branch (`design/...`), com aprovação de quem pediu antes do merge em `main`. Faça merge sem squash: os logs dependem do hash original dos commits.
+- Toda mudança de design precisa de entrada em `src/_data/changelog.js` com `kinds: ['design']` e páginas afetadas, para aparecer no log global com a frase padrão.
+- Marcos de design devem ter registro em `/design/` citando a versão em que entraram. Escreva esse registro no fechamento, quando o número já estiver definido.
+- O último commit antes de `npm run release` atualiza `version` em `package.json` e `package-lock.json` para o mesmo número da tag.
+- O workflow manual do GitHub Actions só incrementa `Z`. Para marcos de design, use `npm run release -- vX.Y.0 "Resumo"`.
+- Antes de editar ou fechar versão, sincronize com `origin/main`: mais de um agente escreve neste repositório.
+
 ## Fechamento pelo GitHub Actions
 
 Há um workflow versionado em `.github/workflows/twice-daily-release.yml`.

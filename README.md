@@ -137,6 +137,10 @@ CLOUDFLARE_ACCOUNT_ID
 
 O workflow tem `permissions: contents: write` para conseguir enviar tags.
 
+## Versões
+
+A tag Git `vX.Y.Z` é a única fonte de versão. O número do meio sobe em marcos de design ou estrutura do site; o último, em revisões de conteúdo e correções; `1.0.0` fica para o livro completo. Nada é publicado sem versão fechada, e `package.json` acompanha a tag. As regras completas estão em `AGENTS.md`.
+
 ## Rotina para agentes
 
 Use estes comandos para padronizar a atualização do site:
