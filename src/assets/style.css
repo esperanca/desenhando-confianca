@@ -56,6 +56,46 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Literata';
+  src: url('/assets/fonts/literata/literata-latin-wght-normal.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Literata';
+  src: url('/assets/fonts/literata/literata-latin-wght-italic.woff2') format('woff2');
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/assets/fonts/ibm-plex-sans/ibm-plex-sans-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/assets/fonts/ibm-plex-sans/ibm-plex-sans-latin-wght-italic.woff2') format('woff2');
+  font-weight: 100 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/jetbrains-mono/jetbrains-mono-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #fff;
   --ink: #111;
@@ -66,14 +106,17 @@
   --measure: 34rem;
   --note-width: 17rem;
   --note-gap: 2rem;
-  font-family: 'Timeless Text', Georgia, 'Times New Roman', serif;
+  --font-serif: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-family: var(--font-serif);
   color: var(--ink);
   background: var(--paper);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font-size: 1rem; line-height: 1.62; text-rendering: optimizeLegibility; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font-size: 1rem; line-height: 1.55; text-rendering: optimizeLegibility; }
 main { flex: 1; }
 a { color: inherit; text-decoration-thickness: .07em; text-underline-offset: .14em; }
 a:hover { text-decoration-thickness: .13em; }
@@ -85,6 +128,7 @@ img, svg { max-width: 100%; }
 .site-header { border-bottom: 1px solid var(--ink); }
 .site-header__wrapper { min-height: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
 .site-header__site-name { font-weight: 700; text-decoration: none; }
+.nav { font-family: var(--font-sans); }
 .nav__list { display: flex; gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
 .nav a[aria-current='page'] { font-weight: 700; }
 .nav-toggle { display: none; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; margin-right: -.5rem; padding: 0; border: 0; color: var(--ink); background: none; cursor: pointer; }
@@ -96,20 +140,20 @@ img, svg { max-width: 100%; }
 .reading-shell, .book-article { width: min(100% - 2rem, var(--measure)); margin-inline: auto; }
 .reading-shell { padding-block: 4.5rem; }
 .reading-shell > * + * { margin-top: 1.5rem; }
-h1, h2, h3 { font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; line-height: 1.15; text-wrap: balance; }
-h1 { margin: 0; font-size: 2.5rem; font-weight: 400; letter-spacing: -.035em; }
-h2 { margin: 3.5rem 0 0; font-size: 2rem; font-weight: 400; letter-spacing: -.035em; }
-h3 { margin: 2.5rem 0 0; font-size: 1.5rem; }
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; line-height: 1.2; text-wrap: balance; }
+h1 { margin: 0; font-size: 2.5rem; line-height: 1.12; letter-spacing: -.01em; }
+h2 { margin: 3rem 0 0; font-size: 1.5rem; }
+h3 { margin: 2rem 0 0; font-size: 1rem; }
 p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
-.eyebrow, .book-meta { font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
-.eyebrow { margin: 0 0 .75rem; font-weight: 700; }
-.editorial-status { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.25rem; color: var(--muted); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.45; }
-.status-tag { display: inline-block; margin-left: .35rem; padding: .15rem .45rem; border: 1px solid currentColor; font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; font-weight: 700; line-height: 1.35; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; vertical-align: .1em; }
+.eyebrow, .book-meta { font-family: var(--font-mono); font-size: .75rem; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
+.eyebrow { margin: 0 0 .75rem; font-weight: 700; color: var(--muted); }
+.editorial-status { display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.25rem; color: var(--muted); font-family: var(--font-sans); font-size: .75rem; line-height: 1.45; }
+.status-tag { display: inline-block; margin-left: .35rem; padding: .15rem .45rem; border: 1px solid currentColor; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.35; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; vertical-align: .1em; }
 .editorial-status .status-tag { margin-left: 0; }
 .status-tag--published { border-style: solid; }
 .status-tag--review { border-style: dashed; }
 .status-tag--internal-review, .status-tag--draft { color: var(--paper); background: var(--ink); border-color: var(--ink); }
-.lede, .home__lede, .book-summary { font-size: 1.5rem; line-height: 1.45; }
+.lede, .home__lede, .book-summary { font-size: 1.5rem; font-style: italic; line-height: 1.35; color: var(--muted); }
 .home__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
 .content-list, .book-toc { padding: 0; list-style: none; }
 .content-list li, .book-toc li { padding-block: 1rem; border-top: 1px solid var(--line); }
@@ -119,34 +163,50 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .book-toc__number { font-variant-numeric: tabular-nums; color: var(--muted); }
 .book-page { overflow: clip; }
 .book-article { padding-block: 4.5rem 0; }
-.book-header { padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+.book-header { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
 .book-header h1 { font-size: 2.5rem; }
-.book-meta { margin-top: 1rem; color: var(--muted); }
+.book-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-top: 1rem; color: var(--muted); letter-spacing: normal; text-transform: none; }
+.book-meta .status-tag { margin-left: 0; padding: .25rem 1rem; border-radius: 999px; color: var(--ink); background: none; }
+.book-definition { margin-top: 2rem; padding-left: 1rem; border-left: 4px solid var(--ink); font-size: 1.5rem; line-height: 1.35; }
+.book-questions { margin-top: 2rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--soft); font-family: var(--font-sans); }
+.book-questions__label { margin: 0; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.book-questions__list { margin: .5rem 0 0; padding: 0; list-style: none; }
+.book-questions__list li { margin-top: .5rem; padding-left: 1.5rem; text-indent: -1.5rem; }
+.book-questions__list li::before { content: '→'; display: inline-block; width: 1.5rem; text-indent: 0; }
 .book-body { position: relative; margin-top: 3rem; }
 .book-body > :first-child { margin-top: 0; }
 .book-body blockquote { margin-left: 0; padding-left: 1.25rem; border-left: 2px solid var(--ink); }
 .book-body hr { margin-block: 3rem; border: 0; border-top: 1px solid var(--line); }
-.book-body table { width: 100%; border-collapse: collapse; font-size: 1rem; }
-.book-body th, .book-body td { padding: .65rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
-.book-body th { background: var(--soft); }
-.tdbc-anchor { margin-left: .35em; color: var(--muted); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: 1rem; text-decoration: none; }
+.book-body table { width: 100%; border-collapse: collapse; border-top: 1.5px solid var(--ink); font-family: var(--font-sans); font-size: 1rem; line-height: 1.4; }
+.book-body th, .book-body td { padding: .625rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.book-body th { font-weight: 700; }
+.tdbc-anchor { margin-left: .35em; color: var(--muted); font-family: var(--font-sans); font-size: 1rem; text-decoration: none; }
 sup, sub { font-size: .75rem; line-height: 0; }
-.sidenote-ref, .footnote-ref { font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 0; vertical-align: super; }
+.sidenote-ref, .footnote-ref { font-family: var(--font-sans); font-size: .75rem; line-height: 0; vertical-align: super; }
 .sidenote-ref a, .footnote-ref a { text-decoration: none; }
-.sidenote { display: block; margin: .65rem 0 1.25rem; padding: .75rem 0 .75rem 1rem; border-left: 1px solid var(--ink); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.5; }
+.sidenote { display: block; margin: .65rem 0 1.25rem; padding: .75rem 0 .75rem 1rem; border-left: 1px solid var(--ink); font-family: var(--font-sans); font-size: .75rem; line-height: 1.5; }
 .sidenote-number { margin-right: .35em; font-weight: 700; }
 .sidenote-backref { margin-left: .35em; text-decoration: none; }
-.footnotes { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--ink); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.5; }
+.footnotes { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--ink); font-family: var(--font-sans); font-size: .75rem; line-height: 1.5; }
 .footnotes-sep { display: none; }
 .footnotes-list { padding-left: 1.25rem; }
 .book-footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
-.changelog { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; line-height: 1.5; color: var(--muted); }
-.changelog h2 { margin-top: 0; font-size: 1rem; letter-spacing: normal; }
+.book-pagination { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 4rem; }
+.book-pagination__link { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; min-width: 0; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: .5rem; color: var(--ink); text-decoration: none; }
+a.book-pagination__link:hover { border-color: var(--ink); }
+.book-pagination__link--pending { color: var(--muted); }
+.book-pagination__copy { display: flex; flex-direction: column; gap: .25rem; min-width: 0; }
+.book-pagination__label { font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.book-pagination__title { font-size: 1rem; font-weight: 700; line-height: 1.3; }
+.book-pagination .status-tag { flex: none; margin-left: 0; padding: .25rem .75rem; border-radius: 999px; color: inherit; background: none; }
+.status-tag--pending { border-style: dotted; }
+.changelog { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-family: var(--font-sans); font-size: .75rem; line-height: 1.5; color: var(--muted); }
+.changelog h2 { margin-top: 0; font-family: var(--font-sans); font-size: 1rem; }
 .changelog__last { margin-top: .5rem; }
 .changelog__releases { margin-top: .5rem; padding-left: 1.25rem; }
 .changelog__intro { margin-top: .5rem; }
 .changelog__day { margin-top: 1rem; }
-.changelog__date { margin: 0; font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.changelog__date { margin: 0; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
 .changelog__entries { margin-top: .4rem; padding-left: 0; list-style: none; }
 .changelog__entry { margin-top: .35rem; }
 .changelog__entry--global { margin-top: .75rem; }
@@ -338,14 +398,7 @@ sup, sub { font-size: .75rem; line-height: 0; }
 /* Escala tipográfica: múltiplos de 8 px a partir de 16 px; múltiplos de 4 px abaixo disso.
    Títulos crescem em degraus, sem valores intermediários. */
 @media (min-width: 40rem) {
-  h1 { font-size: 4rem; }
-  .book-header h1 { font-size: 3.5rem; }
-  h2 { font-size: 2.5rem; }
-}
-
-@media (min-width: 70rem) {
-  h1 { font-size: 5rem; }
-  .book-header h1 { font-size: 4.5rem; }
+  h1, .book-header h1 { font-size: 3.5rem; }
 }
 
 @media (min-width: 70rem) {
@@ -363,15 +416,17 @@ sup, sub { font-size: .75rem; line-height: 0; }
 .note-dialog::backdrop { background: rgb(17 17 17 / .4); }
 .note-dialog__panel { padding: 1rem; }
 .note-dialog__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.note-dialog__label { margin: 0; font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
-.note-dialog__close { font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: 1rem; }
-.note-dialog__body { margin-top: .75rem; font-family: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif; font-size: 1rem; line-height: 1.5; }
+.note-dialog__label { margin: 0; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; }
+.note-dialog__close { font-family: var(--font-sans); font-size: 1rem; }
+.note-dialog__body { margin-top: .75rem; font-family: var(--font-sans); font-size: 1rem; line-height: 1.5; }
 @media (min-width: 36rem) { .note-dialog { margin-inline: auto; } }
 
 @media (max-width: 40rem) {
   .site-header__wrapper, .site-footer__wrapper { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 1rem; }
   .reading-shell, .book-article { width: min(100% - 1.5rem, var(--measure)); padding-top: 3rem; }
   .book-body table { display: block; overflow-x: auto; }
+  .book-pagination { grid-template-columns: minmax(0, 1fr); }
+  .book-pagination__gap { display: none; }
   /* Menu atrás de um botão; sem JavaScript os links seguem visíveis, empilhados. */
   html:not(.no-js) .site-header__wrapper { align-items: center; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 0 1.5rem; padding-block: .5rem; }
   html:not(.no-js) .nav-toggle:not([hidden]) { display: inline-flex; }
@@ -382,9 +437,36 @@ sup, sub { font-size: .75rem; line-height: 0; }
 }
 
 @media print {
-  .site-header, .site-footer, .book-footer, .tdbc-anchor, .sidenote-backref, .note-dialog { display: none; }
+  .site-header, .site-footer, .book-footer, .book-pagination, .tdbc-anchor, .sidenote-backref, .note-dialog { display: none; }
   .book-article { width: auto; padding: 0; }
   .sidenote { float: none; width: auto; margin: .5rem 0 1rem; padding-left: 1rem; border-left: 1px solid var(--ink); color: var(--ink); }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Páginas de estudo tipográfico: preservam a tipografia anterior (Gidole e Timeless), como registro do que foi testado. */
+body[class*='type-'] {
+  --font-serif: 'Timeless Text', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Timeless Sans', ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.62;
+}
+:where(body[class*='type-']) .nav { font-family: inherit; }
+:where(body[class*='type-']) :is(h1, h2, h3) { font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; line-height: 1.15; }
+:where(body[class*='type-']) h1 { letter-spacing: -.035em; }
+:where(body[class*='type-']) h2 { margin-top: 3.5rem; font-size: 2rem; letter-spacing: -.035em; }
+:where(body[class*='type-']) h3 { margin-top: 2.5rem; font-size: 1.5rem; }
+:where(body[class*='type-']) :is(.lede, .home__lede, .book-summary) { font-style: normal; line-height: 1.45; color: inherit; }
+:where(body[class*='type-']) .eyebrow { color: inherit; }
+:where(body[class*='type-']) .book-header { border-bottom-color: var(--ink); }
+:where(body[class*='type-']) .changelog h2 { font-family: 'Gidole', 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; letter-spacing: normal; }
+:where(body[class*='type-']) .changelog__date { margin: 0; font-size: .75rem; font-weight: 700; letter-spacing: .08em; }
+@media (min-width: 40rem) {
+  :where(body[class*='type-']) h1 { font-size: 4rem; }
+  :where(body[class*='type-']) .book-header h1 { font-size: 3.5rem; }
+  :where(body[class*='type-']) h2 { font-size: 2.5rem; }
+}
+@media (min-width: 70rem) {
+  :where(body[class*='type-']) h1 { font-size: 5rem; }
+  :where(body[class*='type-']) .book-header h1 { font-size: 4.5rem; }
+}
