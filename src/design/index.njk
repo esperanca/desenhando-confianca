@@ -52,7 +52,11 @@ permalink: /design/
 
     <p>O site usa três famílias, cada uma com um papel: <strong>Literata</strong> nos títulos e no texto, <strong>IBM Plex Sans</strong> na navegação, nas notas, nas tabelas e no log, e <strong>JetBrains Mono</strong> nos rótulos e metadados. As três têm licença aberta e são servidas pelo próprio site.</p>
 
-    <p>Os tamanhos seguem uma regra única: a partir de 16 px, múltiplos de 8; abaixo disso, múltiplos de 4. Na prática, o site usa 12, 16, 24, 40 e 56 px. O corpo do texto fica em 16 px, numa coluna de 544 px, com cerca de 67 caracteres por linha. As páginas de estudo tipográfico preservam as fontes e os tamanhos originais, como registro do que foi testado.</p>
+    <p>Cada família tem uma voz e não sai dela. A Literata é a <strong>voz de leitura</strong>: títulos, texto, notas laterais e bibliografia. A IBM Plex Sans é a <strong>voz de interface</strong>: menu, tabelas, rótulos editoriais e botões. A JetBrains Mono é a <strong>voz de máquina</strong> e só aparece em versão, data e hora.</p>
+
+    <p>As três famílias têm alturas de x diferentes, então o mesmo número de pixels produziria tamanhos visuais diferentes. Para que isso não aconteça, cada fonte leva um <code>size-adjust</code> no CSS que iguala sua altura de x à da Literata: 98,3% na IBM Plex Sans e 92,2% na JetBrains Mono. Assim o tamanho declarado significa o mesmo nas três.</p>
+
+    <p>Os tamanhos seguem uma regra única: a partir de 16 px, múltiplos de 8; abaixo disso, múltiplos de 4. Na prática, o site usa 12, 16, 24, 40 e 56 px. O corpo do texto fica em 16 px, numa coluna de 544 px, com cerca de 67 caracteres por linha. Abaixo de 16 px a regra tem um degrau só, 12 px, onde cabem rótulos, metadados, notas e log; a hierarquia entre eles é feita por família, peso e caixa, não por tamanho. Rótulos em caixa alta levam entreletra de 0,04 em, não mais. As páginas de estudo tipográfico preservam as fontes e os tamanhos originais, como registro do que foi testado.</p>
 
     <h2>Template de capítulo</h2>
 

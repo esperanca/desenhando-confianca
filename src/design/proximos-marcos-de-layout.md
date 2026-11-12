@@ -47,3 +47,11 @@ A auditoria de 12 de novembro de 2026 comparou o site com o frame "Desktop chapt
 Aplicado na primeira etapa: fontes, escala, posição no livro, metadados, perguntas do capítulo, tabelas e paginação.
 
 Em aberto: índice lateral fixo, definição em destaque (o campo `definition` já é aceito, falta o texto), pergunta-guia, figura com legenda e origem, tipos de nota (Fonte, Exemplo, Dado), rodapé em três colunas com procedência e botão de reportar, cores de destaque (o verde e o laranja do template não atingem contraste 4,5:1 em texto pequeno) e a adaptação da home, das notas e das páginas Sobre, Design e Autores.
+
+## Equilíbrio tipográfico
+
+Crítica de 12 de novembro de 2026 sobre a tipografia nova, com dois críticos independentes. Medições que corrigem o que a crítica supôs: os cinzas passam no contraste mínimo (#666 dá 5,74:1 e as notas em #444 dão 9,74:1), o corpo tem 69 caracteres por linha e entrelinha 1,55, e as alturas de x das três famílias estavam a 8% umas das outras. O desequilíbrio era de largura e caixa, não de tamanho.
+
+Aplicado: size-adjust igualando as alturas de x, uma família por voz, notas e bibliografia de volta para a serifada, entreletra de 0,08 para 0,04 em nos rótulos, e linha de metadados reduzida a versão e tempo de leitura.
+
+Em aberto, levantado pelos críticos: a caixa de perguntas lê como cartão de produto e não como elemento de livro; o log completo ao pé de cada capítulo poderia ficar atrás de um resumo; a frase que explica o log repete o próprio título; o marcador de nota no texto e os colchetes dentro da nota usam duas gramáticas de citação.
