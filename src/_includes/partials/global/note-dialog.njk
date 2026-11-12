@@ -1,0 +1,46 @@
+<script>
+  /* Notas laterais em telas estreitas: abrem em um diálogo ao tocar no número.
+     Sem JavaScript, ou sem suporte a <dialog>, as notas continuam no corpo do texto. */
+  (function () {
+    var root = document.documentElement;
+    if (!window.HTMLDialogElement) { root.classList.add('no-js'); return; }
+
+    var narrow = window.matchMedia('(max-width: 69.99rem)');
+    var dialog, label, body, opener;
+
+    function build() {
+      dialog = document.createElement('dialog');
+      dialog.className = 'note-dialog';
+      dialog.innerHTML =
+        '<div class="note-dialog__panel">' +
+        '<div class="note-dialog__head"><p class="note-dialog__label" id="note-dialog-label"></p>' +
+        '<button type="button" class="note-dialog__close">Fechar</button></div>' +
+        '<div class="note-dialog__body"></div></div>';
+      dialog.setAttribute('aria-labelledby', 'note-dialog-label');
+      label = dialog.querySelector('.note-dialog__label');
+      body = dialog.querySelector('.note-dialog__body');
+      dialog.querySelector('.note-dialog__close').addEventListener('click', function () { dialog.close(); });
+      dialog.addEventListener('click', function (event) {
+        if (event.target === dialog || event.target.closest('.note-dialog__body a')) dialog.close();
+      });
+      dialog.addEventListener('close', function () { if (opener) opener.focus(); opener = null; });
+      document.body.appendChild(dialog);
+    }
+
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest && event.target.closest('.sidenote-ref a');
+      if (!link || !narrow.matches) return;
+      var note = document.getElementById(decodeURIComponent((link.getAttribute('href') || '').slice(1)));
+      var content = note && note.querySelector('.sidenote-content');
+      if (!content) return;
+      event.preventDefault();
+      if (!dialog) build();
+      opener = link;
+      label.textContent = 'Nota ' + link.textContent.trim();
+      body.innerHTML = content.innerHTML;
+      dialog.showModal();
+    });
+
+    narrow.addEventListener('change', function () { if (dialog && dialog.open && !narrow.matches) dialog.close(); });
+  })();
+</script>

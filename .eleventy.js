@@ -1,6 +1,7 @@
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownBookNotes = require('./src/plugins/markdown-book-notes');
+const bookStructure = require('./src/plugins/book-structure');
 const {DateTime} = require('luxon');
 
 // Remove o sufixo literal "{#custom-id}" do texto visível dos headings,
@@ -309,6 +310,10 @@ module.exports = function (eleventyConfig) {
     pageChangesCache.set(inputPath, result);
     return result;
   });
+  eleventyConfig.addFilter('bookPosition', (url, sumario) => bookStructure.bookPosition(url, sumario));
+  eleventyConfig.addFilter('bookNeighbors', (url, sumario) => bookStructure.bookNeighbors(url, sumario));
+  eleventyConfig.addFilter('readingTime', (html) => bookStructure.readingTime(html));
+  eleventyConfig.addFilter('latestRelease', (changes) => bookStructure.latestRelease(changes));
   eleventyConfig.addFilter('statusLabel', (status) =>
     editorialStatuses[status]?.label || status
   );

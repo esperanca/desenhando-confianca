@@ -4,15 +4,32 @@
   <main id="main-content" tabindex="-1" class="book-page">
     <article class="book-article">
       <header class="book-header">
-        <p class="eyebrow">{% if type == 'note' %}Nota complementar{% else %}Desenhando Confiança{% endif %}</p>
+        {%- set position = page.url | bookPosition(sumario) %}
+        {% if type == 'note' %}<p class="eyebrow">Nota complementar</p>
+        {% elif position %}<p class="eyebrow">{{ position.part }} · Capítulo {{ position.chapter }}</p>{% endif %}
         <h1>{{ title }}</h1>
         {% if summary %}<p class="book-summary">{{ summary }}</p>{% endif %}
         {% if status or dateModified %}
+        {%- set release = page.inputPath | pageChanges | latestRelease %}
+        {%- set minutes = content | readingTime %}
         <p class="book-meta">
-          {% if status %}<span>{{ status | statusLabel }}</span>{% endif %}
-          {% if status and dateModified %}<span aria-hidden="true"> · </span>{% endif %}
-          {% if dateModified %}<time datetime="{{ dateModified | w3DateFilter }}">Atualizado em {{ dateModified | dateFilter }}</time>{% endif %}
+          {% if status %}<span class="status-tag status-tag--{{ status }}">{{ status | statusLabel }}</span>{% endif %}
+          <span class="book-meta__details">
+            {%- if release %}{{ release }}<span aria-hidden="true"> · </span>{% endif -%}
+            {%- if dateModified %}<time datetime="{{ dateModified | w3DateFilter }}">atualizado em {{ dateModified | dateFilter }}</time>{% endif -%}
+            {%- if minutes and type != 'page' %}<span aria-hidden="true"> · </span>{{ minutes }} min de leitura{% endif -%}
+          </span>
         </p>
+        {% endif %}
+        {% if definition %}<p class="book-definition">{{ definition }}</p>{% endif %}
+        {% if questions and questions.length %}
+        <div class="book-questions">
+          <p class="book-questions__label">{% if type == 'note' %}Esta nota responde{% else %}Este capítulo responde{% endif %}</p>
+          <ul class="book-questions__list">
+            {% for question in questions %}<li>{{ question }}</li>
+            {% endfor %}
+          </ul>
+        </div>
         {% endif %}
       </header>
 
@@ -20,11 +37,35 @@
           {{ content | safe }}
       </div>
 
-      {% include "partials/page-changelog.njk" %}
-
+      {%- set neighbors = page.url | bookNeighbors(sumario) %}
+      {% if neighbors and (neighbors.previous or neighbors.next) %}
+      <nav class="book-pagination" aria-label="Capítulos anterior e próximo">
+        {% for item in [neighbors.previous, neighbors.next] %}
+        {% if item %}
+        {%- set target = collections.chapters | findByUrl(item.url) %}
+        {%- set direction = '← Anterior' if loop.first else 'Próximo →' %}
+        {% if target %}
+        <a class="book-pagination__link" href="{{ target.url }}">
+          <span class="book-pagination__copy"><span class="book-pagination__label">{{ direction }}</span><span class="book-pagination__title">{{ item.title }}</span></span>
+          {% if target.data.status %}<span class="status-tag status-tag--{{ target.data.status }}">{{ target.data.status | statusLabel }}</span>{% endif %}
+        </a>
+        {% else %}
+        <div class="book-pagination__link book-pagination__link--pending">
+          <span class="book-pagination__copy"><span class="book-pagination__label">{{ direction }}</span><span class="book-pagination__title">{{ item.title }}</span></span>
+          <span class="status-tag status-tag--pending">Em breve</span>
+        </div>
+        {% endif %}
+        {% else %}<span class="book-pagination__gap"></span>
+        {% endif %}
+        {% endfor %}
+      </nav>
+      {% else %}
       <footer class="book-footer">
         <a href="/">← Voltar ao início</a>
       </footer>
+      {% endif %}
+
+      {% include "partials/page-changelog.njk" %}
     </article>
   </main>
 {% endblock %}
