@@ -15,9 +15,9 @@
         <p class="book-meta">
           {% if status %}<span class="status-tag status-tag--{{ status }}">{{ status | statusLabel }}</span>{% endif %}
           <span class="book-meta__details">
-            {%- if release %}{{ release }}<span aria-hidden="true"> · </span>{% endif -%}
-            {%- if dateModified %}<time datetime="{{ dateModified | w3DateFilter }}">atualizado em {{ dateModified | dateFilter }}</time>{% endif -%}
-            {%- if minutes and type != 'page' %}<span aria-hidden="true"> · </span>{{ minutes }} min de leitura{% endif -%}
+            {%- if release %}{{ release }}
+            {%- elif dateModified %}<time datetime="{{ dateModified | w3DateFilter }}">atualizado em {{ dateModified | changeDateGroup }}</time>{% endif -%}
+            {%- if minutes and type != 'page' %}{% if release or dateModified %}<span aria-hidden="true"> · </span>{% endif %}{{ minutes }} min de leitura{% endif -%}
           </span>
         </p>
         {% endif %}
