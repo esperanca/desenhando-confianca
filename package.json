@@ -1,6 +1,6 @@
 {
   "name": "desenhando-confianca",
-  "version": "0.2.0",
+  "version": "0.7.0",
   "description": "Desenhando Confiança — Para entender e projetar agentes e interfaces generativas confiáveis",
   "main": "index.js",
   "devDependencies": {
