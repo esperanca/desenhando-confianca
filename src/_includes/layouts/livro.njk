@@ -4,7 +4,7 @@
   <main id="main-content" tabindex="-1" class="book-page">
     <article class="book-article">
       <header class="book-header">
-        <p class="eyebrow">{% if type == 'note' %}Nota complementar{% else %}Desenhando Confiança{% endif %}</p>
+        {% if type == 'note' %}<p class="eyebrow">Nota complementar</p>{% endif %}
         <h1>{{ title }}</h1>
         {% if summary %}<p class="book-summary">{{ summary }}</p>{% endif %}
         {% if status or dateModified %}
