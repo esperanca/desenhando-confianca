@@ -35,7 +35,7 @@ export async function onRequestPost(context) {
   const payload = {
     email_address: email,
     tags: ['livro'],
-    type: 'unactivated',
+    type: 'regular',
     utm_source: 'desenhando-confianca',
     utm_medium: 'site',
   };

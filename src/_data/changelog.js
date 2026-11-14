@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['1aadc79aab40c7c5a78b5fa283f7bc8c8e52556b', {
+    label: 'Inscrição imediata na newsletter, com confirmação no rodapé e opção de cadastrar outro e-mail.',
+    kinds: ['design', 'técnica'],
+    targets: [{label: 'Rodapé'}],
+  }],
   ['848f0acc572180e7eafa3a72b9f38cae74409bb0', {
     label: 'Novo rodapé com navegação do projeto e newsletter integrada ao Buttondown.',
     kinds: ['design', 'navegação', 'técnica'],
