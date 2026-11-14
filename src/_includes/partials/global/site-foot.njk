@@ -13,7 +13,11 @@
             <label class="site-footer__website" aria-hidden="true">Site <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
             <button type="submit"><span class="site-footer__button-label">Quero receber</span><span class="site-footer__spinner" aria-hidden="true"></span></button>
           </form>
-          <p class="site-footer__newsletter-status" role="status" aria-live="polite" hidden></p>
+          <div class="site-footer__newsletter-status" role="status" aria-live="polite" hidden>
+            <p>Seu e-mail foi cadastrado.</p>
+            <a href="#newsletter-email" class="site-footer__newsletter-again">Cadastrar outro e-mail</a>
+          </div>
+          <p class="site-footer__newsletter-error" role="alert" hidden></p>
         </div>
       </div>
 
@@ -42,12 +46,15 @@
     var newsletter = document.querySelector('.site-footer__newsletter');
     var form = newsletter && newsletter.querySelector('.site-footer__form');
     var status = newsletter && newsletter.querySelector('.site-footer__newsletter-status');
-    if (!form || !status) return;
+    var errorMessage = newsletter && newsletter.querySelector('.site-footer__newsletter-error');
+    var subscribeAgain = newsletter && newsletter.querySelector('.site-footer__newsletter-again');
+    if (!form || !status || !errorMessage) return;
 
     form.addEventListener('submit', async function (event) {
       event.preventDefault();
       var button = form.querySelector('button');
       var label = form.querySelector('.site-footer__button-label');
+      errorMessage.hidden = true;
       button.disabled = true;
       button.setAttribute('aria-busy', 'true');
       label.textContent = 'Enviando';
@@ -63,17 +70,33 @@
 
         if (!response.ok) throw new Error(result.message || 'Não foi possível concluir a inscrição.');
 
+        form.reset();
         form.hidden = true;
         status.hidden = false;
-        status.innerHTML = '<strong>Quase lá.</strong> Confira seu e-mail para confirmar a inscrição.';
       } catch (error) {
-        status.hidden = false;
-        status.textContent = error.message || 'Não foi possível concluir a inscrição. Tente novamente.';
+        errorMessage.hidden = false;
+        errorMessage.textContent = error.message || 'Não foi possível concluir a inscrição. Tente novamente.';
         button.disabled = false;
         button.removeAttribute('aria-busy');
         label.textContent = 'Tentar novamente';
         form.classList.remove('is-loading');
       }
     });
+
+    if (subscribeAgain) {
+      subscribeAgain.addEventListener('click', function (event) {
+        event.preventDefault();
+        var button = form.querySelector('button');
+        var label = form.querySelector('.site-footer__button-label');
+        status.hidden = true;
+        errorMessage.hidden = true;
+        form.hidden = false;
+        button.disabled = false;
+        button.removeAttribute('aria-busy');
+        label.textContent = 'Quero receber';
+        form.classList.remove('is-loading');
+        form.querySelector('[name="email"]').focus();
+      });
+    }
   })();
 </script>

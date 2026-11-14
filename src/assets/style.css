@@ -153,8 +153,10 @@ img, svg { max-width: 100%; }
 .site-footer__form button:disabled:hover { color: var(--paper); background: var(--ink); }
 .site-footer__spinner { display: none; width: .875rem; height: .875rem; border: 1.5px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: newsletter-spin .7s linear infinite; }
 .site-footer__form.is-loading .site-footer__spinner { display: inline-block; }
-.site-footer__newsletter-status { max-width: 32rem; margin: 1.25rem 0 0; padding-left: 1rem; border-left: 2px solid var(--ink); font-family: var(--font-serif); font-size: 1rem; line-height: 1.5; }
-.site-footer__newsletter-status strong { display: block; }
+.site-footer__newsletter-status { max-width: 32rem; margin: 1.25rem 0 0; font-family: var(--font-serif); font-size: 1rem; line-height: 1.5; }
+.site-footer__newsletter-status p { margin: 0; }
+.site-footer__newsletter-again { display: inline-block; margin-top: .5rem; font-family: var(--font-mono); font-size: .75rem; line-height: 1.4; text-transform: uppercase; }
+.site-footer__newsletter-error { max-width: 32rem; margin: .75rem 0 0; font-family: var(--font-serif); font-size: .875rem; line-height: 1.5; }
 .site-footer__nav { display: grid; align-content: start; }
 .site-footer__group h2 { margin: 0 0 1rem; font-family: var(--font-mono); font-size: .75rem; font-weight: 400; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .site-footer__group ul { margin: 0; padding: 0; list-style: none; }
