@@ -107,7 +107,7 @@ CLOUDFLARE_API_TOKEN
 CLOUDFLARE_ACCOUNT_ID
 ```
 
-Pull requests usam dois workflows separados: o primeiro verifica o código sem secrets e envia o build público como artefato; o segundo publica apenas esse artefato estático no branch de preview `pr-N` do Cloudflare Pages e comenta a URL na pull request. Não combine checkout de código de PR externa e secrets no mesmo job.
+Pull requests são publicadas automaticamente pela integração oficial entre Cloudflare Pages e GitHub. O workflow `pull-request-preview-build.yml` roda `npm run verify` sem secrets; o deploy e o comentário com as URLs são responsabilidade da Cloudflare. Não crie um segundo deploy por GitHub Actions nem combine checkout de código de PR externa e secrets no mesmo job.
 
 Não adicione agendamentos ou deploy automático da produção em todo push sem alinhamento explícito com o usuário. Releases e deploys de produção devem ser solicitados e executados manualmente.
 

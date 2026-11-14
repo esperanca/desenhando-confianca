@@ -1,4 +1,4 @@
-name: Build pull request preview
+name: Verify pull request
 
 on:
   pull_request:
@@ -8,12 +8,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: preview-build-${{ github.event.pull_request.number }}
+  group: verify-pull-request-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Verify and build preview
+    name: Verify site
     runs-on: ubuntu-latest
 
     steps:
@@ -31,11 +31,3 @@ jobs:
 
       - name: Verify site
         run: npm run verify
-
-      - name: Upload public build
-        uses: actions/upload-artifact@v4
-        with:
-          name: preview-site-${{ github.event.pull_request.number }}
-          path: dist
-          if-no-files-found: error
-          retention-days: 7

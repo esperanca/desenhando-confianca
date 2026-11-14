@@ -110,7 +110,8 @@ Projeto: `desenhando-confianca` · URL: https://desenhando-confianca.pages.dev
 
 O deploy usa `wrangler pages deploy`. Há também um workflow manual no GitHub
 Actions para fechar e publicar alterações pendentes quando solicitado.
-Não há integração Pages↔GitHub configurada, e nenhum domínio próprio apontado.
+A integração Pages↔GitHub publica previews automáticos de pull requests. Não há
+domínio próprio apontado.
 
 ## Fechamento manual pelo GitHub Actions
 
@@ -140,32 +141,23 @@ O workflow tem `permissions: contents: write` para conseguir enviar tags.
 ### Preview automático em pull requests
 
 Toda pull request aberta, reaberta ou atualizada gera uma prévia pública no
-Cloudflare Pages. O workflow verifica os testes e os dois builds, publica o
-build público em `pr-N.desenhando-confianca.pages.dev` e adiciona ou atualiza
-um comentário com o endereço na pull request.
+Cloudflare Pages. A integração oficial entre o projeto Pages e o GitHub publica
+o site e adiciona ou atualiza um comentário com os endereços na pull request.
 
-O processo usa dois workflows para aceitar contribuições externas sem expor o
-token da Cloudflare:
+Cada pull request recebe:
 
-1. `pull-request-preview-build.yml` executa o código da pull request sem secrets,
-   roda `npm run verify` e salva somente o build público como artefato;
-2. `pull-request-preview-deploy.yml`, carregado da branch principal, baixa o
-   artefato verificado, rejeita recursos executáveis do Pages e publica os
-   arquivos estáticos usando os secrets da Cloudflare.
+- uma URL imutável para o deployment do commit;
+- uma URL estável para a branch, atualizada a cada push;
+- um check `Cloudflare Pages` com acesso aos logs do deployment.
+
+O workflow `pull-request-preview-build.yml` roda separadamente no GitHub Actions
+para executar `npm run verify`. Ele não possui secrets e não publica o site.
+O deploy é feito diretamente pela integração da Cloudflare.
 
 O GitHub pode exigir aprovação manual na primeira execução enviada por um novo
 colaborador externo, conforme a política de segurança de Actions do repositório.
-Depois da aprovação, o build e o deploy são automáticos.
-
-Secrets necessários em `Settings → Secrets and variables → Actions`:
-
-```text
-CLOUDFLARE_API_TOKEN
-CLOUDFLARE_ACCOUNT_ID
-```
-
-O token deve ter apenas acesso de edição ao Cloudflare Pages da conta usada pelo
-projeto. Previews não alteram a produção e não criam tags ou releases.
+Depois da aprovação, a verificação no GitHub Actions é automática. O preview da
+Cloudflare não altera a produção e não cria tags ou releases.
 
 ## Versões
 
