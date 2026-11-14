@@ -1,0 +1,32 @@
+const assert = require('node:assert/strict');
+const {execFileSync} = require('node:child_process');
+const {copyFileSync, mkdtempSync, readFileSync, rmSync} = require('node:fs');
+const {tmpdir} = require('node:os');
+const path = require('node:path');
+const test = require('node:test');
+
+test('renderiza o log global em clone raso', {timeout: 120_000}, () => {
+  const directory = mkdtempSync(path.join(tmpdir(), 'desenhando-confianca-shallow-'));
+
+  try {
+    execFileSync('git', [
+      'clone',
+      '--depth=1',
+      '--no-local',
+      process.cwd(),
+      directory,
+    ], {stdio: 'ignore'});
+    copyFileSync(
+      path.join(process.cwd(), 'src', '_data', 'changelog.js'),
+      path.join(directory, 'src', '_data', 'changelog.js')
+    );
+    execFileSync('npm', ['ci', '--ignore-scripts'], {cwd: directory, stdio: 'ignore'});
+    execFileSync('npm', ['run', 'build'], {cwd: directory, stdio: 'ignore'});
+
+    const home = readFileSync(path.join(directory, 'dist', 'index.html'), 'utf8');
+    assert.match(home, /id="log-de-alteracoes"/);
+    assert.match(home, /Revisão ampliada do capítulo Verificabilidade\./);
+  } finally {
+    rmSync(directory, {recursive: true, force: true});
+  }
+});
