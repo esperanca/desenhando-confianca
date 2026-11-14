@@ -188,6 +188,14 @@ function git(args) {
   }
 }
 
+function ensureGitHistory() {
+  if (git('rev-parse --is-shallow-repository') === 'true') {
+    git('fetch --unshallow --tags origin');
+  } else {
+    git('fetch --tags origin');
+  }
+}
+
 function parseLine(line) {
   const [hash, date, author, ...subject] = line.split('|');
   if (!hash) return null;
@@ -213,6 +221,7 @@ function groupByDay(commits) {
 }
 
 module.exports = function () {
+  ensureGitHistory();
   const raw = git("log -14 --format='%H|%cI|%an|%s' -- src .eleventy.js README.md");
   const commits = raw
     ? raw
