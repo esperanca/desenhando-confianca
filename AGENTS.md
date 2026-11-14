@@ -109,6 +109,8 @@ CLOUDFLARE_ACCOUNT_ID
 
 Pull requests são publicadas automaticamente pela integração oficial entre Cloudflare Pages e GitHub. O workflow `pull-request-preview-build.yml` roda `npm run verify` sem secrets; o deploy e o comentário com as URLs são responsabilidade da Cloudflare. Não crie um segundo deploy por GitHub Actions nem combine checkout de código de PR externa e secrets no mesmo job.
 
+Exceção documentada: `.github/workflows/release-on-comment.yml`, job `release`, faz checkout do commit do PR com `contents: write`. Esse job não recebe secrets de deploy e não executa código do PR: usa `npm version --ignore-scripts` e não instala dependências. O `npm`, porém, lê o `.npmrc` do checkout; por isso o workflow só aceita PRs de branches do próprio repositório e comandos `/release` de administradores, e qualquer mudança nessas condições exige revisão explícita. O job `verify`, que roda `npm ci --ignore-scripts` e `npm run verify` sobre o código do PR, não recebe permissão de escrita nem secrets.
+
 Não adicione agendamentos ou deploy automático da produção em todo push sem alinhamento explícito com o usuário. Releases e deploys de produção devem ser solicitados e executados manualmente.
 
 ## Logs editoriais
