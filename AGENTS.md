@@ -107,7 +107,9 @@ CLOUDFLARE_API_TOKEN
 CLOUDFLARE_ACCOUNT_ID
 ```
 
-Não adicione agendamentos ou deploy automático em todo push sem alinhamento explícito com o usuário. Releases e deploys devem ser solicitados e executados manualmente.
+Pull requests usam dois workflows separados: o primeiro verifica o código sem secrets e envia o build público como artefato; o segundo publica apenas esse artefato estático no branch de preview `pr-N` do Cloudflare Pages e comenta a URL na pull request. Não combine checkout de código de PR externa e secrets no mesmo job.
+
+Não adicione agendamentos ou deploy automático da produção em todo push sem alinhamento explícito com o usuário. Releases e deploys de produção devem ser solicitados e executados manualmente.
 
 ## Logs editoriais
 

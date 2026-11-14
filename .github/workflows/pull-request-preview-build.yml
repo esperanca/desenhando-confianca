@@ -1,0 +1,41 @@
+name: Build pull request preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preview-build-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Verify and build preview
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify site
+        run: npm run verify
+
+      - name: Upload public build
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-site-${{ github.event.pull_request.number }}
+          path: dist
+          if-no-files-found: error
+          retention-days: 7

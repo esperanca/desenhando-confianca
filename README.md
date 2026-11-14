@@ -137,26 +137,35 @@ CLOUDFLARE_ACCOUNT_ID
 
 O workflow tem `permissions: contents: write` para conseguir enviar tags.
 
-### Planejado: preview solicitado em pull requests
+### Preview automático em pull requests
 
-Implementar um workflow separado para que colaboradores possam solicitar uma
-prévia do site comentando `/deploy-preview` em uma pull request.
+Toda pull request aberta, reaberta ou atualizada gera uma prévia pública no
+Cloudflare Pages. O workflow verifica os testes e os dois builds, publica o
+build público em `pr-N.desenhando-confianca.pages.dev` e adiciona ou atualiza
+um comentário com o endereço na pull request.
 
-Fluxo previsto:
+O processo usa dois workflows para aceitar contribuições externas sem expor o
+token da Cloudflare:
 
-1. aceitar o comando somente em comentários de pull requests;
-2. validar se quem solicitou é `OWNER`, `MEMBER` ou `COLLABORATOR`;
-3. baixar o commit atual da pull request;
-4. executar `npm ci` e `npm run verify`;
-5. publicar `dist/` no Cloudflare Pages como branch de preview, sem alterar a
-   produção e sem criar uma release;
-6. comentar na pull request com a URL publicada;
-7. manter deploy de produção e release no workflow manual existente, protegido
-   por um GitHub Environment `production` com aprovação de mantenedor.
+1. `pull-request-preview-build.yml` executa o código da pull request sem secrets,
+   roda `npm run verify` e salva somente o build público como artefato;
+2. `pull-request-preview-deploy.yml`, carregado da branch principal, baixa o
+   artefato verificado, rejeita recursos executáveis do Pages e publica os
+   arquivos estáticos usando os secrets da Cloudflare.
 
-O token usado nesse workflow deverá ter acesso restrito ao Cloudflare Pages.
-Contribuições externas não deverão executar código com secrets sem aprovação de
-um mantenedor.
+O GitHub pode exigir aprovação manual na primeira execução enviada por um novo
+colaborador externo, conforme a política de segurança de Actions do repositório.
+Depois da aprovação, o build e o deploy são automáticos.
+
+Secrets necessários em `Settings → Secrets and variables → Actions`:
+
+```text
+CLOUDFLARE_API_TOKEN
+CLOUDFLARE_ACCOUNT_ID
+```
+
+O token deve ter apenas acesso de edição ao Cloudflare Pages da conta usada pelo
+projeto. Previews não alteram a produção e não criam tags ou releases.
 
 ## Versões
 
