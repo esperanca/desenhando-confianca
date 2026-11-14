@@ -7,13 +7,13 @@ const test = require('node:test');
 
 test('renderiza o log global em clone raso', {timeout: 120_000}, () => {
   const directory = mkdtempSync(path.join(tmpdir(), 'desenhando-confianca-shallow-'));
+  const repository = execFileSync('git', ['remote', 'get-url', 'origin'], {encoding: 'utf8'}).trim();
 
   try {
     execFileSync('git', [
       'clone',
       '--depth=1',
-      '--no-local',
-      process.cwd(),
+      repository,
       directory,
     ], {stdio: 'ignore'});
     copyFileSync(
