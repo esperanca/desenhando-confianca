@@ -37,7 +37,7 @@
     </div>
 
     <div class="site-footer__meta">
-      <p>© 2026 {{ site.authorName }}</p>
+      <p>© 2026 {{ site.authorName }} · <time datetime="{{ global.now | w3DateFilter }}">Build {{ global.now | dateFilter }}</time></p>
       {% set editUrl = page.inputPath | githubEditUrl(site.repositoryUrl, site.repositoryBranch) %}
       {% if editUrl %}<a href="{{ editUrl }}">Editar esta página</a>{% endif %}
     </div>
