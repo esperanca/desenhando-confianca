@@ -50,8 +50,9 @@
     var status = newsletter && newsletter.querySelector('.site-footer__newsletter-status');
     var errorMessage = newsletter && newsletter.querySelector('.site-footer__newsletter-error');
     var subscribeAgain = newsletter && newsletter.querySelector('.site-footer__newsletter-again');
-    var transitionDuration = 390;
     var minimumLoadingDuration = 600;
+    var formExitDuration = 180;
+    var formEnterDuration = 220;
     if (!form || !status || !errorMessage) return;
 
     function wait(milliseconds) {
@@ -68,6 +69,7 @@
       label.textContent = 'Enviando';
       form.classList.add('is-loading');
       var loadingStartedAt = performance.now();
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       try {
         var response = await fetch(form.action, {
@@ -79,7 +81,7 @@
 
         if (!response.ok) throw new Error(result.message || 'Não foi possível concluir a inscrição.');
 
-        await wait(Math.max(0, minimumLoadingDuration - (performance.now() - loadingStartedAt)));
+        await wait(reducedMotion ? 0 : Math.max(0, minimumLoadingDuration - (performance.now() - loadingStartedAt)));
         form.reset();
         status.hidden = false;
         requestAnimationFrame(function () {
@@ -87,7 +89,7 @@
         });
         window.setTimeout(function () {
           form.hidden = true;
-        }, transitionDuration);
+        }, reducedMotion ? 0 : formExitDuration);
       } catch (error) {
         errorMessage.hidden = false;
         errorMessage.textContent = error.message || 'Não foi possível concluir a inscrição. Tente novamente.';
@@ -116,7 +118,7 @@
         window.setTimeout(function () {
           status.hidden = true;
           form.querySelector('[name="email"]').focus();
-        }, transitionDuration);
+        }, reducedMotion ? 0 : formEnterDuration);
       });
     }
   })();
