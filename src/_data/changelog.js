@@ -18,6 +18,36 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['b04dad591adc48cf9913cb9a77161f8fdec166f8', {
+    label: 'Revisão ampliada do capítulo Verificabilidade.',
+    kinds: ['conteúdo', 'estrutura editorial'],
+    targets: [pages.verificabilidade],
+  }],
+  ['3f149aa8269f5b4dd7c6065162c2b5c3aa48e88a', {
+    label: 'Novo template dos capítulos, com cabeçalho editorial, tempo de leitura e navegação entre capítulos.',
+    kinds: ['design', 'estrutura editorial'],
+    targets: [pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade],
+  }],
+  ['e36476a9358dfb68dcb0aa25c67e99967b85f455', {
+    label: 'Nova tipografia editorial com Literata, IBM Plex Sans e JetBrains Mono.',
+    kinds: ['design'],
+    targets: [pages.home, pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade, pages.notas, pages.design, pages.autores, pages.sobre],
+  }],
+  ['fbbe738c4d5934a8aaf066176b5d24771fd3e38d', {
+    label: 'Navegação recolhida em um botão de menu no celular.',
+    kinds: ['design', 'navegação'],
+    targets: [{label: 'Site'}],
+  }],
+  ['96d0fee35142ef3915acbe4b5cd463e0b04aee98', {
+    label: 'Notas laterais abertas em diálogo nas telas estreitas.',
+    kinds: ['design', 'acessibilidade'],
+    targets: [pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade, pages.hci, pages.memoria],
+  }],
+  ['113b19b03363d4b3296ffc3b3f4ed7c45dfa2429', {
+    label: 'Nova escala tipográfica e ajustes na coluna de leitura.',
+    kinds: ['design'],
+    targets: [pages.home, pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade, pages.notas, pages.design, pages.autores, pages.sobre],
+  }],
   ['0e8e21bcf71811f7ef4521b4b78bd4ac373b2c0c', {
     label: 'Gidole nos títulos e corpo do texto em 19 px.',
     kinds: ['design'],
@@ -164,12 +194,6 @@ function parseLine(line) {
   return {hash, date, author, subject: subject.join('|')};
 }
 
-function fallbackLabel(subject) {
-  const value = String(subject || '').trim();
-  if (!value) return 'Alteração no projeto.';
-  return value.endsWith('.') ? value : `${value}.`;
-}
-
 function releaseFor(hash) {
   const tag = git(`tag --contains ${hash} --sort=v:refname`).split('\n').filter(Boolean)[0];
   return tag || 'Ainda não lançada';
@@ -195,13 +219,14 @@ module.exports = function () {
         .split('\n')
         .map(parseLine)
         .filter(Boolean)
+        .filter((commit) => metadata.has(commit.hash))
         .map((commit) => {
-          const meta = metadata.get(commit.hash) || {};
+          const meta = metadata.get(commit.hash);
           return {
             ...commit,
-            label: meta.label || fallbackLabel(commit.subject),
-            kinds: meta.kinds || ['projeto'],
-            targets: meta.targets || [],
+            label: meta.label,
+            kinds: meta.kinds,
+            targets: meta.targets,
             release: releaseFor(commit.hash),
             url: `${repositoryUrl}/commit/${commit.hash}`,
           };
