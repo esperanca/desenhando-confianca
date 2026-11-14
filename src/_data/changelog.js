@@ -18,6 +18,21 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['fa62a5a24c540ed9ceebfa33ec2551f81432ef64', {
+    label: 'Timestamp do build exibido no rodapé.',
+    kinds: ['técnica'],
+    targets: [{label: 'Rodapé'}],
+  }],
+  ['4ea23c635d9e4521e7f9c8574e085d41c48a37be', {
+    label: 'Animação da newsletter com resposta imediata, transições assimétricas e movimento reduzido.',
+    kinds: ['design', 'acessibilidade'],
+    targets: [{label: 'Rodapé'}],
+  }],
+  ['29bac13256bca04f9a71f7fbcb1ba852b4dcf4f1', {
+    label: 'Miolo editorial mais amplo e escala tipográfica maior em telas desktop.',
+    kinds: ['design'],
+    targets: [pages.design, pages.autores, pages.sobre, pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade],
+  }],
   ['fee0c9f66503bbf8cd02419762438fce6c9b2653', {
     label: 'Transição mais lenta entre o envio e a confirmação da newsletter.',
     kinds: ['design'],
