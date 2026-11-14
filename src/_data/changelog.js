@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['29bac13256bca04f9a71f7fbcb1ba852b4dcf4f1', {
+    label: 'Miolo editorial mais amplo e escala tipográfica maior em telas desktop.',
+    kinds: ['design'],
+    targets: [pages.design, pages.autores, pages.sobre, pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade],
+  }],
   ['fee0c9f66503bbf8cd02419762438fce6c9b2653', {
     label: 'Transição mais lenta entre o envio e a confirmação da newsletter.',
     kinds: ['design'],
