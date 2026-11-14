@@ -7,15 +7,17 @@
         </a>
         <div class="site-footer__newsletter">
           <p class="site-footer__newsletter-title">Receba atualizações e notícias do livro.</p>
-          <form class="site-footer__form" action="/api/newsletter" method="post" aria-label="Assinar atualizações do livro">
-            <label class="visually-hidden" for="newsletter-email">Seu e-mail</label>
-            <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" required>
-            <label class="site-footer__website" aria-hidden="true">Site <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-            <button type="submit"><span class="site-footer__button-label">Quero receber</span><span class="site-footer__spinner" aria-hidden="true"></span></button>
-          </form>
-          <div class="site-footer__newsletter-status" role="status" aria-live="polite" hidden>
-            <p>Seu e-mail foi cadastrado.</p>
-            <a href="#newsletter-email" class="site-footer__newsletter-again">Cadastrar outro e-mail</a>
+          <div class="site-footer__newsletter-stage">
+            <form class="site-footer__form" action="/api/newsletter" method="post" aria-label="Assinar atualizações do livro">
+              <label class="visually-hidden" for="newsletter-email">Seu e-mail</label>
+              <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" required>
+              <label class="site-footer__website" aria-hidden="true">Site <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+              <button type="submit"><span class="site-footer__button-label">Quero receber</span><span class="site-footer__spinner" aria-hidden="true"></span></button>
+            </form>
+            <div class="site-footer__newsletter-status" role="status" aria-live="polite" hidden>
+              <p>Você está na lista.</p>
+              <a href="#newsletter-email" class="site-footer__newsletter-again">Cadastrar outro e-mail</a>
+            </div>
           </div>
           <p class="site-footer__newsletter-error" role="alert" hidden></p>
         </div>
@@ -48,7 +50,13 @@
     var status = newsletter && newsletter.querySelector('.site-footer__newsletter-status');
     var errorMessage = newsletter && newsletter.querySelector('.site-footer__newsletter-error');
     var subscribeAgain = newsletter && newsletter.querySelector('.site-footer__newsletter-again');
+    var transitionDuration = 390;
+    var minimumLoadingDuration = 600;
     if (!form || !status || !errorMessage) return;
+
+    function wait(milliseconds) {
+      return new Promise(function (resolve) { window.setTimeout(resolve, milliseconds); });
+    }
 
     form.addEventListener('submit', async function (event) {
       event.preventDefault();
@@ -59,6 +67,7 @@
       button.setAttribute('aria-busy', 'true');
       label.textContent = 'Enviando';
       form.classList.add('is-loading');
+      var loadingStartedAt = performance.now();
 
       try {
         var response = await fetch(form.action, {
@@ -70,9 +79,15 @@
 
         if (!response.ok) throw new Error(result.message || 'Não foi possível concluir a inscrição.');
 
+        await wait(Math.max(0, minimumLoadingDuration - (performance.now() - loadingStartedAt)));
         form.reset();
-        form.hidden = true;
         status.hidden = false;
+        requestAnimationFrame(function () {
+          newsletter.classList.add('is-subscribed');
+        });
+        window.setTimeout(function () {
+          form.hidden = true;
+        }, transitionDuration);
       } catch (error) {
         errorMessage.hidden = false;
         errorMessage.textContent = error.message || 'Não foi possível concluir a inscrição. Tente novamente.';
@@ -91,11 +106,17 @@
         status.hidden = true;
         errorMessage.hidden = true;
         form.hidden = false;
+        requestAnimationFrame(function () {
+          newsletter.classList.remove('is-subscribed');
+        });
         button.disabled = false;
         button.removeAttribute('aria-busy');
         label.textContent = 'Quero receber';
         form.classList.remove('is-loading');
-        form.querySelector('[name="email"]').focus();
+        window.setTimeout(function () {
+          status.hidden = true;
+          form.querySelector('[name="email"]').focus();
+        }, transitionDuration);
       });
     }
   })();
