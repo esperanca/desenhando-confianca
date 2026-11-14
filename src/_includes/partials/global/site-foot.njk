@@ -1,8 +1,79 @@
-<footer role="contentinfo" class="site-footer">
+<footer id="rodape" role="contentinfo" class="site-footer">
   <div class="wrapper site-footer__wrapper">
-    <p class="site-footer__links">
+    <div class="site-footer__main">
+      <div class="site-footer__identity">
+        <a class="site-footer__brand" href="/" aria-label="Desenhando Confiança — início">
+          <span class="site-footer__name">Desenhando<br>Confiança</span>
+        </a>
+        <div class="site-footer__newsletter">
+          <p class="site-footer__newsletter-title">Receba atualizações e notícias do livro.</p>
+          <form class="site-footer__form" action="/api/newsletter" method="post" aria-label="Assinar atualizações do livro">
+            <label class="visually-hidden" for="newsletter-email">Seu e-mail</label>
+            <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" required>
+            <label class="site-footer__website" aria-hidden="true">Site <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+            <button type="submit"><span class="site-footer__button-label">Quero receber</span><span class="site-footer__spinner" aria-hidden="true"></span></button>
+          </form>
+          <p class="site-footer__newsletter-status" role="status" aria-live="polite" hidden></p>
+        </div>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="Navegação do rodapé">
+        <div class="site-footer__group">
+          <h2>Projeto</h2>
+          <ul>
+            <li><a href="/sobre-o-livro/">Sobre o livro</a></li>
+            <li><a href="/notas/">Notas</a></li>
+            <li><a href="/design/">Design</a></li>
+            <li><a href="/autores/">Autores</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="site-footer__meta">
+      <p>© 2026 {{ site.authorName }}</p>
       {% set editUrl = page.inputPath | githubEditUrl(site.repositoryUrl, site.repositoryBranch) %}
-      {% if editUrl %}<a href="{{ editUrl }}">Editar esta página no GitHub</a> · {% endif %}{% if site.repositoryUrl %}<a href="{{ site.repositoryUrl }}">Código-fonte</a>{% endif %}
-    </p>
+      {% if editUrl %}<a href="{{ editUrl }}">Editar esta página</a>{% endif %}
+    </div>
   </div>
 </footer>
+<script>
+  (function () {
+    var newsletter = document.querySelector('.site-footer__newsletter');
+    var form = newsletter && newsletter.querySelector('.site-footer__form');
+    var status = newsletter && newsletter.querySelector('.site-footer__newsletter-status');
+    if (!form || !status) return;
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      var button = form.querySelector('button');
+      var label = form.querySelector('.site-footer__button-label');
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+      label.textContent = 'Enviando';
+      form.classList.add('is-loading');
+
+      try {
+        var response = await fetch(form.action, {
+          method: 'POST',
+          headers: {'Accept': 'application/json'},
+          body: new FormData(form)
+        });
+        var result = await response.json();
+
+        if (!response.ok) throw new Error(result.message || 'Não foi possível concluir a inscrição.');
+
+        form.hidden = true;
+        status.hidden = false;
+        status.innerHTML = '<strong>Quase lá.</strong> Confira seu e-mail para confirmar a inscrição.';
+      } catch (error) {
+        status.hidden = false;
+        status.textContent = error.message || 'Não foi possível concluir a inscrição. Tente novamente.';
+        button.disabled = false;
+        button.removeAttribute('aria-busy');
+        label.textContent = 'Tentar novamente';
+        form.classList.remove('is-loading');
+      }
+    });
+  })();
+</script>
