@@ -137,6 +137,27 @@ CLOUDFLARE_ACCOUNT_ID
 
 O workflow tem `permissions: contents: write` para conseguir enviar tags.
 
+### Planejado: preview solicitado em pull requests
+
+Implementar um workflow separado para que colaboradores possam solicitar uma
+prévia do site comentando `/deploy-preview` em uma pull request.
+
+Fluxo previsto:
+
+1. aceitar o comando somente em comentários de pull requests;
+2. validar se quem solicitou é `OWNER`, `MEMBER` ou `COLLABORATOR`;
+3. baixar o commit atual da pull request;
+4. executar `npm ci` e `npm run verify`;
+5. publicar `dist/` no Cloudflare Pages como branch de preview, sem alterar a
+   produção e sem criar uma release;
+6. comentar na pull request com a URL publicada;
+7. manter deploy de produção e release no workflow manual existente, protegido
+   por um GitHub Environment `production` com aprovação de mantenedor.
+
+O token usado nesse workflow deverá ter acesso restrito ao Cloudflare Pages.
+Contribuições externas não deverão executar código com secrets sem aprovação de
+um mantenedor.
+
 ## Versões
 
 A tag Git `vX.Y.Z` é a única fonte de versão. O número do meio sobe em marcos de design ou estrutura do site; o último, em revisões de conteúdo e correções; `1.0.0` fica para o livro completo. Nada é publicado sem versão fechada, e `package.json` acompanha a tag. As regras completas estão em `AGENTS.md`.
