@@ -25,7 +25,7 @@ test('renderiza o log global em clone raso', {timeout: 120_000}, () => {
 
     const home = readFileSync(path.join(directory, 'dist', 'index.html'), 'utf8');
     assert.match(home, /id="log-de-alteracoes"/);
-    assert.match(home, /Revisão ampliada do capítulo Verificabilidade\./);
+    assert.match(home, /Timestamp do build exibido no rodapé\./);
   } finally {
     rmSync(directory, {recursive: true, force: true});
   }
