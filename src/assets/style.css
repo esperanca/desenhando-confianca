@@ -433,8 +433,23 @@ a.book-pagination__link:hover { border-color: var(--ink); }
 }
 
 @media (min-width: 70rem) {
+  body:not([class*='type-']) { --measure: 38rem; --note-width: 19rem; --note-gap: 2rem; }
   .book-article { width: calc(var(--measure) + var(--note-gap) + var(--note-width)); padding-right: calc(var(--note-gap) + var(--note-width)); }
   .sidenote { float: right; clear: right; width: var(--note-width); margin: .2rem calc(-1 * (var(--note-gap) + var(--note-width))) 1rem 0; padding: 0; border: 0; color: var(--note-ink); }
+}
+
+@media (min-width: 80rem) {
+  body:not([class*='type-']) { --measure: 40rem; --note-width: 20rem; }
+}
+
+@media (min-width: 90rem) {
+  body:not([class*='type-']) { --measure: 42rem; --note-width: 21rem; --note-gap: 2.5rem; }
+  :where(.reading-shell, .book-article) { font-size: 1.125rem; }
+  :where(.reading-shell, .book-article) :is(h1, .book-header h1) { font-size: 4rem; }
+  :where(.reading-shell, .book-article) h2 { font-size: 1.75rem; }
+  :where(.reading-shell, .book-article) :is(.lede, .book-summary, .book-definition) { font-size: 1.75rem; }
+  :where(.reading-shell, .book-article) :is(.eyebrow, .book-meta, .editorial-status, .status-tag, .book-questions__label, .sidenote-ref, .footnote-ref, .sidenote, .footnotes, .book-pagination__label, .changelog, .changelog__date) { font-size: .875rem; }
+  :where(.reading-shell, .book-article) :is(.content-list a, .book-toc a, .book-body table, .tdbc-anchor, .book-pagination__title, .changelog h2) { font-size: 1.125rem; }
 }
 
 /* Notas laterais em telas estreitas: saem do corpo do texto e abrem em diálogo ao tocar no número. */
