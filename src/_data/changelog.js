@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['fa62a5a24c540ed9ceebfa33ec2551f81432ef64', {
+    label: 'Timestamp do build exibido no rodapé.',
+    kinds: ['técnica'],
+    targets: [{label: 'Rodapé'}],
+  }],
   ['4ea23c635d9e4521e7f9c8574e085d41c48a37be', {
     label: 'Animação da newsletter com resposta imediata, transições assimétricas e movimento reduzido.',
     kinds: ['design', 'acessibilidade'],
