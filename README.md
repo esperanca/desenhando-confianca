@@ -203,3 +203,5 @@ Capítulos e páginas exibem "Log de mudanças" específico do arquivo, agrupado
 por dia, com autor, link para commit e versão. A home exibe o log global do
 projeto, com a frase `Mudanças de [tipo(s)] em [página(s)/área(s)]`, sempre
 linkando páginas públicas citadas.
+
+<!-- Commit técnico para validar o fluxo de release por comentário. -->
