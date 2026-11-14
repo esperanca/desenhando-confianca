@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['4ea23c635d9e4521e7f9c8574e085d41c48a37be', {
+    label: 'Animação da newsletter com resposta imediata, transições assimétricas e movimento reduzido.',
+    kinds: ['design', 'acessibilidade'],
+    targets: [{label: 'Rodapé'}],
+  }],
   ['29bac13256bca04f9a71f7fbcb1ba852b4dcf4f1', {
     label: 'Miolo editorial mais amplo e escala tipográfica maior em telas desktop.',
     kinds: ['design'],
