@@ -1,0 +1,173 @@
+name: Prepare release from PR comment
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-pr-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  prepare-release:
+    name: Prepare release for pull request
+    if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/release ')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check commenter and read release command
+        id: command
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          LOGIN: ${{ github.event.comment.user.login }}
+          COMMENT: ${{ github.event.comment.body }}
+        run: |
+          set -euo pipefail
+
+          permission="$(gh api "repos/$REPO/collaborators/$LOGIN/permission" --jq '.permission')"
+          if [[ "$permission" != "admin" ]]; then
+            echo "Comentário ignorado: $LOGIN não é administrador do repositório."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          first_line="${COMMENT%%$'\n'*}"
+          first_line="${first_line%$'\r'}"
+          read -r _ version summary <<< "$first_line"
+          summary="${summary:-Release $version}"
+
+          pr_state="$(gh api "repos/$REPO/pulls/$PR_NUMBER" --jq '.state')"
+          if [[ "$pr_state" != "open" ]]; then
+            echo "::error::O pull request não está aberto."
+            exit 1
+          fi
+
+          head_repo="$(gh api "repos/$REPO/pulls/$PR_NUMBER" --jq '.head.repo.full_name // ""')"
+          if [[ "$head_repo" != "$REPO" ]]; then
+            echo "::error::A branch do PR vem de um fork. O workflow só pode gravar em branches do próprio repositório."
+            exit 1
+          fi
+
+          head_ref="$(gh api "repos/$REPO/pulls/$PR_NUMBER" --jq '.head.ref')"
+
+          echo "Release $version solicitada por $LOGIN no PR #$PR_NUMBER."
+          {
+            echo "run=true"
+            echo "version=$version"
+            echo "summary=$summary"
+            echo "head_ref=$head_ref"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Checkout pull request branch
+        if: steps.command.outputs.run == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.command.outputs.head_ref }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        if: steps.command.outputs.run == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.command.outputs.run == 'true'
+        run: npm ci
+
+      - name: Validate requested version
+        if: steps.command.outputs.run == 'true'
+        env:
+          VERSION: ${{ steps.command.outputs.version }}
+        run: |
+          set -euo pipefail
+
+          if [[ ! "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Versão inválida: $VERSION. Use o formato vX.Y.Z."
+            exit 1
+          fi
+
+          git fetch --force --tags origin
+
+          if git rev-parse -q --verify "refs/tags/$VERSION" >/dev/null; then
+            echo "::error::A tag $VERSION já existe. Se ela veio de um /release anterior neste PR, remova-a antes de pedir de novo."
+            exit 1
+          fi
+
+          last_tag="$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1 || true)"
+          if [[ -n "$last_tag" ]]; then
+            highest="$(printf '%s\n%s\n' "${last_tag#v}" "${VERSION#v}" | sort -V | tail -n 1)"
+            if [[ "$highest" != "${VERSION#v}" ]]; then
+              echo "::error::$VERSION não é maior que a última versão ($last_tag)."
+              exit 1
+            fi
+          fi
+
+      - name: Write version to package files
+        if: steps.command.outputs.run == 'true'
+        env:
+          VERSION: ${{ steps.command.outputs.version }}
+        run: |
+          set -euo pipefail
+          current="$(node -p "require('./package.json').version")"
+          if [[ "$current" != "${VERSION#v}" ]]; then
+            npm version "${VERSION#v}" --no-git-tag-version
+          else
+            echo "package.json já está em ${VERSION#v}."
+          fi
+
+      - name: Verify site
+        if: steps.command.outputs.run == 'true'
+        run: npm run verify
+
+      - name: Commit version, create tag and push
+        if: steps.command.outputs.run == 'true'
+        env:
+          VERSION: ${{ steps.command.outputs.version }}
+          SUMMARY: ${{ steps.command.outputs.summary }}
+          HEAD_REF: ${{ steps.command.outputs.head_ref }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add package.json package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Prepara versão ${VERSION#v}"
+          fi
+
+          git tag -a "$VERSION" -m "$SUMMARY"
+
+          # A tag vai primeiro, para que o build da Cloudflare do commit de versão já a enxergue.
+          git push origin "refs/tags/$VERSION"
+          git push origin "HEAD:refs/heads/$HEAD_REF"
+
+      - name: Comment on pull request
+        if: steps.command.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          VERSION: ${{ steps.command.outputs.version }}
+        run: |
+          set -euo pipefail
+          gh issue comment "$PR_NUMBER" --repo "$REPO" --body "Versão $VERSION preparada neste PR. Ao fazer o merge (commit de merge, sem squash), a Cloudflare publica em produção."
+
+      - name: Report failure on pull request
+        if: failure() && steps.command.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          VERSION: ${{ steps.command.outputs.version }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue comment "$PR_NUMBER" --repo "$REPO" --body "Não consegui preparar a release $VERSION. Veja o log: $RUN_URL"
