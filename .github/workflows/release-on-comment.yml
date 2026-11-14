@@ -182,9 +182,9 @@ jobs:
 
           git tag -a "$VERSION" -m "$SUMMARY"
 
-          # A tag vai primeiro. Se a branch tiver recebido commits depois da verificação, o push da branch falha.
-          git push origin "refs/tags/$VERSION"
-          git push origin "HEAD:refs/heads/$HEAD_REF"
+          # Push atômico: a tag e a branch são enviadas juntas, ou nenhuma delas é.
+          # Se a branch tiver recebido commits depois da verificação, o push inteiro falha.
+          git push --atomic origin "refs/tags/$VERSION" "HEAD:refs/heads/$HEAD_REF"
 
       - name: Comment on pull request
         env:
@@ -206,3 +206,22 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           gh issue comment "$PR_NUMBER" --repo "$REPO" --body "Não consegui preparar a release $VERSION. Veja o log: $RUN_URL"
+
+  # Avisa no PR quando a verificação falha. Não faz checkout e não executa código do PR.
+  report-verify-failure:
+    name: Report verification failure
+    needs: [command, verify]
+    if: always() && needs.command.outputs.run == 'true' && needs.verify.result == 'failure'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Comment on pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          VERSION: ${{ needs.command.outputs.version }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue comment "$PR_NUMBER" --repo "$REPO" --body "A verificação do PR falhou, então a release $VERSION não foi preparada. Veja o log: $RUN_URL"
