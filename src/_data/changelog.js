@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['fee0c9f66503bbf8cd02419762438fce6c9b2653', {
+    label: 'Transição mais lenta entre o envio e a confirmação da newsletter.',
+    kinds: ['design'],
+    targets: [{label: 'Rodapé'}],
+  }],
   ['1aadc79aab40c7c5a78b5fa283f7bc8c8e52556b', {
     label: 'Inscrição imediata na newsletter, com confirmação no rodapé e opção de cadastrar outro e-mail.',
     kinds: ['design', 'técnica'],
