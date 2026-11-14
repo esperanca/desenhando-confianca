@@ -18,6 +18,11 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['848f0acc572180e7eafa3a72b9f38cae74409bb0', {
+    label: 'Novo rodapé com navegação do projeto e newsletter integrada ao Buttondown.',
+    kinds: ['design', 'navegação', 'técnica'],
+    targets: [{label: 'Rodapé'}, pages.design],
+  }],
   ['b04dad591adc48cf9913cb9a77161f8fdec166f8', {
     label: 'Revisão ampliada do capítulo Verificabilidade.',
     kinds: ['conteúdo', 'estrutura editorial'],
