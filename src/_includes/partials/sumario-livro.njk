@@ -5,7 +5,7 @@
   {% for item in items %}
   {% set chapter = chapters | findByUrl(item.url) %}
   <li>
-    {% if chapter %}<a href="{{ chapter.url }}">{{ item.title }}</a>{% else %}<span class="toc-list__pending">{{ item.title }}</span>{% endif %}
+    {% if chapter %}<a href="{{ chapter.url }}">{{ item.title }}</a>{% else %}<span class="toc-list__pending">{{ item.title }} <span class="toc-list__status">Em breve</span></span>{% endif %}
   </li>
   {% endfor %}
 </ul>
@@ -13,6 +13,7 @@
 
 {#- Capítulos do livro: sumário + partes + seções adicionais. Sem notas. -#}
 <h2 id="sumario-do-livro">Sumário do livro</h2>
+<p class="toc-list__intro">Itens sem link ainda estão em desenvolvimento.</p>
 {{ itemList(sumario.intro, collections.chapters) }}
 
 {% for part in sumario.parts %}

@@ -11,10 +11,10 @@
             <form class="site-footer__form" action="/api/newsletter" method="post" aria-label="Assinar atualizações do livro">
               <label class="visually-hidden" for="newsletter-email">Seu e-mail</label>
               <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="seu@email.com" required>
-              <label class="site-footer__website" aria-hidden="true">Site <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+              <label class="site-footer__website" inert>Site <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
               <button type="submit"><span class="site-footer__button-label">Quero receber</span><span class="site-footer__spinner" aria-hidden="true"></span></button>
             </form>
-            <div class="site-footer__newsletter-status" role="status" aria-live="polite" hidden>
+            <div class="site-footer__newsletter-status" role="status" aria-live="polite" tabindex="-1" hidden>
               <p>Você está na lista.</p>
               <a href="#newsletter-email" class="site-footer__newsletter-again">Cadastrar outro e-mail</a>
             </div>
@@ -59,6 +59,10 @@
       return new Promise(function (resolve) { window.setTimeout(resolve, milliseconds); });
     }
 
+    function prefersReducedMotion() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
     form.addEventListener('submit', async function (event) {
       event.preventDefault();
       var button = form.querySelector('button');
@@ -69,7 +73,7 @@
       label.textContent = 'Enviando';
       form.classList.add('is-loading');
       var loadingStartedAt = performance.now();
-      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reducedMotion = prefersReducedMotion();
 
       try {
         var response = await fetch(form.action, {
@@ -89,6 +93,7 @@
         });
         window.setTimeout(function () {
           form.hidden = true;
+          status.focus({preventScroll: true});
         }, reducedMotion ? 0 : formExitDuration);
       } catch (error) {
         errorMessage.hidden = false;
@@ -118,7 +123,7 @@
         window.setTimeout(function () {
           status.hidden = true;
           form.querySelector('[name="email"]').focus();
-        }, reducedMotion ? 0 : formEnterDuration);
+        }, prefersReducedMotion() ? 0 : formEnterDuration);
       });
     }
   })();

@@ -188,10 +188,13 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .status-tag--internal-review, .status-tag--draft { color: var(--paper); background: var(--ink); border-color: var(--ink); }
 .lede, .home__lede, .book-summary { font-size: 1.5rem; font-style: italic; line-height: 1.35; color: var(--muted); }
 .home__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
-.content-list, .book-toc { padding: 0; list-style: none; }
-.content-list li, .book-toc li { padding-block: 1rem; border-top: 1px solid var(--line); }
-.content-list a, .book-toc a { font-size: 1rem; font-weight: 700; }
-.content-list p, .book-toc p { margin-top: .25rem; color: var(--muted); }
+.content-list, .book-toc, .toc-list { padding: 0; list-style: none; }
+.content-list li, .book-toc li, .toc-list li { padding-block: 1rem; border-top: 1px solid var(--line); }
+.content-list a, .book-toc a, .toc-list a { font-size: 1rem; font-weight: 700; }
+.content-list p, .book-toc p, .toc-list p { margin-top: .25rem; color: var(--muted); }
+.toc-list__intro { margin: -.75rem 0 0; color: var(--muted); font-family: var(--font-sans); font-size: .875rem; }
+.toc-list__pending { color: var(--muted); }
+.toc-list__status { margin-left: .5rem; font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
 .book-toc li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; }
 .book-toc__number { font-variant-numeric: tabular-nums; color: var(--muted); }
 .book-page { overflow: clip; }
@@ -415,7 +418,8 @@ a.book-pagination__link:hover { border-color: var(--ink); }
   font-weight: 400;
 }
 .type-home--gidole-timeless .book-toc p,
-.type-home--gidole-timeless .content-list p {
+.type-home--gidole-timeless .content-list p,
+.type-home--gidole-timeless .toc-list__intro {
   line-height: 1.5;
 }
 .type-home--gidole-timeless .type-home__notice {
