@@ -244,14 +244,16 @@ a.book-pagination__link:hover { border-color: var(--ink); }
 .changelog__day { margin-top: 1rem; }
 .changelog__date { margin: 0; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
 .changelog__entries { margin-top: .4rem; padding-left: 0; list-style: none; }
-.changelog__entry { margin-top: .35rem; }
+.changelog__entry { margin-top: .35rem; padding-block: 1.25rem; border-top: 1px solid var(--line); }
+.changelog__entry:first-child { border-top: 0; }
 .changelog__entry--global { margin-top: .75rem; }
-.changelog__line { margin: 0; }
-.changelog__scope { margin-top: .15rem; }
-.changelog__time { color: var(--ink); font-variant-numeric: tabular-nums; }
-.changelog__author { white-space: nowrap; }
-.changelog__commit { white-space: nowrap; }
-.changelog__release { white-space: nowrap; }
+.changelog__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem; color: var(--muted); font-family: var(--font-mono); font-size: .8125rem; line-height: 1.4; }
+.changelog__summary { max-width: 34rem; margin: .4rem 0 0; font-family: inherit; font-size: 1rem; font-weight: 600; line-height: 1.4; }
+.changelog__scope { margin: .5rem 0 0; color: var(--muted); font-family: var(--font-sans); font-size: .875rem; line-height: 1.5; }
+.changelog__byline { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-top: .75rem; font-family: var(--font-sans); font-size: .875rem; line-height: 1.5; }
+.changelog__time { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.changelog__author, .changelog__commit, .changelog__release { overflow-wrap: anywhere; }
+.changelog__commit { display: inline-flex; align-items: center; min-height: 2.75rem; }
 
 /* Estudo tipográfico isolado: Gidole */
 .type-study--gidole {

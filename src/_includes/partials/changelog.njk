@@ -18,17 +18,19 @@
       {% for change in group.commits %}
       {% set authorUrl = change.author | authorUrl %}
       <li class="changelog__entry changelog__entry--global">
-        <p class="changelog__line">
+        <div class="changelog__meta">
           <time class="changelog__time" datetime="{{ change.date }}">{{ change.date | changeTime }}</time>
-          <span aria-hidden="true">—</span>
-          <span class="changelog__summary">{{ change.label }}</span>
-          {% if authorUrl %}<a class="changelog__author" href="{{ authorUrl }}">{{ change.author }}</a>{% else %}<span class="changelog__author">{{ change.author }}</span>{% endif %}
-          <span aria-hidden="true"> · </span><a class="changelog__commit" href="{{ change.url }}">Ver alteração</a>
-          <span aria-hidden="true"> · </span><span class="changelog__release">{{ change.release }}</span>
-        </p>
+          <span aria-hidden="true">·</span>
+          <span class="changelog__release">{{ change.release }}</span>
+        </div>
+        <h4 class="changelog__summary">{{ change.label }}</h4>
         {% if change.kinds and change.targets and change.targets.length %}
-        <p class="changelog__scope">Mudanças de {{ change.kinds | readableList }} em {{ linkedList(change.targets) }}.</p>
+        <p class="changelog__scope">{{ change.kinds | readableList }} · {{ linkedList(change.targets) }}</p>
         {% endif %}
+        <div class="changelog__byline">
+          {% if authorUrl %}<a class="changelog__author" href="{{ authorUrl }}">{{ change.author }}</a>{% else %}<span class="changelog__author">{{ change.author }}</span>{% endif %}
+          <a class="changelog__commit" href="{{ change.url }}" aria-label="Ver alteração: {{ change.label }}">Ver alteração</a>
+        </div>
       </li>
       {% endfor %}
     </ol>

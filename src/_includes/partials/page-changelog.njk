@@ -13,22 +13,17 @@
       {% set authorUrl = change.author | authorUrl %}
       {% set changeUrl = change.hash | commitUrl(site.repositoryUrl) %}
       <li class="changelog__entry">
-        <time class="changelog__time" datetime="{{ change.date }}">{{ change.date | changeTime }}</time>
-        <span aria-hidden="true">—</span>
-        <span class="changelog__summary">{{ change | editorialChangeLabel }}</span>
-        {% if change.author %}
-          {% if authorUrl %}
-          <a class="changelog__author" href="{{ authorUrl }}">{{ change.author }}</a>
-          {% else %}
-          <span class="changelog__author">{{ change.author }}</span>
+        <div class="changelog__meta">
+          <time class="changelog__time" datetime="{{ change.date }}">{{ change.date | changeTime }}</time>
+          {% if change.release %}<span aria-hidden="true">·</span><span class="changelog__release">{{ change.release }}</span>{% endif %}
+        </div>
+        <h4 class="changelog__summary">{{ change | editorialChangeLabel }}</h4>
+        <div class="changelog__byline">
+          {% if change.author %}
+            {% if authorUrl %}<a class="changelog__author" href="{{ authorUrl }}">{{ change.author }}</a>{% else %}<span class="changelog__author">{{ change.author }}</span>{% endif %}
           {% endif %}
-        {% endif %}
-        {% if changeUrl %}
-        <span aria-hidden="true"> · </span><a class="changelog__commit" href="{{ changeUrl }}">Ver alteração</a>
-        {% endif %}
-        {% if change.release %}
-        <span aria-hidden="true"> · </span><span class="changelog__release">{{ change.release }}</span>
-        {% endif %}
+          {% if changeUrl %}<a class="changelog__commit" href="{{ changeUrl }}" aria-label="Ver alteração: {{ change | editorialChangeLabel }}">Ver alteração</a>{% endif %}
+        </div>
       </li>
       {% endfor %}
     </ol>

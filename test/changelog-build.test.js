@@ -10,6 +10,14 @@ test('renderiza o log global em clone raso', {timeout: 120_000}, () => {
   const repository = execFileSync('git', ['remote', 'get-url', 'origin'], {encoding: 'utf8'}).trim();
 
   try {
+    execFileSync('npm', ['run', 'build'], {cwd: process.cwd(), stdio: 'ignore'});
+    const currentHome = readFileSync(path.join(process.cwd(), 'dist', 'index.html'), 'utf8');
+    assert.match(currentHome, /id="log-de-alteracoes"/);
+    assert.match(currentHome, /Timestamp do build exibido no rodapé\./);
+    assert.match(currentHome, /class="changelog__meta"/);
+    assert.match(currentHome, /class="changelog__byline"/);
+    assert.match(currentHome, /aria-label="Ver alteração: Timestamp do build exibido no rodapé\."/);
+
     execFileSync('git', [
       'clone',
       '--depth=1',
