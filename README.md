@@ -110,7 +110,8 @@ Projeto: `desenhando-confianca` · URL: https://desenhando-confianca.pages.dev
 
 O deploy usa `wrangler pages deploy`. Há também um workflow manual no GitHub
 Actions para fechar e publicar alterações pendentes quando solicitado.
-Não há integração Pages↔GitHub configurada, e nenhum domínio próprio apontado.
+A integração Pages↔GitHub publica previews automáticos de pull requests. Não há
+domínio próprio apontado.
 
 ## Fechamento manual pelo GitHub Actions
 
@@ -136,6 +137,27 @@ CLOUDFLARE_ACCOUNT_ID
 ```
 
 O workflow tem `permissions: contents: write` para conseguir enviar tags.
+
+### Preview automático em pull requests
+
+Toda pull request aberta, reaberta ou atualizada gera uma prévia pública no
+Cloudflare Pages. A integração oficial entre o projeto Pages e o GitHub publica
+o site e adiciona ou atualiza um comentário com os endereços na pull request.
+
+Cada pull request recebe:
+
+- uma URL imutável para o deployment do commit;
+- uma URL estável para a branch, atualizada a cada push;
+- um check `Cloudflare Pages` com acesso aos logs do deployment.
+
+O workflow `pull-request-preview-build.yml` roda separadamente no GitHub Actions
+para executar `npm run verify`. Ele não possui secrets e não publica o site.
+O deploy é feito diretamente pela integração da Cloudflare.
+
+O GitHub pode exigir aprovação manual na primeira execução enviada por um novo
+colaborador externo, conforme a política de segurança de Actions do repositório.
+Depois da aprovação, a verificação no GitHub Actions é automática. O preview da
+Cloudflare não altera a produção e não cria tags ou releases.
 
 ## Versões
 
@@ -181,3 +203,5 @@ Capítulos e páginas exibem "Log de mudanças" específico do arquivo, agrupado
 por dia, com autor, link para commit e versão. A home exibe o log global do
 projeto, com a frase `Mudanças de [tipo(s)] em [página(s)/área(s)]`, sempre
 linkando páginas públicas citadas.
+
+<!-- Commit técnico para validar o fluxo de release por comentário. -->

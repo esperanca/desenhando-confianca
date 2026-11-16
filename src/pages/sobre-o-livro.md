@@ -1,36 +1,16 @@
 ---
 layout: livro
 title: "Sobre o livro"
-summary: "Livro sobre confiança, sistemas digitais e agentes de inteligência artificial."
+summary: "O que você deixaria um agente fazer por você?"
 type: page
 status: published
-dateModified: 2026-10-05
+dateModified: 2026-11-15
 permalink: /sobre-o-livro/
 ---
 
-Confiança costuma ser invisível até quebrar.
+Assistentes e agentes de IA já respondem e agem em nome das pessoas. Quanto mais complexas e demoradas são as tarefas que assumem, mais importante se torna saber quando essa confiança é justificada.
 
-Fazemos pagamentos, aceitamos documentos e seguimos decisões produzidas por pessoas e sistemas que nunca vamos conhecer. Boa parte da vida moderna depende disso.
-
-**Desenhando Confiança** é um livro sobre as condições que tornam essa dependência digna de confiança.
-
-Não a confiança pessoal, construída pela convivência ou pela reputação. O problema aqui é outro: como confiar quando não conhecemos quem está do outro lado?
-
-Um banco. Um marketplace. Uma instituição pública. Um sistema digital.
-
-E, cada vez mais, um agente de inteligência artificial.
-
-Até pouco tempo, a maior parte dos sistemas digitais esperava por nós. Clicávamos, buscávamos, preenchíamos formulários. Chatbots respondiam perguntas.
-
-Agentes começam a mudar essa relação. Eles podem interpretar uma intenção, tomar decisões, usar ferramentas e agir em nosso nome.
-
-Quando um sistema deixa de apenas responder e começa a agir, a pergunta sobre confiança também muda.
-
-Não basta perguntar se o resultado parece correto.
-
-Precisamos saber quando essa confiança é justificada.
-
-O livro investiga essa pergunta a partir de quatro critérios:
+É dessa pergunta que parte o livro. Para respondê-la, propõe quatro critérios que ajudam a usar, avaliar e projetar agentes de IA. Ao longo dos capítulos, esses critérios orientam técnicas e ferramentas para profissionais de produto, design e engenharia, do projeto à implementação e à avaliação:
 
 **Transparência**  
 Consigo perceber o que está acontecendo?
@@ -43,10 +23,6 @@ Consigo examinar o que sustenta uma afirmação, decisão ou ação?
 
 **Compreensibilidade**  
 Consigo entender as regras, limites e consequências do sistema?
-
-Esses critérios não são uma receita para produzir confiança. São maneiras de examinar se um sistema oferece razões suficientes para merecê-la.
-
-O livro é escrito para quem desenha, constrói ou governa sistemas dos quais outras pessoas dependem — e para quem quer entender melhor o que estamos pedindo quando dizemos: “confie em mim”.
 
 **Desenhando Confiança** não é sobre fazer as pessoas confiarem.
 

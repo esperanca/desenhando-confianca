@@ -18,6 +18,66 @@ const pages = {
 };
 
 const metadata = new Map([
+  ['fa62a5a24c540ed9ceebfa33ec2551f81432ef64', {
+    label: 'Timestamp do build exibido no rodapé.',
+    kinds: ['técnica'],
+    targets: [{label: 'Rodapé'}],
+  }],
+  ['4ea23c635d9e4521e7f9c8574e085d41c48a37be', {
+    label: 'Animação da newsletter com resposta imediata, transições assimétricas e movimento reduzido.',
+    kinds: ['design', 'acessibilidade'],
+    targets: [{label: 'Rodapé'}],
+  }],
+  ['29bac13256bca04f9a71f7fbcb1ba852b4dcf4f1', {
+    label: 'Miolo editorial mais amplo e escala tipográfica maior em telas desktop.',
+    kinds: ['design'],
+    targets: [pages.design, pages.autores, pages.sobre, pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade],
+  }],
+  ['fee0c9f66503bbf8cd02419762438fce6c9b2653', {
+    label: 'Transição mais lenta entre o envio e a confirmação da newsletter.',
+    kinds: ['design'],
+    targets: [{label: 'Rodapé'}],
+  }],
+  ['1aadc79aab40c7c5a78b5fa283f7bc8c8e52556b', {
+    label: 'Inscrição imediata na newsletter, com confirmação no rodapé e opção de cadastrar outro e-mail.',
+    kinds: ['design', 'técnica'],
+    targets: [{label: 'Rodapé'}],
+  }],
+  ['848f0acc572180e7eafa3a72b9f38cae74409bb0', {
+    label: 'Novo rodapé com navegação do projeto e newsletter integrada ao Buttondown.',
+    kinds: ['design', 'navegação', 'técnica'],
+    targets: [{label: 'Rodapé'}, pages.design],
+  }],
+  ['b04dad591adc48cf9913cb9a77161f8fdec166f8', {
+    label: 'Revisão ampliada do capítulo Verificabilidade.',
+    kinds: ['conteúdo', 'estrutura editorial'],
+    targets: [pages.verificabilidade],
+  }],
+  ['3f149aa8269f5b4dd7c6065162c2b5c3aa48e88a', {
+    label: 'Novo template dos capítulos, com cabeçalho editorial, tempo de leitura e navegação entre capítulos.',
+    kinds: ['design', 'estrutura editorial'],
+    targets: [pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade],
+  }],
+  ['e36476a9358dfb68dcb0aa25c67e99967b85f455', {
+    label: 'Nova tipografia editorial com Literata, IBM Plex Sans e JetBrains Mono.',
+    kinds: ['design'],
+    targets: [pages.home, pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade, pages.notas, pages.design, pages.autores, pages.sobre],
+  }],
+  ['fbbe738c4d5934a8aaf066176b5d24771fd3e38d', {
+    label: 'Navegação recolhida em um botão de menu no celular.',
+    kinds: ['design', 'navegação'],
+    targets: [{label: 'Site'}],
+  }],
+  ['96d0fee35142ef3915acbe4b5cd463e0b04aee98', {
+    label: 'Notas laterais abertas em diálogo nas telas estreitas.',
+    kinds: ['design', 'acessibilidade'],
+    targets: [pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade, pages.hci, pages.memoria],
+  }],
+  ['113b19b03363d4b3296ffc3b3f4ed7c45dfa2429', {
+    label: 'Nova escala tipográfica e ajustes na coluna de leitura.',
+    kinds: ['design'],
+    targets: [pages.home, pages.introducao, pages.prefacio, pages.transparencia, pages.verificabilidade, pages.notas, pages.design, pages.autores, pages.sobre],
+  }],
   ['0e8e21bcf71811f7ef4521b4b78bd4ac373b2c0c', {
     label: 'Gidole nos títulos e corpo do texto em 19 px.',
     kinds: ['design'],
@@ -158,16 +218,18 @@ function git(args) {
   }
 }
 
+function ensureGitHistory() {
+  if (git('rev-parse --is-shallow-repository') === 'true') {
+    git('fetch --unshallow --tags origin');
+  } else {
+    git('fetch --tags origin');
+  }
+}
+
 function parseLine(line) {
   const [hash, date, author, ...subject] = line.split('|');
   if (!hash) return null;
   return {hash, date, author, subject: subject.join('|')};
-}
-
-function fallbackLabel(subject) {
-  const value = String(subject || '').trim();
-  if (!value) return 'Alteração no projeto.';
-  return value.endsWith('.') ? value : `${value}.`;
 }
 
 function releaseFor(hash) {
@@ -189,19 +251,21 @@ function groupByDay(commits) {
 }
 
 module.exports = function () {
+  ensureGitHistory();
   const raw = git("log -14 --format='%H|%cI|%an|%s' -- src .eleventy.js README.md");
   const commits = raw
     ? raw
         .split('\n')
         .map(parseLine)
         .filter(Boolean)
+        .filter((commit) => metadata.has(commit.hash))
         .map((commit) => {
-          const meta = metadata.get(commit.hash) || {};
+          const meta = metadata.get(commit.hash);
           return {
             ...commit,
-            label: meta.label || fallbackLabel(commit.subject),
-            kinds: meta.kinds || ['projeto'],
-            targets: meta.targets || [],
+            label: meta.label,
+            kinds: meta.kinds,
+            targets: meta.targets,
             release: releaseFor(commit.hash),
             url: `${repositoryUrl}/commit/${commit.hash}`,
           };
