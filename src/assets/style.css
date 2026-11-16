@@ -100,11 +100,11 @@
 }
 
 :root {
-  --paper: #fff;
+  --paper: #fafaf7;
   --ink: #111;
   --muted: #666;
   --line: #c8c8c8;
-  --soft: #f3f3f3;
+  --soft: #efeee8;
   --note-ink: #444;
   --measure: 34rem;
   --note-width: 17rem;
