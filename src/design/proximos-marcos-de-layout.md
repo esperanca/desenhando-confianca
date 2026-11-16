@@ -62,4 +62,6 @@ Aplicado a partir da segunda rodada de crítica: as perguntas do capítulo passa
 
 Resolvido em seguida, a pedido do Pedro: a data voltou ao cabeçalho editorial em todas as páginas, como estava na principal; os tamanhos do rodapé e do bloco acima de 90 rem foram trazidos para o piso novo; e a grade passou a ser a mesma em todas as seções.
 
-Consequência a conferir com o Daniel: acima de 90 rem o texto não cresce mais. Ele tinha subido o corpo para 18 px, os títulos de seção para 28 px e o sumário para 18 px nessas telas, e nenhum desses valores cabe nas regras: entre 16 e 24 px não há degrau. A coluna continua crescendo com a tela, mas o corpo fica em 16 px.
+Resolvido: o degrau de desktop voltou, com os mesmos valores que o Daniel tinha escolhido (corpo 18 px, títulos de seção 28 px), mas agora a partir de 1024 px e não de 1440 px, que era por que ele não aparecia num notebook comum. A escala passou a ser descrita como duas colunas, uma por faixa de tela, em vez de uma lista única com exceção.
+
+A coluna de leitura também cresceu a partir de 1024 px, de 544 px para 608 px, senão a linha ficaria com 53 caracteres com o corpo em 18 px. Agora são 61 caracteres entre 1024 e 1120 px, e 71 acima disso.
