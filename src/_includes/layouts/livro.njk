@@ -5,18 +5,20 @@
     <article class="book-article">
       <header class="book-header">
         {%- set position = page.url | bookPosition(sumario) %}
+        {%- set changes = page.inputPath | pageChanges %}
+        {%- set lastModified = changes.last.date if changes and changes.last else dateModified %}
         {% if type == 'note' %}<p class="eyebrow">Nota complementar</p>
         {% elif position %}<p class="eyebrow">{{ position.part }} · Capítulo {{ position.chapter }}</p>{% endif %}
         <h1>{{ title }}</h1>
         {% if summary %}<p class="book-summary">{{ summary }}</p>{% endif %}
-        {% if status or dateModified %}
-        {%- set release = page.inputPath | pageChanges | latestRelease %}
+        {% if status or lastModified %}
+        {%- set release = changes | latestRelease %}
         {%- set minutes = content | readingTime %}
         <p class="book-meta">
           {% if status %}<span class="status-tag status-tag--{{ status }}">{{ status | statusLabel }}</span>{% endif %}
           <span class="book-meta__details">
             {%- if release %}{{ release }}<span aria-hidden="true"> · </span>{% endif -%}
-            {%- if dateModified %}<time datetime="{{ dateModified | w3DateFilter }}">atualizado em {{ dateModified | dateFilter }}</time>{% endif -%}
+            {%- if lastModified %}<time datetime="{{ lastModified | w3DateFilter }}">atualizado em {{ lastModified | dateFilter }}</time>{% endif -%}
             {%- if minutes and type != 'page' %}<span aria-hidden="true"> · </span>{{ minutes }} min de leitura{% endif -%}
           </span>
         </p>
