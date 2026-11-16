@@ -60,8 +60,6 @@ Em aberto, levantado pelos críticos: a caixa de perguntas lê como cartão de p
 
 Aplicado a partir da segunda rodada de crítica: as perguntas do capítulo passaram para a serifada, por serem conteúdo e não interface; a entrelinha do texto corrido subiu de 1,55 para 1,62; os títulos ganharam hifenização em telas estreitas; e a ligadura fi ficou declarada nos títulos e no nome do livro.
 
-Divergências entre as decisões registradas aqui e o estado da principal na v0.9.2, para resolver com o Daniel:
+Resolvido em seguida, a pedido do Pedro: a data voltou ao cabeçalho editorial em todas as páginas, como estava na principal; os tamanhos do rodapé e do bloco acima de 90 rem foram trazidos para o piso novo; e a grade passou a ser a mesma em todas as seções.
 
-- A escala voltou a ter tamanhos fora da regra dos 8: 11 px e 13 px no rodapé, e 14 px, 18 px e 28 px no bloco acima de 90 rem.
-- A coluna de leitura voltou de 544 px para 608 a 672 px, o que leva a linha a cerca de 71 caracteres.
-- A linha de metadados do capítulo mostra versão e tempo de leitura; a das páginas mantém a data vinda do histórico, como o teste de build exige.
+Consequência a conferir com o Daniel: acima de 90 rem o texto não cresce mais. Ele tinha subido o corpo para 18 px, os títulos de seção para 28 px e o sumário para 18 px nessas telas, e nenhum desses valores cabe nas regras: entre 16 e 24 px não há degrau. A coluna continua crescendo com a tela, mas o corpo fica em 16 px.
