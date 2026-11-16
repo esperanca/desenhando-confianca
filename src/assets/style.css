@@ -440,7 +440,20 @@ a.book-pagination__link:hover { border-color: var(--ink); }
   h1, .book-header h1 { font-size: 3.5rem; }
 }
 
-@media (min-width: 70rem) {
+/* Degrau de desktop: a partir de 64rem a escala sobe 12,5% (16 px vira 18 px), em degraus inteiros e
+   sempre em rem, para continuar proporcional à preferência de fonte do usuário. Estudos tipográficos ficam de fora. */
+@media (min-width: 64rem) {
+  body:not([class*='type-']) { font-size: 1.125rem; }
+  body:not([class*='type-']) :is(h1, .book-header h1) { font-size: 4rem; }
+  body:not([class*='type-']) h2 { font-size: 1.75rem; }
+  body:not([class*='type-']) h3 { font-size: 1.125rem; }
+  body:not([class*='type-']) :is(.lede, .home__lede, .book-summary, .book-definition, .site-footer__name) { font-size: 1.75rem; }
+  body:not([class*='type-']) :is(.book-meta, .editorial-status, .sidenote, .footnotes, .changelog, .site-footer__newsletter-error) { font-size: 1rem; }
+  body:not([class*='type-']) :is(.eyebrow, .status-tag, .book-questions__label, .book-pagination__label, .changelog__date, .sidenote-ref, .footnote-ref, sup, sub, .site-footer__group h2, .site-footer__group a, .site-footer__meta, .site-footer__newsletter-again) { font-size: .875rem; }
+  body:not([class*='type-']) :is(.content-list a, .book-toc a, .book-body table, .tdbc-anchor, .book-pagination__title, .changelog h2, .site-footer__newsletter-title, .site-footer__newsletter-status) { font-size: 1.125rem; }
+}
+
+@media (min-width: 64rem) {
   body:not([class*='type-']) { --measure: 38rem; --note-width: 19rem; --note-gap: 2rem; }
   .reading-shell, .book-article { width: calc(var(--measure) + var(--note-gap) + var(--note-width)); padding-right: calc(var(--note-gap) + var(--note-width)); }
   .sidenote { float: right; clear: right; width: var(--note-width); margin: .2rem calc(-1 * (var(--note-gap) + var(--note-width))) 1rem 0; padding: 0; border: 0; color: var(--note-ink); }
