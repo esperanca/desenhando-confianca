@@ -154,8 +154,8 @@ img, svg { max-width: 100%; }
 .site-footer__form button { display: inline-flex; align-items: center; justify-content: center; gap: .625rem; min-width: 10rem; padding: .75rem 1.25rem; color: var(--paper); background: var(--ink); cursor: pointer; transition: transform 120ms ease-out; }
 .site-footer__form button:active:not(:disabled) { transform: scale(.98); }
 .site-footer__form button:disabled { cursor: wait; }
-.site-footer__spinner { display: inline-block; width: .875rem; height: .875rem; margin-right: -.125rem; border: 1.5px solid currentColor; border-right-color: transparent; border-radius: 50%; opacity: 0; transform: scale(.8); animation: newsletter-spin .7s linear infinite; animation-play-state: paused; transition: opacity 140ms ease-out, transform 140ms ease-out; }
-.site-footer__form.is-loading .site-footer__spinner { opacity: 1; transform: scale(1); animation-play-state: running; }
+.site-footer__spinner { display: none; width: .875rem; height: .875rem; margin-right: -.125rem; border: 1.5px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: newsletter-spin .7s linear infinite; }
+.site-footer__form.is-loading .site-footer__spinner { display: inline-block; }
 .site-footer__newsletter-status { grid-area: 1 / 1; align-self: center; display: flex; align-items: baseline; flex-wrap: wrap; gap: .5rem; max-width: 32rem; margin: 0; opacity: 0; transform: translateY(.5rem); font-family: var(--font-serif); font-size: 1rem; line-height: 1.5; pointer-events: none; transition: opacity 160ms ease-out, transform 160ms ease-out; }
 .site-footer__newsletter-status p { margin: 0; }
 .site-footer__newsletter-again { display: inline-block; font-family: var(--font-mono); font-size: .8125rem; line-height: 1.4; text-transform: uppercase; }
@@ -176,6 +176,7 @@ img, svg { max-width: 100%; }
 .reading-shell, .book-article { width: min(100% - 2rem, var(--measure)); margin-inline: auto; }
 .reading-shell { padding-block: 4.5rem; }
 .reading-shell > * + * { margin-top: 1.5rem; }
+button { text-align: center; }
 h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; line-height: 1.2; font-variant-ligatures: common-ligatures; text-wrap: balance; }
 h1 { margin: 0; font-size: 2.5rem; line-height: 1.12; letter-spacing: -.01em; }
 h2 { margin: 3rem 0 0; font-size: 1.5rem; }
