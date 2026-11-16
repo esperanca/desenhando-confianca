@@ -130,7 +130,7 @@ img, svg { max-width: 100%; }
 .skip-link { position: fixed; z-index: 10; top: .75rem; left: .75rem; padding: .5rem .75rem; color: var(--paper); background: var(--ink); }
 .site-header { border-bottom: 1px solid var(--ink); }
 .site-header__wrapper { min-height: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-.site-header__site-name { font-weight: 700; text-decoration: none; }
+.site-header__site-name { font-weight: 700; font-variant-ligatures: common-ligatures; text-decoration: none; }
 .nav { font-family: var(--font-sans); }
 .nav__list { display: flex; gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
 .nav a[aria-current='page'] { font-weight: 700; }
@@ -142,7 +142,7 @@ img, svg { max-width: 100%; }
 .site-footer__main { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(12rem, .55fr); gap: 5rem; min-height: 17rem; }
 .site-footer__identity { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
 .site-footer__brand { display: inline-flex; align-items: center; text-decoration: none; }
-.site-footer__name { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; line-height: 1.02; letter-spacing: -.025em; }
+.site-footer__name { font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; line-height: 1.02; font-variant-ligatures: common-ligatures; letter-spacing: -.025em; }
 .site-footer__newsletter { width: min(100%, 34rem); margin-top: 2.5rem; }
 .site-footer__newsletter-title { margin: 0; font-family: var(--font-serif); font-size: 1rem; line-height: 1.5; color: var(--muted); }
 .site-footer__newsletter-stage { position: relative; display: grid; margin-top: 1rem; overflow: hidden; }
@@ -176,7 +176,7 @@ img, svg { max-width: 100%; }
 .reading-shell, .book-article { width: min(100% - 2rem, var(--measure)); margin-inline: auto; }
 .reading-shell { padding-block: 4.5rem; }
 .reading-shell > * + * { margin-top: 1.5rem; }
-h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; line-height: 1.2; text-wrap: balance; }
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; line-height: 1.2; font-variant-ligatures: common-ligatures; text-wrap: balance; }
 h1 { margin: 0; font-size: 2.5rem; line-height: 1.12; letter-spacing: -.01em; }
 h2 { margin: 3rem 0 0; font-size: 1.5rem; }
 h3 { margin: 2rem 0 0; font-size: 1rem; }
@@ -205,12 +205,12 @@ p, ul, ol, blockquote, table { margin-block: 1.4rem 0; }
 .book-meta__details { font-family: var(--font-mono); }
 .book-meta .status-tag { margin-left: 0; padding: .25rem 1rem; border-radius: 999px; color: var(--ink); background: none; }
 .book-definition { margin-top: 2rem; padding-left: 1rem; border-left: 4px solid var(--ink); font-size: 1.5rem; line-height: 1.35; }
-.book-questions { margin-top: 2rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--soft); font-family: var(--font-sans); }
+.book-questions { margin-top: 2rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--soft); font-family: var(--font-serif); }
 .book-questions__label { margin: 0; font-family: var(--font-sans); font-size: .75rem; font-weight: 700; line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
 .book-questions__list { margin: .5rem 0 0; padding: 0; list-style: none; }
 .book-questions__list li { margin-top: .5rem; padding-left: 1.5rem; text-indent: -1.5rem; }
 .book-questions__list li::before { content: '→'; display: inline-block; width: 1.5rem; text-indent: 0; }
-.book-body { position: relative; margin-top: 3rem; }
+.book-body { position: relative; margin-top: 3rem; line-height: 1.62; }
 .book-body > :first-child { margin-top: 0; }
 .book-body blockquote { margin-left: 0; padding-left: 1.25rem; border-left: 2px solid var(--ink); }
 .book-body hr { margin-block: 3rem; border: 0; border-top: 1px solid var(--line); }
@@ -474,6 +474,7 @@ a.book-pagination__link:hover { border-color: var(--ink); }
 @media (min-width: 36rem) { .note-dialog { margin-inline: auto; } }
 
 @media (max-width: 40rem) {
+  h1, h2, h3 { hyphens: auto; }
   .site-header__wrapper { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 1rem; }
   .site-footer { margin-top: 5rem; }
   .site-footer__wrapper { padding-block: 2rem 1rem; }
