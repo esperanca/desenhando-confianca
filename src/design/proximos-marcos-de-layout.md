@@ -55,3 +55,13 @@ Crítica de 12 de novembro de 2026 sobre a tipografia nova, com dois críticos i
 Aplicado: size-adjust igualando as alturas de x, uma família por voz, notas e bibliografia de volta para a serifada, entreletra de 0,08 para 0,04 em nos rótulos, e linha de metadados reduzida a versão e tempo de leitura.
 
 Em aberto, levantado pelos críticos: a caixa de perguntas lê como cartão de produto e não como elemento de livro; o log completo ao pé de cada capítulo poderia ficar atrás de um resumo; a frase que explica o log repete o próprio título; o marcador de nota no texto e os colchetes dentro da nota usam duas gramáticas de citação.
+
+## Rodada de ajustes de 16 de novembro de 2026
+
+Aplicado a partir da segunda rodada de crítica: as perguntas do capítulo passaram para a serifada, por serem conteúdo e não interface; a entrelinha do texto corrido subiu de 1,55 para 1,62; os títulos ganharam hifenização em telas estreitas; e a ligadura fi ficou declarada nos títulos e no nome do livro.
+
+Divergências entre as decisões registradas aqui e o estado da principal na v0.9.2, para resolver com o Daniel:
+
+- A escala voltou a ter tamanhos fora da regra dos 8: 11 px e 13 px no rodapé, e 14 px, 18 px e 28 px no bloco acima de 90 rem.
+- A coluna de leitura voltou de 544 px para 608 a 672 px, o que leva a linha a cerca de 71 caracteres.
+- A linha de metadados do capítulo mostra versão e tempo de leitura; a das páginas mantém a data vinda do histórico, como o teste de build exige.
